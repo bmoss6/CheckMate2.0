@@ -62,6 +62,16 @@ class uArmWrapper(object):
       response = str(self.ser.readline(),'utf-8')
       logging.debug("\tRESPONSE:"+response)
       sleep(1)
+      
+   def get_position(self):
+
+      logging.debug("\tChecking Current Position")
+      cmdStr = '#%sP2220\n'%(self.debugNum)
+      self.ser.write(str.encode(cmdStr))
+      response = str(self.ser.readline(),'utf-8')
+      logging.debug("\tRESPONSE:"+response)
+      sleep(1)
+      return response
 
    def open(self):
       self.ser.write(b'M2232 V0\n')
