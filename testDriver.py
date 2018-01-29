@@ -36,7 +36,7 @@ y = int(cords[1])
 z = int(cords[2])
 robot.set_position(x,y,z)
 response = robot.get_position().split(" ")
-print (response[1])
+print (response)
     
     
     

@@ -76,12 +76,12 @@ class uArmWrapper(object):
    def open(self):
       self.ser.write(b'M2232 V0\n')
       response = str(self.ser.readline(),'utf-8')
-      sleep(1)
+      sleep(2)
 
    def close(self):
       self.ser.write(b'M2232 V1\n')
       response = str(self.ser.readline(),'utf-8')
-      sleep(1)
+      sleep(2)
 
    def setDefault(self,x,y,z,speed):
       self.defaultX = x
