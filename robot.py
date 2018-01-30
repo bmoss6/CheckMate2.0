@@ -86,6 +86,8 @@ class Robot(object):
         #RETURN TO RESTING
         logging.debug("\treset")
         self.swift.reset()
+        x, y, z = self.swift.getDefault()
+        self.setPos(x,y,z)
 
     def movUp(self):
         x, y, z = self.getPos()

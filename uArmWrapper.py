@@ -60,8 +60,13 @@ class uArmWrapper(object):
       cmdStr = '#%sG0 X%s Y%s Z%s F%s\n'%(self.debugNum,x,y,z,self.speed)
       self.ser.write(str.encode(cmdStr))
       response = str(self.ser.readline(),'utf-8')
-      logging.debug("\tRESPONSE:"+response)
-      sleep(1)
+      #If its a bad request then we need to read the empty line
+      if "unreachable" in response:
+         logging.error("\tERROR!: Invalid command %s"%cmdStr)
+         self.ser.readline()
+      else:
+         logging.debug("\tRESPONSE:"+response)
+      #sleep(1)
       
    def get_position(self):
 
@@ -70,7 +75,7 @@ class uArmWrapper(object):
       self.ser.write(str.encode(cmdStr))
       response = str(self.ser.readline(),'utf-8')
       logging.debug("\tRESPONSE:"+response)
-      sleep(1)
+      #sleep(1)
       return response
 
    def open(self):
@@ -88,6 +93,9 @@ class uArmWrapper(object):
       self.defaultY = y
       self.defaultZ = z
       self.speed = speed
+
+   def getDefault(self):
+      return self.defaultX, self.defaultY, self.defaultZ
 
    def reset(self):
       #use defaults here
