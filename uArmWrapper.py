@@ -42,11 +42,11 @@ class uArmWrapper(object):
       if y is None:
          y = self.curY
       else:
-         self.curX = x
+         self.curY = y
       if z is None:
          z = self.curZ
       else:
-         self.curX = x
+         self.curZ = z
 
       return x, y, z
 
