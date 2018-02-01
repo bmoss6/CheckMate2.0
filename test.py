@@ -30,8 +30,14 @@ while(1):
 	y = int(cords[1])
 	z = int(cords[2])
 	robot.set_position(x,y,z)
-	response = robot.get_position().split(" ")
-	print (response)
+	response = robot.get_position().strip().split(" ")
+	#print (response[4])
+	print (str(response))
+	#s = str(response).strip()
+	#print (s)
+	#print ("Z" + str(z) + ".00\r\n") 
+	#if (str(response[4]).strip() == ("Z" + str(z) + ".00")):
+	#	print ("true dat boy") 
 
 robot.reset()
 

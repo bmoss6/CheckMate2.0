@@ -7,9 +7,9 @@ from time import sleep
 class uArmWrapper(object):
    """docstring for uArmWrapper"""
 
-   defaultX = 108
+   defaultX = 120
    defaultY = 0
-   defaultZ = 40
+   defaultZ = 60
    speed = 10000
 
    debugNum = 0
