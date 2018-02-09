@@ -27,6 +27,8 @@ class Robot(object):
 
     def move(self,start,end):
 
+        #Check if collision (is board)
+
         #Up
         self.movUp()
 
