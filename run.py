@@ -8,7 +8,6 @@ logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 def main():
    robot = Robot('/dev/ttyACM0')
-<<<<<<< HEAD
    robot.move(Position(0,0),Position(6,6))
    robot.move(Position(0,0),Position(7,7))
    robot.move(Position(0,3),Position(7,0))
@@ -18,13 +17,9 @@ def main():
    robot.move(Position(0,3),Position(7,7))
    robot.move(Position(0,4),Position(7,0))
    robot.move(Position(0,4),Position(7,7))
-=======
    robot.move(Position(1,1),Position(6,6))
+   robot.move(Position(2,2),Position(5,5))
    robot.move(Position(5,5),Position(2,2))
->>>>>>> 13cc88f2f0cdf6d39d5cb22d99a3aecb2122daff
-   robot.move(Position(3,2),Position(6,5))
-   # robot.move(Position(2,2),Position(5,5))
-   # robot.move(Position(5,5),Position(2,2))
 
    logging.debug('Sleep Loop')
    while True:
