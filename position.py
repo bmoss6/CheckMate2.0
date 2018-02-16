@@ -41,9 +41,9 @@ class Position(object):
         return self.yBoard
 
     def yConvert(self,y):
-        yPos = y - confI('board','yMiddle')
+        yPos = y - confI('board','threshHold')
         #logging.debug(yPos)
-        self.y = yPos * confI('offsets','inc')
+        self.y = (yPos * confI('offsets','inc')) + confI('offsets', 'y')
 
     def xConvert(self,x):
         self.x = confI('offsets','x') + x * confI('offsets','inc')
