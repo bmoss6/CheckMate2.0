@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 from . import game
 import os
-from .Piece import Piece as piece
+from .piece import Piece as piece
 
 class board:
 
@@ -28,17 +28,13 @@ class board:
         first_line.append(piece("knight", color))
         first_line.append(piece("rook", color))
         return first_line
+
     def second_line(self,color):
         second_line = []
-        second_line.append(piece("pawn",color))
-        second_line.append(piece("pawn", color))
-        second_line.append(piece("pawn", color))
-        second_line.append(piece("pawn", color))
-        second_line.append(piece("pawn", color))
-        second_line.append(piece("pawn", color))
-        second_line.append(piece("pawn", color))
-        second_line.append(piece("pawn", color))
+        for x in range(0,self.width):
+            second_line.append(piece("pawn",color))
         return second_line
+
     def construct_8x8_board(self):
         self.board[0] = self.first_line("white")
         self.board[1] = self.second_line("white")
@@ -47,12 +43,12 @@ class board:
         for x in range(2, 6):
             self.board[x] = self.populate_blank()
 
-
     def move(self,startx,starty,endx,endy):
         self.board[endx][endy].color = self.board[startx][starty].color
         self.board[endx][endy].name = self.board[startx][starty].name
         self.board[startx][starty].name = "null"
         self.board[startx][starty].color = "null"
+        
     def print_board(self):
         for x in range(0, len(self.board)):
             for y in range(0, self.width):
