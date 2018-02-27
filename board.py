@@ -5,6 +5,7 @@ import os, logging, sys
 from piece import Piece as piece
 from position import Position
 
+
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 class Board:
@@ -16,7 +17,7 @@ class Board:
         self.pieceCount = 0
         self.construct_8x8_board()
 
-            ##TODO Initialize starting board pieces for 8x8 grid.
+
     def populate_blank(self):
         list = []
         for x in range (0,8):
@@ -41,7 +42,7 @@ class Board:
             second_line.append(piece("pawn",color))
         return second_line
 
-    #wrapper for clerity for external user
+    #wrapper for clarity for external user
     def reset(self):
         self.construct_8x8_board()
 
@@ -54,7 +55,7 @@ class Board:
         for x in range(2, 6):
             self.board[x] = self.populate_blank()
 
-    # Check if where we are moving to results in a collsion
+    # Check if where we are moving to results in a collision
     def isCollision(self,end):
         endx = end.getXBoard()
         endy = end.getYBoard()
@@ -71,6 +72,14 @@ class Board:
             logging.error('\tRemoving none existant piece?')
         self.board[posx][posy].clear()
 
+    # GPIO Check will iterate through the board and update each piece object with it's GPIO tag
+    # GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches)
+    # WARNING: Not always reliable. See GPIO Error Threshold for more information.
+    def GPIOCheck(self):
+
+        for row in self.board:
+            for piece in row:
+                piece.setGPIO()
 
     # Use position objects for start and end
     # Pieces will inherently get removed as the overwrite
@@ -109,8 +118,8 @@ class Board:
                     color = "null"
                 if name is None:
                     name = "null"
-                print ("||%d , %d %s %s||"%(x, y, color, name))
-            print("------------------------------------")
+                print ("|%s %s|"%( color, name), end='')
+            print("\n------------------------------------")
         
 # [[ rook, knight, bishop, queen, king, bishop, knight, rook ]
 #   [pawn,  pawn,  pawn,   pawn,  pawn,  pawn,  pawn,  pawn]
@@ -142,14 +151,7 @@ def test():
     testboard.move(Position(0,0),Position(0,1))
     testboard.print_board()
 
-    #testboard.print_board()
 
-   # for x in testboard.board:
-    #    for y in testboard.board[i]:
-     #       print (str(i) + str(j) + "\n" + testboard.board[i][j].name +" "+ testboard.board[i][j].color)
-      #      j= j+1
-       # i = i+1
-        #print("--------------------------------------------------------")
 
 
 if __name__ == "__main__":
