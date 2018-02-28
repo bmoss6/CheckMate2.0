@@ -22,7 +22,7 @@ class Position(object):
     def __init__(self, x, y, invert=False):
         super(Position, self).__init__()
         if invert:
-            x, y = self.invert()
+            x, y = self.invert(x, y)
         self.xBoard = x
         self.yBoard = y
         self.xConvert(self.xBoard)
@@ -49,5 +49,5 @@ class Position(object):
         self.x = confI('offsets','x') + x * confI('offsets','inc')
 
     def invert(self,x,y):
-        invertDict = {2:0, 1:1, 0:2}
+        invertDict = {7:0, 6:1, 5:2, 4:3, 3:4, 2:5, 1:6, 0:7}
         return invertDict[x], invertDict[y]
