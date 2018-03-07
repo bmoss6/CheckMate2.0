@@ -4,9 +4,9 @@ import serial, sys, glob
 
 class RobotList(object):
     """docstring for RobotList"""
-    def __init__(self,):
+    def __init__(self,numRobots):
         super(RobotList, self).__init__()
-        self.numOfRobots = 1
+        self.numOfRobots = numRobots
         self.robotList = []
         self.initialized = False
         self.serial_ports()
@@ -37,7 +37,7 @@ class RobotList(object):
         if(len(self.robotList) == self.numOfRobots):
             self.initialized = True
         else:
-            print("Found to many or not enough robots to start.")
+            print("Found to many or not enough robots to start.\nChange number in RobotList if testing.")
 
 
 

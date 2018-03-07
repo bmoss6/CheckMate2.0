@@ -5,42 +5,47 @@ import itertools
 class GPIOBOARD():
     def __init__(self):
         self.gpioboard = [[] for x in range (0,8)]
-        self.Mux1= {'A': 24, 'B': 23, 'C': 18, 'D': 15, 'W': 14}
-        self.Mux2= {'A': 16, 'B': 12, 'C': 7, 'D': 8, 'W': 25}
+        self.Mux2= {'A': 24, 'B': 23, 'C': 18, 'D': 15, 'W': 14}
+        self.Mux1= {'A': 16, 'B': 12, 'C': 7, 'D': 8, 'W': 25}
         self.Mux3= {'A': 4, 'B': 3, 'C': 2, 'D': 21, 'W': 20}
         self.Mux4= {'A': 9, 'B': 10, 'C': 22, 'D': 27, 'W': 17}
         self.MuxList = [self.Mux1, self.Mux2, self.Mux3, self.Mux4]
 
 
     def setup(self):
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
         for mux in self.MuxList:
-            GPIO.setup(24, GPIO.OUT, initial=0)
-            GPIO.setup(23, GPIO.OUT, initial=0)
-            GPIO.setup(18, GPIO.OUT, initial=0)
-            GPIO.setup(15, GPIO.OUT, initial=0)
+            GPIO.setup(mux.get('A'), GPIO.OUT, initial=0)
+            GPIO.setup(mux.get('B'), GPIO.OUT, initial=0)
+            GPIO.setup(mux.get('C'), GPIO.OUT, initial=0)
+            GPIO.setup(mux.get('D'), GPIO.OUT, initial=0)
+            GPIO.setup(mux.get('W'),GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
 
     def checkmux(self, MuxMap, inputs):
-        self.setup()
-        GPIO.output(24, inputs[0])
-        GPIO.output(23, inputs[1])
-        GPIO.output(18, inputs[2])
-        GPIO.output(15, inputs[3])
-        return GPIO.input(14)
+        GPIO.output(MuxMap.get('A'), inputs[0])
+        GPIO.output(MuxMap.get('B'), inputs[1])
+        GPIO.output(MuxMap.get('C'), inputs[2])
+        GPIO.output(MuxMap.get('D'), inputs[3])
+        return GPIO.input(MuxMap.get('W'))
 ## Workign on boardcheck currently
-    def boardcheck1(self):
+    def boardcheck1(self,muxnumber=0):
         x = 0
         y = 0
+        i = 1
         for mux in self.MuxList:
+            print (i)
+            print ("--------------")
             for num in range(0, 16):
                 pin_values = list('{0:04b}'.format(num))
                 pin_values = list(map(int, pin_values))
-                if y > 3:
-                    y = 0
+                if muxnumber is not None:
+                    if i==muxnumber:
+                        print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
                 else:
-                    y += 1
+                    print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
+            i= i+1
 
-                self.checkmux(mux, pin_values)
 
 
 
@@ -83,5 +88,13 @@ def main():
 
 if __name__=='__main__':
     testgpio = GPIOBOARD()
-    testgpio.boardcheck1()
-
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--muxnumber", help="display only 1 particular MUX",
+	                    type=int)
+    args = parser.parse_args()
+    testgpio.setup()
+    while(1):
+        testgpio.boardcheck1(args.muxnumber)
+        print ("++++++++++++++++++++++++++++++++++++++++++")
+        sleep(3)
