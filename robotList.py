@@ -37,8 +37,8 @@ class RobotList(object):
         if(len(self.robotList) == self.numOfRobots):
             self.initialized = True
         else:
-            print("Found to many or not enough robots to start.\nChange number in RobotList if testing.")
-
+            print("Found to many or not enough robots to start." \
+                "\nChange the number of robots in RobotList in run.py if testing.")
 
 
     def getList(self):
