@@ -16,14 +16,14 @@ conf = Conf()
 class Robot(object):
 
     """docstring for Robot"""
-    def __init__(self,port):
+    def __init__(self,port,board,captureBoard):
         super(Robot, self).__init__()
         logging.debug('\tsetup self.swift ...')
         
         self.swift = uArmWrapper(port)
 
-        self.board = Board()
-        self.captureBoard = CaptureBoard()
+        self.board = board
+        self.captureBoard = captureBoard
 
         # Set to the inital resting position
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))

@@ -21,12 +21,16 @@ class Position(object):
     """docstring for position"""
     def __init__(self, x, y, invert=False):
         super(Position, self).__init__()
-        if invert:
-            x, y = self.invert(x, y)
+        # The board position must stay true to its coordinates.
+        # This is because we need to map the coordinates to the board.
+        # Although we invert the robot coordinates so that the robot
+        # picks up the right peice.
         self.xBoard = x
         self.yBoard = y
-        self.xConvert(self.xBoard)
-        self.yConvert(self.yBoard)
+        if invert:
+            x, y = self.invert(x, y)
+        self.xConvert(x)
+        self.yConvert(y)
 
     def getY(self):
         return self.y
