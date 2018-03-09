@@ -12,15 +12,15 @@ class Game(object):
       return b[1::2]
 
    def convertMove(self, move):
-      startposx = move[0]
-      startposy = move[1]
-      endposx = move[2]
-      endposy = move[3]
+      startposy = move[0]
+      startposx = move[1]
+      endposy = move[2]
+      endposx = move[3]
       mapping = {'a': 0, 'b': 1, 'c': 2, 'd': 3, 'e': 4, 'f': 5, 'g': 6, 'h': 7}
       mapping2 = {'1': 0, '2': 1, '3': 2, '4': 3, '5': 4, '6': 5, '7': 6, '8': 7}
 
-      start = self.Square(x=mapping.get(startposx), y=mapping2.get(startposy))
-      end = self.Square(x=mapping.get(endposx), y=mapping2.get(endposy))
+      start = self.Square(x=mapping2.get(startposx), y=mapping.get(startposy))
+      end = self.Square(x=mapping2.get(endposx), y=mapping.get(endposy))
 
       move = self.Move(start, end)
 
