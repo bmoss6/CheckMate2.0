@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import RPi.GPIO as GPIO
 from time import sleep
 import itertools
@@ -5,10 +6,10 @@ import itertools
 class GPIOBOARD():
     def __init__(self):
         self.gpioboard = [[] for x in range (0,8)]
-        self.Mux2= {'A': 24, 'B': 23, 'C': 18, 'D': 15, 'W': 14}
-        self.Mux1= {'A': 16, 'B': 12, 'C': 7, 'D': 8, 'W': 25}
+        self.Mux1= {'A': 24, 'B': 23, 'C': 18, 'D': 15, 'W': 14}
+        self.Mux2= {'A': 16, 'B': 12, 'C': 7, 'D': 8, 'W': 25}
         self.Mux3= {'A': 4, 'B': 3, 'C': 2, 'D': 21, 'W': 20}
-        self.Mux4= {'A': 9, 'B': 10, 'C': 22, 'D': 27, 'W': 17}
+        self.Mux4= {'A': 19, 'B': 10, 'C': 22, 'D': 27, 'W': 17}
         self.MuxList = [self.Mux1, self.Mux2, self.Mux3, self.Mux4]
 
 
@@ -96,5 +97,5 @@ if __name__=='__main__':
     testgpio.setup()
     while(1):
         testgpio.boardcheck1(args.muxnumber)
-        print ("++++++++++++++++++++++++++++++++++++++++++")
-        sleep(3)
+        print ("HK:KLKLJ:++++++++++++++++++++++++++++++++++++++++++")
+        sleep(2)
