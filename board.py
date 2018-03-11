@@ -4,7 +4,7 @@
 import os, logging, sys
 from piece import Piece as piece
 from position import Position
-
+from gpio import GPIOBOARD
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
@@ -16,7 +16,7 @@ class Board:
         self.board = [[] for x in range (0,self.height)]
         self.pieceCount = 0
         self.construct_8x8_board()
-
+        self.gpio = GPIOBOARD()
 
     def populate_blank(self):
         list = []
@@ -76,10 +76,10 @@ class Board:
     # GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches)
     # WARNING: Not always reliable. See GPIO Error Threshold for more information.
     def GPIOCheck(self):
-
-        for row in self.board:
-            for piece in row:
-                piece.setGPIO()
+        self.gpio.boardcheck
+        for x in range(8):
+            for y in range(8):
+                self.board[x][y].setGPIO(self.gpio.gpioboard[x][y])
 
     # Use position objects for start and end
     # Pieces will inherently get removed as the overwrite
