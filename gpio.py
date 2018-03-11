@@ -29,7 +29,6 @@ class GPIOBOARD():
         GPIO.output(MuxMap.get('C'), inputs[2])
         GPIO.output(MuxMap.get('D'), inputs[3])
         return GPIO.input(MuxMap.get('W'))
-## Workign on boardcheck currently
     def boardcheck1(self,muxnumber=0):
         x = 0
         y = 0
@@ -46,33 +45,6 @@ class GPIOBOARD():
                 else:
                     print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
             i= i+1
-
-
-
-
-
-##0000
-##0001
-##0010
-##0011
-##0100
-##0101
-##0110
-##0111
-##1000
-##1001
-##1010
-##1011
-##1100
-##1101
-##1110
-##1111
-
-
-
-
-
-
 
 
 
