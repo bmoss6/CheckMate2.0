@@ -49,7 +49,7 @@ class Robot(object):
     #wrapper for clarity
     def updateBoard(self,start,end):
         self.board.move(start,end)
-
+        self.board.GPIOCheck()
     # do all of the reed switch validation here
     def reedSwitchCheck(self):
         logging.debug("reedSwitchCheck is not written yet!")
