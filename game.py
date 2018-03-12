@@ -42,7 +42,6 @@ class Game(object):
       #to account for odd moves like castling, which do not show up correctly in move.
       node = self.game
       for move in self.game.main_line():
-         print (move)
          castle = ""
          if node.variations:
             next = node.variation(0)
