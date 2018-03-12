@@ -51,10 +51,10 @@ class Board:
         captureBoard.resetBoard()
 
     def capture(self,peice):
-        return captureBoard.insertNextPos(peice)
+        return self.captureBoard.insertNextPos(peice)
 
     def popCapture(self):
-        return captureBoard.popLast()
+        return self.captureBoard.popLast()
 
     def construct_8x8_board(self):
         self.board[0] = self.first_line("white")
