@@ -1,7 +1,7 @@
 #! /usr/bin/python3
 
 #from . import game
-import os, logging, sys
+import os, logging, sys, time
 from piece import Piece as piece
 from position import Position
 from gpio import GPIOBOARD
@@ -18,9 +18,7 @@ class Board:
         self.pieceCount = 0
         self.construct_8x8_board()
         self.captureBoard = CaptureBoard()
-        self.gpio = GPIOBOARD()
         self.GPIOerrors =0
-
     def populate_blank(self):
         list = []
         for x in range (0,8):
@@ -86,7 +84,7 @@ class Board:
     # GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches)
     # WARNING: Not always reliable. See GPIO Error Threshold for more information.
     def GPIOUpdate(self):
-        self.gpio.boardcheck
+        self.gpio.boardcheck()
         for x in range(8):
             for y in range(8):
                 self.board[x][y].setGPIO(self.gpio.gpioboard[x][y])
@@ -129,11 +127,12 @@ class Board:
             for y in range(0, self.width):
                 color = self.board[x][y].getColor()
                 name = self.board[x][y].getName()
+                gpio = self.board[x][y].gpio
                 if color is None:
                     color = "null"
                 if name is None:
                     name = "null"
-                print ("|%s %s|"%( color, name), end='')
+                print ("|%s %s %s|"%( color, name, str(gpio)), end='')
             print("\n------------------------------------")
         
 # [[ rook, knight, bishop, queen, king, bishop, knight, rook ]
@@ -149,23 +148,28 @@ class Board:
 def test():
     filepath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'GameScripts'))
     fishergame = os.path.join(filepath,"Fischer.pgn")
-
-    testboard = Board()
-    print ("Start board")
-    testboard.print_board()
-    print ("\n\nMoving 1,0 to 2,0\n\n")
-    testboard.move(Position(1,0),Position(2,0))
-    testboard.print_board()
-    print ("\n\nMoving 0,4 to 3,1\n\n")
-    testboard.move(Position(0,4),Position(3,1))
-    testboard.print_board()
-    print ("\n\nMoving 3,0 to 4,0 (does not exist)\n\n")
-    testboard.move(Position(1,0),Position(2,0))
-    testboard.print_board()
-    print ("\n\nMoving 0,0 to 0,1 (collision)\n\n")
-    testboard.move(Position(0,0),Position(0,1))
-    testboard.print_board()
-
+    testgpio = GPIOBOARD()
+    testgpio.setup()
+#    testboard.gpio.setup()
+    while (1):
+        testgpio.boardcheck()
+        print(str(testgpio.gpioboard)) 
+        time.sleep(2)
+#    print ("Start board")
+#    testboard.print_board()
+#    print ("\n\nMoving 1,0 to 2,0\n\n")
+#    testboard.move(Position(1,0),Position(2,0))
+#    testboard.print_board()
+#    print ("\n\nMoving 0,4 to 3,1\n\n")
+#    testboard.move(Position(0,4),Position(3,1))
+#    testboard.print_board()
+#    print ("\n\nMoving 3,0 to 4,0 (does not exist)\n\n")
+#    testboard.move(Position(1,0),Position(2,0))
+#    testboard.print_board()
+#    print ("\n\nMoving 0,0 to 0,1 (collision)\n\n")
+#    testboard.move(Position(0,0),Position(0,1))
+#    testboard.print_board()
+#
 
 
 

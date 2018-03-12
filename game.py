@@ -37,7 +37,16 @@ class Game(object):
       self.Square = namedtuple('Square', ['x', 'y'])
       self.Move = namedtuple('Move', ['start', 'stop'])
 
+      #have to keep track of the algebraic notation using the chess library's node structure
+      #to account for odd moves like castling, which do not show up correctly in move.
+      node = self.game
       for move in self.game.main_line():
+         print (move)
+         if node.variations:
+            next = node.variation(0)
+            print(node.board().san(next.move))
+            node = next
+         
          self.all_moves.append(move)
 
          all_moves1 = self.all_moves

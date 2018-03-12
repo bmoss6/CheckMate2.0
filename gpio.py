@@ -2,7 +2,7 @@
 import RPi.GPIO as GPIO
 from time import sleep
 import itertools
-
+import logging
 class GPIOBOARD():
     def __init__(self):
         self.Mux1= {'A': 24, 'B': 23, 'C': 18, 'D': 15, 'W': 14}
@@ -13,6 +13,7 @@ class GPIOBOARD():
         self.gpioboard=[ [0 for i in range(8)] for x in range(8)]
 
         self.MuxToCoordinateMap = {"1.0":"7,3","1.1":"7,1","1.2":"7,2","1.3":"7,0","1.4":"5,3","1.5":"5,1","1.6":"5,2","1.7":"5,0","1.8":"6,3","1.9":"6,1","1.10":"6,2","1.11":"6,0","1.12":"4,3","1.13":"4,1","1.14":"4,2","1.15":"4,0","2.0":"7,7","2.1":"7,5","2.2":"7,6","2.3":"7,4","2.4":"5,7","2.5":"5,5","2.6":"5,6","2.7":"5,4","2.8":"6,7","2.9":"6,5","2.10":"6,6","2.11":"6,4","2.12":"4,7","2.13":"4,5","2.14":"4,6","2.15":"4,4","3.0":"3,3","3.1":"3,1","3.2":"3,2","3.3":"3,0","3.4":"1,3","3.5":"1,1","3.6":"1,2","3.7":"1,0","3.8":"2,3","3.9":"2,1","3.10":"2,2","3.11":"2,0","3.12":"0,3","3.13":"0,1","3.14":"0,2","3.15":"0,0","4.0":"3,7","4.1":"3,5","4.2":"3,6","4.3":"3,4","4.4":"1,7","4.5":"1,5","4.6":"1,6","4.7":"1,4","4.8":"2,7","4.9":"2,5","4.10":"2,6","4.11":"2,4","4.12":"0,7","4.13":"0,5","4.14":"0,6","4.15":"0,4"}
+        logging.debug("Initialize GPIOboard complete!!")
 
     def updateboard(self,muxnumber,pinvalue,outputvalue):
         MuxPinPosition = "{:d}.{:d}".format(muxnumber,pinvalue)
@@ -33,6 +34,7 @@ class GPIOBOARD():
             GPIO.setup(mux.get('C'), GPIO.OUT, initial=0)
             GPIO.setup(mux.get('D'), GPIO.OUT, initial=0)
             GPIO.setup(mux.get('W'),GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+        logging.debug("Setup GPIO Board Complete!")
 
     def checkmux(self, MuxMap, inputs):
         GPIO.output(MuxMap.get('A'), inputs[0])
@@ -45,31 +47,21 @@ class GPIOBOARD():
         y = 0
         i = 1
         for mux in self.MuxList:
-            print (i)
-            print ("--------------")
+#            print (i)
+#            print ("--------------")
             for num in range(0, 16):
                 pin_values = list('{0:04b}'.format(num))
                 pin_values = list(map(int, pin_values))
                 if muxnumber is not None:
                     if i==muxnumber:
                         self.updateboard(i,num,self.checkmux(mux,pin_values))
-                        print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
+                      #  print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
                 else:
                         self.updateboard(i,num,self.checkmux(mux,pin_values))
-                        print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
+                      #  print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
             i= i+1
 
 
-
-
-def main():
-    setup()
-
-    while(1):
-        checkBoard()
-        printBoard()
-
-        sleep(1)
 
 
 if __name__=='__main__':
@@ -83,4 +75,6 @@ if __name__=='__main__':
     while(1):
         testgpio.boardcheck(args.muxnumber)
         print ("++++++++++++++++++++++++++++++++++++++++++")
+        print (str(testgpio.gpioboard))
+        print ("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
         sleep(2)
