@@ -17,6 +17,7 @@ class Board:
         self.pieceCount = 0
         self.construct_8x8_board()
         self.gpio = GPIOBOARD()
+        self.GPIOerrors =0
 
     def populate_blank(self):
         list = []
@@ -75,7 +76,7 @@ class Board:
     # GPIO Check will iterate through the board and update each piece object with it's GPIO tag
     # GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches)
     # WARNING: Not always reliable. See GPIO Error Threshold for more information.
-    def GPIOCheck(self):
+    def GPIOUpdate(self):
         self.gpio.boardcheck
         for x in range(8):
             for y in range(8):
@@ -108,7 +109,11 @@ class Board:
         # self.board[endx][endy].name = self.board[startx][starty].name
         # self.board[startx][starty].name = "null"
         # self.board[startx][starty].color = "null"
-        
+
+    def GPIOError(self,startx,starty):
+        if self.board[startx][starty].getGPIO!=1:
+            logging.error('\tGPIO Check Failed, GPIO Says no piece exists at this move')
+            self.GPIOerrors += 1
     def print_board(self):
         for x in range(0, len(self.board)):
             for y in range(0, self.width):
