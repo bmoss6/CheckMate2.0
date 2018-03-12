@@ -16,14 +16,13 @@ conf = Conf()
 class Robot(object):
 
     """docstring for Robot"""
-    def __init__(self,port,board,captureBoard):
+    def __init__(self,port,board):
         super(Robot, self).__init__()
         logging.debug('\tsetup self.swift ...')
         
         self.swift = uArmWrapper(port)
 
         self.board = board
-        self.captureBoard = captureBoard
 
         # Set to the inital resting position
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
@@ -39,12 +38,12 @@ class Robot(object):
         return
 
         # reset every peice in the capture board to the right place
-        capturePosition = self.captureBoard.popLast()
+        capturePosition = self.board.popCapture()
         while capturePosition is not None:
             ### NEED TO UPDATE THIS TO GET ORIGINAL POSITION!
             originalPoisiton = Position(0,0) #capturePosition.getOrignalPosition?
             self.robotMove(capturePosition,originalPoisiton)
-            capturePosition = self.captureBoard.popLast()
+            capturePosition = self.board.popCapture()
 
     #wrapper for clarity
     def updateBoard(self,start,end):
@@ -57,8 +56,12 @@ class Robot(object):
 
     # Move the end peice onto the discard pile
     def handleCollision(self,start,peice):
+
+        # TODO: Check for casteling
+        # Unsure how to detect this at this point without looking at each of the peices
+
         # Insert peice into capture board and get position
-        capturePosition = self.captureBoard.insertNextPos(peice)
+        capturePosition = self.board.capture(peice)
         
         # If the coordinates on the capture poistion are correct this should work
         # but the debug information will report an incorrect board coodinate

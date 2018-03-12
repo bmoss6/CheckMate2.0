@@ -5,6 +5,7 @@ import os, logging, sys
 from piece import Piece as piece
 from position import Position
 from gpio import GPIOBOARD
+from captureBoard import CaptureBoard
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
@@ -16,6 +17,7 @@ class Board:
         self.board = [[] for x in range (0,self.height)]
         self.pieceCount = 0
         self.construct_8x8_board()
+        self.captureBoard = CaptureBoard()
         self.gpio = GPIOBOARD()
 
     def populate_blank(self):
@@ -45,6 +47,13 @@ class Board:
     #wrapper for clarity for external user
     def reset(self):
         self.construct_8x8_board()
+        captureBoard.resetBoard()
+
+    def capture(self,peice):
+        return captureBoard.insertNextPos(peice)
+
+    def popCapture(self):
+        return captureBoard.popLast()
 
     def construct_8x8_board(self):
         self.board[0] = self.first_line("white")

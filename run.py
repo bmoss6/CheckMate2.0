@@ -42,7 +42,6 @@ def playGame(game,robot,robot2):
 def setupRobots():
    #Both boards should just be in the same class.
    gameBoard = Board()
-   captureBoard = CaptureBoard()
 
    #Setup Robots
    RL = RobotList(2)
@@ -51,8 +50,8 @@ def setupRobots():
       quit()
 
    # Robots share the same board 
-   robot = Robot(robotList[0],gameBoard,captureBoard)
-   robot2 = Robot(robotList[1],gameBoard,captureBoard)
+   robot = Robot(robotList[0],gameBoard)
+   robot2 = Robot(robotList[1],gameBoard)
    return robot, robot2
 
 def main():
