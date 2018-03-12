@@ -16,8 +16,8 @@ class GPIOBOARD():
 
     def updateboard(self,muxnumber,pinvalue,outputvalue):
         MuxPinPosition = "{:d}.{:d}".format(muxnumber,pinvalue)
-        BoardCoordinates = test.get(MuxPinPosition)
-        BoardCoordinates = testobject.split(",")
+        BoardCoordinates = self.MuxToCoordinateMap.get(MuxPinPosition)
+        BoardCoordinates = BoardCoordinates.split(",")
         x = BoardCoordinates[0]
         y = BoardCoordinates[1]
         self.gpioboard[int(x)][int(y)] = outputvalue
@@ -56,7 +56,7 @@ class GPIOBOARD():
                         print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
                 else:
                         self.updateboard(i,num,self.checkmux(mux,pin_values))
-                    print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
+                        print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
             i= i+1
 
 
@@ -81,6 +81,6 @@ if __name__=='__main__':
     args = parser.parse_args()
     testgpio.setup()
     while(1):
-        testgpio.boardcheck1(args.muxnumber)
+        testgpio.boardcheck(args.muxnumber)
         print ("++++++++++++++++++++++++++++++++++++++++++")
         sleep(2)

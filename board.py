@@ -121,7 +121,7 @@ class Board:
         # self.board[startx][starty].color = "null"
 
     def GPIOError(self,startx,starty):
-        if self.board[startx][starty].getGPIO!=1:
+        if self.board[startx][starty].gpio!=1:
             logging.error('\tGPIO Check Failed, GPIO Says no piece exists at this move')
             self.GPIOerrors += 1
     def print_board(self):

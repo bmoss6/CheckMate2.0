@@ -73,8 +73,6 @@ class Robot(object):
 
         self.robotMove(start,end)
 
-        self.reedSwitchCheck()
-
     def robotMove(self,start,end):
         #Up
         self.movUp()
