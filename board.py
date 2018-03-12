@@ -85,11 +85,12 @@ class Board:
     # Use position objects for start and end
     # Pieces will inherently get removed as the overwrite
     def move(self,start,end):
+        self.GPIOUpdate()
         startx = start.getXBoard()
         starty = start.getYBoard()
         endx = end.getXBoard()
         endy = end.getYBoard()
-
+        self.GPIOError(startx,starty)
         # sanity check to make sure we are moving a piece we think exists.
         if self.board[startx][starty].isEmpty():
             logging.error('\tMoving none existant piece?')
