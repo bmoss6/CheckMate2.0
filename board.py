@@ -150,11 +150,10 @@ def test():
     fishergame = os.path.join(filepath,"Fischer.pgn")
     testgpio = GPIOBOARD()
     testgpio.setup()
-#    testboard.gpio.setup()
     while (1):
-        testgpio.boardcheck()
-        print(str(testgpio.gpioboard)) 
+        testgpio.boardcheck(0)
         time.sleep(2)
+    print(str(testgpio.gpioboard))
 #    print ("Start board")
 #    testboard.print_board()
 #    print ("\n\nMoving 1,0 to 2,0\n\n")

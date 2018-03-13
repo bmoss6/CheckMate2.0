@@ -17,10 +17,12 @@ class GPIOBOARD():
 
     def updateboard(self,muxnumber,pinvalue,outputvalue):
         MuxPinPosition = "{:d}.{:d}".format(muxnumber,pinvalue)
+        logging.debug("Updating Board HERE!")
         BoardCoordinates = self.MuxToCoordinateMap.get(MuxPinPosition)
         BoardCoordinates = BoardCoordinates.split(",")
         x = BoardCoordinates[0]
         y = BoardCoordinates[1]
+        print("{0},{1} should be set to {2}".format(x,y,str(outputvalue)))
         self.gpioboard[int(x)][int(y)] = outputvalue
  
 
@@ -37,6 +39,7 @@ class GPIOBOARD():
         logging.debug("Setup GPIO Board Complete!")
 
     def checkmux(self, MuxMap, inputs):
+        logging.debug("HERE On checkmux too!")
         GPIO.output(MuxMap.get('A'), inputs[0])
         GPIO.output(MuxMap.get('B'), inputs[1])
         GPIO.output(MuxMap.get('C'), inputs[2])
@@ -47,18 +50,20 @@ class GPIOBOARD():
         y = 0
         i = 1
         for mux in self.MuxList:
-#            print (i)
-#            print ("--------------")
+            print (i)
+            print ("--------------")
             for num in range(0, 16):
+                print(num)
                 pin_values = list('{0:04b}'.format(num))
                 pin_values = list(map(int, pin_values))
                 if muxnumber is not None:
                     if i==muxnumber:
                         self.updateboard(i,num,self.checkmux(mux,pin_values))
-                      #  print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
+                        print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
                 else:
                         self.updateboard(i,num,self.checkmux(mux,pin_values))
-                      #  print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
+                        print("Got updating")
+                        print ('{0} :  {1}'.format(str(pin_values),self.checkmux(mux, pin_values)))
             i= i+1
 
 
@@ -75,6 +80,5 @@ if __name__=='__main__':
     while(1):
         testgpio.boardcheck(args.muxnumber)
         print ("++++++++++++++++++++++++++++++++++++++++++")
-        print (str(testgpio.gpioboard))
         print ("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
         sleep(2)
