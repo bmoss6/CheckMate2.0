@@ -19,6 +19,8 @@ class Board:
         self.construct_8x8_board()
         self.captureBoard = CaptureBoard()
         self.GPIOerrors =0
+        self.gpio = GPIOBOARD()
+        self.gpio.setup()
     def populate_blank(self):
         list = []
         for x in range (0,8):
@@ -123,6 +125,7 @@ class Board:
             logging.error('\tGPIO Check Failed, GPIO Says no piece exists at this move')
             self.GPIOerrors += 1
     def print_board(self):
+        self.GPIOUpdate()
         for x in range(0, len(self.board)):
             for y in range(0, self.width):
                 color = self.board[x][y].getColor()
@@ -148,12 +151,10 @@ class Board:
 def test():
     filepath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'GameScripts'))
     fishergame = os.path.join(filepath,"Fischer.pgn")
-    testgpio = GPIOBOARD()
-    testgpio.setup()
+    testboard = Board()
     while (1):
-        testgpio.boardcheck(0)
+        testboard.print_board()
         time.sleep(2)
-    print(str(testgpio.gpioboard))
 #    print ("Start board")
 #    testboard.print_board()
 #    print ("\n\nMoving 1,0 to 2,0\n\n")
