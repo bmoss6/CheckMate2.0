@@ -76,13 +76,13 @@ class Board:
         if self.board[endx][endy].getName() is not None:
             # return the piece for application to use
             logging.debug('\tCollsion! %s'%self.board[endx][endy].getName())
-            return self.board[endx][endy]
+            return True
         return False
 
     def remove(self,position):
         posx = position.getXBoard()
         posy = position.getYBoard()
-        if not self.isCollision():
+        if not self.isCollision(position):
             logging.error('\tRemoving none existant piece?')
         self.board[posx][posy].clear()
 
@@ -109,7 +109,7 @@ class Board:
         self.GPIOError(startx,starty)
         # sanity check to make sure we are moving a piece we think exists.
         if self.board[startx][starty].isEmpty():
-            logging.error('\tMoving none existant piece?')
+            logging.error('\tMoving non-existant piece?')
             return
 
         # we should have handled the phiscal collision by now but 

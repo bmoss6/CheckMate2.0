@@ -12,3 +12,7 @@ class Conf(object):
 	#Get Interger
 	def I(self,obj,var):
 		return int(self.config[obj][var])
+
+	#Get String
+	def S(self,obj,var):
+		return self.config[obj][var]

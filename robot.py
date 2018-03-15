@@ -29,10 +29,10 @@ class Robot(object):
             return
 
         self.swift = uArmWrapper(port)
+        self.uid = self.swift.getUID()
 
         # Set to the inital resting position
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
-
         self.swift.reset()
 
 
@@ -51,31 +51,79 @@ class Robot(object):
             self.robotMove(capturePosition,originalPoisiton)
             capturePosition = self.board.popCapture()
 
+    def checkID(self,uid):
+        if self.uid == uid:
+            return True
+        return False
+
     #wrapper for clarity
     def updateBoard(self,start,end):
         self.board.move(start,end)
 
-    # Move the end peice onto the discard pile
-    def handleCollision(self,start,peice):
 
-        # TODO: Check for casteling
-        # Unsure how to detect this at this point without looking at each of the peices
+    def castle(self,castle,robot):
+
+        # King side castle
+        if robot == 1:
+            if castle == 1:
+                logging.debug("Robot 1:King side castle")
+                start_king = Position(0,0)
+                end_king = Position(0,0)
+                start_rook = Position(0,0)
+                end_rook = Position(0,0)
+            # Queen side castle
+            elif castle == 2:
+                logging.debug("Robot 1:Queen side castle")
+                start_king = Position(0,0)
+                end_king = Position(0,0)
+                start_rook = Position(0,0)
+                end_rook = Position(0,0)
+        if robot == 2:
+            if castle == 1:
+                logging.debug("Robot 2:King side castle")
+                start_king = Position(0,0,True)
+                end_king = Position(0,0,True)
+                start_rook = Position(0,0,True)
+                end_rook = Position(0,0,True)
+            # Queen side castle
+            elif castle == 2:
+                logging.debug("Robot 2:Queen side castle")
+                start_king = Position(0,0,True)
+                end_king = Position(0,0,True)
+                start_rook = Position(0,0,True)
+                end_rook = Position(0,0,True)
+
+        print("Offsets are incorrect for castling")
+        return
+
+        # sanity check for castle
+        if self.board.isCollision(end_king):
+            logging.error("Collision king on castle?")
+        self.updateBoard(start_king,end_king)
+        self.robotMove(start_king,end_king)
+
+        # sanity check for castle
+        if self.board.isCollision(end_rook):
+            logging.error("Collision roon on castle?")
+        self.updateBoard(start_rook,end_rook)
+        self.robotMove(start_rook,end_rook)
+
+
+    # Move the end peice onto the discard pile
+    def handleCollision(self,peice):
 
         # Insert peice into capture board and get position
         capturePosition = self.board.capture(peice)
         
         # If the coordinates on the capture poistion are correct this should work
         # but the debug information will report an incorrect board coodinate
-        self.robotMove(start,capturePosition)
+        self.robotMove(peice,capturePosition)
 
 
-    def move(self,start,end,castle):
-        if castle != 0:
-            print("I will castle %d"%castle)
-
-        peice = self.board.isCollision(end)
-        if peice:
-            self.handleCollision(end,peice) 
+    def move(self,start,end):
+        
+        if self.board.isCollision(end):
+            self.handleCollision(end) 
 
         self.updateBoard(start,end)
 
