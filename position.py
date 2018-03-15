@@ -14,8 +14,7 @@ class Position(object):
     y = 0
     #Position on Board
     xBoard = 0
-    yBoard = 0
-    #Oppisiate 
+    yBoard = 0 
     invert = False
 
     """docstring for position"""
