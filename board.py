@@ -23,8 +23,8 @@ class Board:
         if self.test:
             self.gpio = None
         else:
-            self.gpio.setup()
             self.gpio = GPIOBOARD()
+            self.gpio.setup()
     def populate_blank(self):
         list = []
         for x in range (0,8):

@@ -26,9 +26,6 @@ if not testMode:
    GPIO.setup(1,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
 GameScripts = "GameScripts"
-##Setup GPIO PIN for Reset Button ##
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(1,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
 def playGame(game,robot,robot2):
    game = Game(game)
@@ -82,15 +79,15 @@ def setupRobots():
    robot2ID = conf.S('robotIdents','robot2')
 
    # Switch the robots is they look incorrect
-   if robot.checkID() != robot1ID:
+   if robot.checkID(robot1ID):
       tmpRobot = robot
       robot2 = robot
       robot2 = tmpRobot
 
    # Sanity check to make sure they match up after switch
-   if robot.checkID() != robot1ID:
+   if robot.checkID(robot1ID):
       logging.error("Unable to identify robot 1!")
-   if robot2.checkID() != robot2ID:
+   if robot2.checkID(robot2ID):
       logging.error("Unable to identify robot 2!")
 
    return robot, robot2
