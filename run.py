@@ -11,29 +11,24 @@ from os import listdir
 from os.path import isfile, join
 from config import Conf
 import logging, sys
-<<<<<<< HEAD
 import RPi.GPIO as GPIO
-=======
->>>>>>> cc826b226c433c9111ad7a0390267fd64a31ec97
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 conf = Conf()
 
 # Set to true to test off of the robots and PI. 
 # also comment out "from gpio import GPIOBOARD" in board.py
-testMode = False
+testMode = False 
 
 if not testMode:
-   import GPi.GPIO as GPIO
+   import RPi.GPIO as GPIO
    ##Setup GPIO PIN for Reset Button ##
+   GPIO.setmode(GPIO.BCM)
    GPIO.setup(1,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
 GameScripts = "GameScripts"
-<<<<<<< HEAD
 ##Setup GPIO PIN for Reset Button ##
 GPIO.setmode(GPIO.BCM)
 GPIO.setup(1,GPIO.IN,pull_up_down=GPIO.PUD_UP)
-=======
->>>>>>> cc826b226c433c9111ad7a0390267fd64a31ec97
 
 def playGame(game,robot,robot2):
    game = Game(game)
