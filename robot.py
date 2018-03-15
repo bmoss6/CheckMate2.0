@@ -30,7 +30,7 @@ class Robot(object):
 
         self.swift = uArmWrapper(port)
         self.uid = self.swift.getUID()
-
+        print("uid %s"%self.uid)
         # Set to the inital resting position
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
         self.swift.reset()
