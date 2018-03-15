@@ -97,6 +97,10 @@ class uArmWrapper(object):
    def getDefault(self):
       return self.defaultX, self.defaultY, self.defaultZ
 
+   def getUID(self):
+      self.ser.write(b'P2205\n')
+      return str(self.ser.readline(),'utf-8')
+
    def reset(self):
       #use defaults here
       self.savePos(self.defaultX,self.defaultY,self.defaultZ)

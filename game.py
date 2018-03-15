@@ -92,7 +92,7 @@ class Game(object):
 #        >>> game.headers["Result"]
 
 def test():
-   newgame = Game("Fischer.pgn")
+   newgame = Game("GameScripts/Fischer.pgn")
    # print(newgame.game.headers["Event"])
    # print(newgame.game.headers["Site"])
    # print(newgame.game.headers["Date"])

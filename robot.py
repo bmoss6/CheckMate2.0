@@ -16,13 +16,19 @@ conf = Conf()
 class Robot(object):
 
     """docstring for Robot"""
-    def __init__(self,port,board):
+    def __init__(self,port,board,test=False):
         super(Robot, self).__init__()
         logging.debug('\tsetup self.swift ...')
         
-        self.swift = uArmWrapper(port)
-
         self.board = board
+
+        self.test = test
+        # testing functionality lets you run the robots without having them hooked up
+        if test:
+            self.swift = None
+            return
+
+        self.swift = uArmWrapper(port)
 
         # Set to the inital resting position
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
@@ -63,17 +69,23 @@ class Robot(object):
         self.robotMove(start,capturePosition)
 
 
-    def move(self,start,end):
+    def move(self,start,end,castle):
+        if castle != 0:
+            print("I will castle %d"%castle)
 
         peice = self.board.isCollision(end)
         if peice:
-            self.handleCollision(end,peice)
+            self.handleCollision(end,peice) 
 
         self.updateBoard(start,end)
 
         self.robotMove(start,end)
 
     def robotMove(self,start,end):
+        # If testing the code without the robots setup just return
+        if self.test:
+            return
+
         #Up
         self.movUp()
 

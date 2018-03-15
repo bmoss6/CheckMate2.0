@@ -11,7 +11,7 @@ logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 class Board:
 
-    def __init__(self, width=8, height=8):
+    def __init__(self, width=8, height=8,test=False):
         self.name = "8x8 Chess Board"
         self.width, self.height = width, height
         self.board = [[] for x in range (0,self.height)]
@@ -19,8 +19,12 @@ class Board:
         self.construct_8x8_board()
         self.captureBoard = CaptureBoard()
         self.GPIOerrors =0
-        self.gpio = GPIOBOARD()
-        self.gpio.setup()
+        self.test = test
+        if self.test:
+            self.gpio = None
+        else:
+            self.gpio.setup()
+            self.gpio = GPIOBOARD()
     def populate_blank(self):
         list = []
         for x in range (0,8):
@@ -86,6 +90,9 @@ class Board:
     # GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches)
     # WARNING: Not always reliable. See GPIO Error Threshold for more information.
     def GPIOUpdate(self):
+        #For testing off PI just return
+        if self.test:
+            return
         self.gpio.boardcheck()
         for x in range(8):
             for y in range(8):
@@ -121,6 +128,8 @@ class Board:
         # self.board[startx][starty].color = "null"
 
     def GPIOError(self,startx,starty):
+        if self.test:
+            return
         if self.board[startx][starty].gpio!=1:
             logging.error('\tGPIO Check Failed, GPIO Says no piece exists at this move')
             self.GPIOerrors += 1
@@ -150,7 +159,7 @@ class Board:
 
 def test():
     filepath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'GameScripts'))
-    fishergame = os.path.join(filepath,"Fischer.pgn")
+    fishergame = os.path.join(filepath,"GameScripts/Fischer.pgn")
     testboard = Board()
     while (1):
         testboard.print_board()
