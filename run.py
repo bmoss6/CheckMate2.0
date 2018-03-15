@@ -10,11 +10,12 @@ from itertools import zip_longest
 from os import listdir
 from os.path import isfile, join
 import logging, sys
-import GPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 GameScripts = "GameScripts"
 ##Setup GPIO PIN for Reset Button ##
+GPIO.setmode(GPIO.BCM)
 GPIO.setup(1,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
 def playGame(game,robot,robot2):
@@ -53,7 +54,7 @@ def setupRobots():
 
    # Robots share the same board 
    robot = Robot(robotList[0],gameBoard)
-   GPIO.add_event_detect(1, GPIO.BOTH, robot.reset())
+   GPIO.add_event_detect(1, GPIO.BOTH, robot.resetBoard)
    robot2 = Robot(robotList[1],gameBoard)
    return robot, robot2
 

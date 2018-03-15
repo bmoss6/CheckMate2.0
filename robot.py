@@ -31,10 +31,11 @@ class Robot(object):
 
 
     # This will take a little bit of work
-    def resetBoard(self):
+    def resetBoard(self,channel):
         # looks through board and move each peice back to its normal position
         # possibly we could trake this in the orignal peice class?
         logging.debug("resetBoard is not written yet!")
+        exit(1)
         return
 
         # reset every peice in the capture board to the right place
