@@ -65,8 +65,8 @@ class uArmWrapper(object):
          logging.error("\tERROR!: Invalid command %s"%cmdStr)
          self.ser.readline()
       else:
-         #logging.debug("\tRESPONSE:"+response)
-      #sleep(1)
+         logging.debug("\tRESPONSE:"+response)
+      sleep(1)
       
    def get_position(self):
 

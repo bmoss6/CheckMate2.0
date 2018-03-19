@@ -43,11 +43,12 @@ class Robot(object):
 #                        originx = origin[0]
 #                        originy = origin[1]
 #                        self.move(Position(x,y),Position(originx,originy)
-    # This will take a little bit of work
+# This will take a little bit of work
     def resetBoard(self,channel):
         # looks through board and move each peice back to its normal position
         # possibly we could trake this in the orignal peice class?
         logging.debug("resetBoard is not written yet!")
+        self.ResetStartingPositionRows()
         exit(1)
         return
 
