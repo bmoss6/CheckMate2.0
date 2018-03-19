@@ -57,7 +57,7 @@ def playGame(game,robot,robot2):
             robot2.move(start,end)
 
    #The board is shared so it can be reset by either robot.
-   robot.resetBoard()
+   robot.resetBoard(None)
 
 def setupRobots():
    #Both boards should just be in the same class.

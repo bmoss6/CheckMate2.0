@@ -48,6 +48,7 @@ class Robot(object):
         # looks through board and move each peice back to its normal position
         # possibly we could trake this in the orignal peice class?
         logging.debug("resetBoard is not written yet!")
+        return
         self.ResetStartingPositionRows()
         exit(1)
         return
@@ -76,34 +77,31 @@ class Robot(object):
         if robot == 1:
             if castle == 1:
                 logging.debug("Robot 1:King side castle")
-                start_king = Position(0,0)
-                end_king = Position(0,0)
+                start_king = Position(0,4)
+                end_king = Position(0,2)
                 start_rook = Position(0,0)
-                end_rook = Position(0,0)
+                end_rook = Position(0,3)
             # Queen side castle
             elif castle == 2:
                 logging.debug("Robot 1:Queen side castle")
-                start_king = Position(0,0)
-                end_king = Position(0,0)
-                start_rook = Position(0,0)
-                end_rook = Position(0,0)
+                start_king = Position(0,4)
+                end_king = Position(0,6)
+                start_rook = Position(0,7)
+                end_rook = Position(0,5)
         if robot == 2:
             if castle == 1:
                 logging.debug("Robot 2:King side castle")
-                start_king = Position(0,0,True)
-                end_king = Position(0,0,True)
-                start_rook = Position(0,0,True)
-                end_rook = Position(0,0,True)
+                start_king = Position(7,4,True)
+                end_king = Position(7,6,True)
+                start_rook = Position(7,7,True)
+                end_rook = Position(7,5,True)
             # Queen side castle
             elif castle == 2:
                 logging.debug("Robot 2:Queen side castle")
-                start_king = Position(0,0,True)
-                end_king = Position(0,0,True)
-                start_rook = Position(0,0,True)
-                end_rook = Position(0,0,True)
-
-        print("Offsets are incorrect for castling")
-        return
+                start_king = Position(7,4,True)
+                end_king = Position(7,2,True)
+                start_rook = Position(7,0,True)
+                end_rook = Position(7,3,True)
 
         # sanity check for castle
         if self.board.isCollision(end_king):
