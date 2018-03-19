@@ -76,13 +76,15 @@ def setupRobots():
 
    # Check to verify the robots are not switched
    robot1ID = conf.S('robotIdents','robot1')
+   logging.debug("Robot1 %s"%robot1ID)
    robot2ID = conf.S('robotIdents','robot2')
+   logging.debug("Robot2 %s"%robot2ID)
 
-   # Switch the robots is they look incorrect
-   if robot.checkID(robot1ID):
-      tmpRobot = robot
+   # Switch the robots if they look incorrect
+   if not robot.checkID(robot1ID):
+      tmpRobot = robot2
       robot2 = robot
-      robot2 = tmpRobot
+      robot = tmpRobot
 
    # Sanity check to make sure they match up after switch
    if robot.checkID(robot1ID):

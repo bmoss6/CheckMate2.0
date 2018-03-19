@@ -55,7 +55,7 @@ class uArmWrapper(object):
 
       x, y, z = self.savePos(x,y,z)
 
-      logging.debug("\tSet Position X:%d Y:%d Z:%d Speed:%d"%(x,y,z,self.speed))
+      #logging.debug("\tSet Position X:%d Y:%d Z:%d Speed:%d"%(x,y,z,self.speed))
       self.debugNum += 1
       cmdStr = '#%sG0 X%s Y%s Z%s F%s\n'%(self.debugNum,x,y,z,self.speed)
       self.ser.write(str.encode(cmdStr))
@@ -65,7 +65,7 @@ class uArmWrapper(object):
          logging.error("\tERROR!: Invalid command %s"%cmdStr)
          self.ser.readline()
       else:
-         logging.debug("\tRESPONSE:"+response)
+         #logging.debug("\tRESPONSE:"+response)
       #sleep(1)
       
    def get_position(self):

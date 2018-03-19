@@ -30,7 +30,6 @@ class Robot(object):
 
         self.swift = uArmWrapper(port)
         self.uid = self.swift.getUID()
-        print("uid %s"%self.uid)
         # Set to the inital resting position
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
         self.swift.reset()
@@ -139,7 +138,7 @@ class Robot(object):
         self.movUp()
 
         #Start Position
-        logging.debug('\tSTART POS Board(%d,%d) Robot(%d:,%d)'%(start.getXBoard(),start.getYBoard(),start.getX(),start.getY()))
+        #logging.debug('\tSTART POS Board(%d,%d) Robot(%d:,%d)'%(start.getXBoard(),start.getYBoard(),start.getX(),start.getY()))
         self.swift.set_position(x = start.getX(), y = start.getY())
 
         #DOWN
@@ -152,7 +151,7 @@ class Robot(object):
         self.movUp()
 
         #End Posistion
-        logging.debug('\tEND POS Board(%d,%d) robot(%d:,%d)'%(end.getXBoard(),end.getYBoard(),end.getX(),end.getY()))
+        #logging.debug('\tEND POS Board(%d,%d) robot(%d:,%d)'%(end.getXBoard(),end.getYBoard(),end.getX(),end.getY()))
         self.swift.set_position(x = end.getX(), y = end.getY())
 
         #DOWN
@@ -168,10 +167,10 @@ class Robot(object):
         self.swift.reset()
 
     def movUp(self):
-        logging.debug('\tMOV UP z%d'%(conf.I('offsets','maxHeight')))
+        #logging.debug('\tMOV UP z%d'%(conf.I('offsets','maxHeight')))
         self.swift.set_position(z = conf.I('offsets','maxHeight'))
 
     def movDown(self):
-        logging.debug('\tMOV Down z=%d'%(conf.I('offsets','minHeight')))
+        #logging.debug('\tMOV Down z=%d'%(conf.I('offsets','minHeight')))
         self.swift.set_position(z = conf.I('offsets','minHeight'))
 

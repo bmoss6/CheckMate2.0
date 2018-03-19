@@ -68,6 +68,10 @@ class Board:
         self.pieceCount = 4 * self.width
         for x in range(2, 6):
             self.board[x] = self.populate_blank()
+        for x in range (8):
+            for y in range(8):
+                  if x < 2 or x > 5:
+                      self.board[x][y].StartingPosition = "{x},{y}".format(x=x,y=y)
 
     # Check if where we are moving to results in a collision
     def isCollision(self,end):
@@ -140,11 +144,14 @@ class Board:
                 color = self.board[x][y].getColor()
                 name = self.board[x][y].getName()
                 gpio = self.board[x][y].gpio
+                StartingPosition = self.board[x][y].StartingPosition
                 if color is None:
                     color = "null"
                 if name is None:
                     name = "null"
-                print ("|%s %s %s|"%( color, name, str(gpio)), end='')
+                if StartingPosition is None:
+                    StartingPosition= "null"
+                print ("|%s %s %s|"%( color, name, str(gpio)),StartingPosition, end='')
             print("\n------------------------------------")
         
 # [[ rook, knight, bishop, queen, king, bishop, knight, rook ]
