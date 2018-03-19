@@ -34,7 +34,15 @@ class Robot(object):
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
         self.swift.reset()
 
-
+#    def ResetStartingPositionRows(self):
+#        for x in range (8):
+#            for y in range (8):
+#                if x < 2 or x > 5:
+#                    if self.board[x][y] is not None: 
+#                        origin = self.board[x][y].StartingPosition.split(",")
+#                        originx = origin[0]
+#                        originy = origin[1]
+#                        self.move(Position(x,y),Position(originx,originy)
     # This will take a little bit of work
     def resetBoard(self,channel):
         # looks through board and move each peice back to its normal position
