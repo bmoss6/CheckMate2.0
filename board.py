@@ -113,7 +113,7 @@ class Board:
         self.GPIOError(startx,starty)
         # sanity check to make sure we are moving a piece we think exists.
         if self.board[startx][starty].isEmpty():
-            logging.error('\tMoving non-existant piece?')
+            logging.debug('\tMoving non-existant piece?')
             return
 
         # we should have handled the phiscal collision by now but 
@@ -153,6 +153,26 @@ class Board:
                     StartingPosition= "null"
                 print ("|%s %s %s|"%( color, name, str(gpio)),StartingPosition, end='')
             print("\n------------------------------------")
+
+    def print_simple_no_gpio(self):
+        print("      [0]   [1]   [2]   [3]   [4]   [5]   [6]   [7]")
+        for x in range(0, len(self.board)):
+            print("[%d] |"%x,end='')
+            for y in range(0, self.width):
+                color = self.board[x][y].getColor()
+                name = self.board[x][y].getName()
+                if color is None:
+                    color = "  "
+                if name is None:
+                    name = "  "
+                if name[0] == 'k':
+                    print ("%2s:%2s|"%( color[0], name[0:2]),end='')
+                else:
+                    print ("%2s:%2s|"%( color[0], name[0:1]),end='')
+                #print ("|%s %s %s|"%( color, name, str(gpio)),StartingPosition, end='')
+            print()
+        print("\n")
+        
         
 # [[ rook, knight, bishop, queen, king, bishop, knight, rook ]
 #   [pawn,  pawn,  pawn,   pawn,  pawn,  pawn,  pawn,  pawn]
@@ -167,8 +187,9 @@ class Board:
 def test():
     filepath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'GameScripts'))
     fishergame = os.path.join(filepath,"GameScripts/Fischer.pgn")
-    testboard = Board()
+    testboard = Board(test=True)
     while (1):
+        print()
         testboard.print_board()
         time.sleep(2)
 #    print ("Start board")

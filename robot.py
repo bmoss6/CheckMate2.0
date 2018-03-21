@@ -78,16 +78,17 @@ class Robot(object):
             if castle == 1:
                 logging.debug("Robot 1:King side castle")
                 start_king = Position(0,4)
-                end_king = Position(0,2)
-                start_rook = Position(0,0)
-                end_rook = Position(0,3)
+                end_king = Position(0,6)
+                start_rook = Position(0,7)
+                end_rook = Position(0,5)
             # Queen side castle
             elif castle == 2:
                 logging.debug("Robot 1:Queen side castle")
                 start_king = Position(0,4)
-                end_king = Position(0,6)
-                start_rook = Position(0,7)
-                end_rook = Position(0,5)
+                end_king = Position(0,2)
+                start_rook = Position(0,0)
+                end_rook = Position(0,3)
+
         if robot == 2:
             if castle == 1:
                 logging.debug("Robot 2:King side castle")
@@ -105,15 +106,18 @@ class Robot(object):
 
         # sanity check for castle
         if self.board.isCollision(end_king):
-            logging.error("Collision king on castle?")
+            logging.debug("Collision king on castle?")
         self.updateBoard(start_king,end_king)
         self.robotMove(start_king,end_king)
 
         # sanity check for castle
         if self.board.isCollision(end_rook):
-            logging.error("Collision roon on castle?")
+            logging.debug("Collision roon on castle?")
         self.updateBoard(start_rook,end_rook)
         self.robotMove(start_rook,end_rook)
+
+        if self.test:
+            self.board.print_simple_no_gpio()
 
 
     # Move the end peice onto the discard pile
@@ -135,6 +139,9 @@ class Robot(object):
         self.updateBoard(start,end)
 
         self.robotMove(start,end)
+
+        if self.test:
+            self.board.print_simple_no_gpio()
 
     def robotMove(self,start,end):
         # If testing the code without the robots setup just return
