@@ -109,7 +109,7 @@ class Board:
         self.GPIOError(startx,starty)
         # sanity check to make sure we are moving a piece we think exists.
         if self.board[startx][starty].isEmpty():
-            logging.debug('\tMoving non-existant piece?')
+            logging.error('\tMoving non-existant piece?')
             return
 
         # we should have handled the phiscal collision by now but 
@@ -118,9 +118,9 @@ class Board:
             self.pieceCount -= 1
 
         # Update piece
-        self.board[endx][endy].update(self.board[startx][starty])
+        self.board[endx][endy] = self.board[startx][starty]
         # set the piece to null again.
-        self.board[startx][starty].clear()
+        self.board[startx][starty] = piece()
 
         # self.board[endx][endy].color = self.board[startx][starty].color
         # self.board[endx][endy].name = self.board[startx][starty].name

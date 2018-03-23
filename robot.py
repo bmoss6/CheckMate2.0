@@ -107,13 +107,13 @@ class Robot(object):
 
         # sanity check for castle
         if self.board.isCollision(end_king):
-            logging.debug("Collision king on castle?")
+            logging.error("Collision king on castle?")
         self.updateBoard(start_king,end_king)
         self.robotMove(start_king,end_king)
 
         # sanity check for castle
         if self.board.isCollision(end_rook):
-            logging.debug("Collision roon on castle?")
+            logging.error("Collision roon on castle?")
         self.updateBoard(start_rook,end_rook)
         self.robotMove(start_rook,end_rook)
 
@@ -127,11 +127,8 @@ class Robot(object):
     def handleCollision(self,peicePosition):
         # Insert peice into capture board and get position
         peice = self.board.getPeice(peicePosition)
-        if peice is None:
-            print("No peice on collision?")
-            quit()
-        capturePosition = self.captureBoard.insertNextPos(peice)
 
+        capturePosition = self.captureBoard.insertNextPos(peice)
         
         # If the coordinates on the capture poistion are correct this should work
         # but the debug information will report an incorrect board coodinate

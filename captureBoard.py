@@ -5,19 +5,19 @@ from capturePosition import CapturePosition
 
 class CaptureBoard(object):
 
-   COLUMN_LENGTH=8
-   ROW_LENGTH=2
-   #2x8 to hold all peices. Top half the right side. Bottom the left.
-   board=[]
-   peiceCount=0
-   #A hack to get the first index correctly...
-   lastRowI=0
-   lastColI=0
-   invert = False
-
    """docstring for CaptureBoard"""
    def __init__(self,invert=False):
       super(CaptureBoard, self).__init__()
+
+      self.COLUMN_LENGTH=8
+      self.ROW_LENGTH=2
+      #2x8 to hold all peices. Top half the right side. Bottom the left.
+      self.board=[]
+      self.peiceCount=0
+      #A hack to get the first index correctly...
+      self.lastRowI=0
+      self.lastColI=0
+      self.invert = False
 
       self.invert = invert
       # We will make 2x4 capture areas for each of the captured peices
@@ -42,7 +42,6 @@ class CaptureBoard(object):
    #This function inserts an object into the array at index
    #Return the next position
    def insertNextPos(self,peice):
-      
       if self.peiceCount == 0:
          self.lastRowI = 0
          self.lastColI = 0
@@ -147,35 +146,34 @@ def test():
       print("%s:%s"%(peice.getName(),peice.getColor()))
       cp.printBoard()
    #print(cp.getBoard())
-   
-
-   pos, peice = cp.popLast()
-   print(pos)
-   print(peice)
-
-   return
 
    print("==========INSERT==========")
    for x in range(0,16):
-      pos = cp.insertNextPos("king%d"%x)
+      name = "k%d"%x
+      pos = cp.insertNextPos(Piece(name,"white"))
       print("x:%d y:%d cBoardX:%d cBoardY:%d"%(pos.getX(),pos.getY(),pos.getXBoard(),pos.getYBoard()))
-   print(cp.getBoard())
+      cp.printBoard()
+   #print(cp.getBoard())
 
    print("==========RESET==========")
    cp.resetBoard()
-   print(cp.getBoard())
+   cp.printBoard()
+   #print(cp.getBoard())
 
    print("==========INSERT==========")
    for x in range(0,16):
-      pos = cp.insertNextPos("king%d"%x)
+      name = "k%d"%x
+      pos = cp.insertNextPos(Piece(name,"white"))
       print("x:%d y:%d cBoardX:%d cBoardY:%d"%(pos.getX(),pos.getY(),pos.getXBoard(),pos.getYBoard()))
-   print(cp.getBoard())
+      cp.printBoard()
+   #print(cp.getBoard())
 
    print("==========POPPING==========")
    for x in range(0,16):
       pos, peice = cp.popLast()
       print("x:%d y:%d cBoardX:%d cBoardY:%d"%(pos.getX(),pos.getY(),pos.getXBoard(),pos.getYBoard()))
-   print(cp.getBoard())
+      cp.printBoard()
+   #print(cp.getBoard())
 
 
 if __name__ == "__main__":
