@@ -16,11 +16,12 @@ conf = Conf()
 class Robot(object):
 
     """docstring for Robot"""
-    def __init__(self,port,board,test=False):
+    def __init__(self,port,board,captureBoard,test=False):
         super(Robot, self).__init__()
         logging.debug('\tsetup self.swift ...')
         
         self.board = board
+        self.captureBoard = captureBoard
 
         self.test = test
         # testing functionality lets you run the robots without having them hooked up
@@ -54,12 +55,12 @@ class Robot(object):
         return
 
         # reset every peice in the capture board to the right place
-        capturePosition = self.board.popCapture()
+        capturePosition, peice = self.captureBoard.popLast()
         while capturePosition is not None:
             ### NEED TO UPDATE THIS TO GET ORIGINAL POSITION!
             originalPoisiton = Position(0,0) #capturePosition.getOrignalPosition?
             self.robotMove(capturePosition,originalPoisiton)
-            capturePosition = self.board.popCapture()
+            capturePosition, peice = self.captureBoard.popLast()
 
     def checkID(self,uid):
         if self.uid == uid:
@@ -118,17 +119,23 @@ class Robot(object):
 
         if self.test:
             self.board.print_simple_no_gpio()
+            self.captureBoard.printBoard()
+            print("\n")
 
 
     # Move the end peice onto the discard pile
-    def handleCollision(self,peice):
-
+    def handleCollision(self,peicePosition):
         # Insert peice into capture board and get position
-        capturePosition = self.board.capture(peice)
+        peice = self.board.getPeice(peicePosition)
+        if peice is None:
+            print("No peice on collision?")
+            quit()
+        capturePosition = self.captureBoard.insertNextPos(peice)
+
         
         # If the coordinates on the capture poistion are correct this should work
         # but the debug information will report an incorrect board coodinate
-        self.robotMove(peice,capturePosition)
+        self.robotMove(peicePosition,capturePosition)
 
 
     def move(self,start,end):
@@ -142,6 +149,8 @@ class Robot(object):
 
         if self.test:
             self.board.print_simple_no_gpio()
+            self.captureBoard.printBoard()
+            print("\n")
 
     def robotMove(self,start,end):
         # If testing the code without the robots setup just return

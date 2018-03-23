@@ -62,6 +62,8 @@ def playGame(game,robot,robot2):
 def setupRobots():
    #Both boards should just be in the same class.
    gameBoard = Board()
+   captureBoard1 = CaptureBoard()
+   captureBoard2 = CaptureBoard()
 
    #Setup Robots
    RL = RobotList(2)
@@ -70,9 +72,9 @@ def setupRobots():
       quit()
 
    # Robots share the same board 
-   robot = Robot(robotList[0],gameBoard)
+   robot = Robot(robotList[0],gameBoard,captureBoard1)
    GPIO.add_event_detect(1, GPIO.BOTH, robot.resetBoard)
-   robot2 = Robot(robotList[1],gameBoard)
+   robot2 = Robot(robotList[1],gameBoard,captureBoard2)
 
    # Check to verify the robots are not switched
    robot1ID = conf.S('robotIdents','robot1')
@@ -96,10 +98,12 @@ def setupRobots():
 
 def testRobotSetup():
    gameBoard = Board(test=True)
+   captureBoard1 = CaptureBoard()
+   captureBoard2 = CaptureBoard()
 
    # Robots share the same board 
-   robot = Robot(None,gameBoard,test=True)
-   robot2 = Robot(None,gameBoard,test=True)
+   robot = Robot(None,gameBoard,captureBoard1,test=True)
+   robot2 = Robot(None,gameBoard,captureBoard2,test=True)
    return robot, robot2
 
 def main():

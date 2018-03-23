@@ -34,3 +34,14 @@ class Piece:
         self.name = peice.getName()
         self.color = peice.getColor()
 
+    def printPeice(self):
+        color = self.color
+        name = self.name
+        if color is None:
+            color = "  "
+        if name is None:
+            name = "  "
+        if name[0] == 'k':
+            print("%2s:%2s|"%( color[0], name[0:2]),end='')
+        else:
+            print("%2s:%2s|"%( color[0], name[0:1]),end='')

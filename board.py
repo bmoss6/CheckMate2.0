@@ -1,11 +1,9 @@
 #! /usr/bin/python3
 
-#from . import game
 import os, logging, sys, time
 from piece import Piece as piece
 from position import Position
 from gpio import GPIOBOARD
-from captureBoard import CaptureBoard
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
@@ -17,7 +15,6 @@ class Board:
         self.board = [[] for x in range (0,self.height)]
         self.pieceCount = 0
         self.construct_8x8_board()
-        self.captureBoard = CaptureBoard()
         self.GPIOerrors =0
         self.test = test
         if self.test:
@@ -52,13 +49,12 @@ class Board:
     #wrapper for clarity for external user
     def reset(self):
         self.construct_8x8_board()
-        captureBoard.resetBoard()
 
-    def capture(self,peice):
-        return self.captureBoard.insertNextPos(peice)
-
-    def popCapture(self):
-        return self.captureBoard.popLast()
+    # get the peice from a position
+    def getPeice(self,position):
+        x = position.getXBoard()
+        y = position.getYBoard()
+        return self.board[x][y]
 
     def construct_8x8_board(self):
         self.board[0] = self.first_line("white")
@@ -159,19 +155,12 @@ class Board:
         for x in range(0, len(self.board)):
             print("[%d] |"%x,end='')
             for y in range(0, self.width):
-                color = self.board[x][y].getColor()
-                name = self.board[x][y].getName()
-                if color is None:
-                    color = "  "
-                if name is None:
-                    name = "  "
-                if name[0] == 'k':
-                    print ("%2s:%2s|"%( color[0], name[0:2]),end='')
-                else:
-                    print ("%2s:%2s|"%( color[0], name[0:1]),end='')
+                if self.board[x][y] is None:
+                    print("  :  |",end='')
+                    continue
+                self.board[x][y].printPeice()
                 #print ("|%s %s %s|"%( color, name, str(gpio)),StartingPosition, end='')
             print()
-        print("\n")
         
         
 # [[ rook, knight, bishop, queen, king, bishop, knight, rook ]
