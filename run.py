@@ -84,6 +84,7 @@ def setupRobots():
 
    # Switch the robots if they look incorrect
    if not robot.checkID(robot1ID):
+      logging.debug("switching robots")
       tmpRobot = robot2
       robot2 = robot
       robot = tmpRobot

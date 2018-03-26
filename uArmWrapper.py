@@ -101,7 +101,7 @@ class uArmWrapper(object):
    def getUID(self):
       self.ser.write(b'P2205\n') 
       ret = str(self.ser.readline(),'utf-8')
-      return ret.split(" ")[-1]
+      return ret.split(" ")[-1].rstrip()
 
    def reset(self):
       #use defaults here
