@@ -67,7 +67,8 @@ class Board:
         for x in range (8):
             for y in range(8):
                   if x < 2 or x > 5:
-                      self.board[x][y].StartingPosition = "{x},{y}".format(x=x,y=y)
+                      self.board[x][y].StartingX = x
+                      self.board[x][y].StartingY = y
 
     # Check if where we are moving to results in a collision
     def isCollision(self,end):

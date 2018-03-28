@@ -16,10 +16,10 @@ conf = Conf()
 class Robot(object):
 
     """docstring for Robot"""
-    def __init__(self,port,board,captureBoard,test=False):
+    def __init__(self,port,board,captureBoard,color,test=False):
         super(Robot, self).__init__()
         logging.debug('\tsetup self.swift ...')
-        
+        self.color = color
         self.board = board
         self.captureBoard = captureBoard
 
@@ -48,6 +48,13 @@ class Robot(object):
     def resetBoard(self,channel):
         # looks through board and move each peice back to its normal position
         # possibly we could trake this in the orignal peice class?
+
+## This will iterate through the board, removing the remaining robot's peices (according to color) to the capture board.
+#        for x in range (self.board.height):
+#            for y in range (self.board.width):
+#                if self.board[x][y]!=None and self.board[x][y].color == self.color:
+#                    self.handleCollision(Position(x,y,False))
+
         logging.debug("resetBoard is not written yet!")
         return
         self.ResetStartingPositionRows()
@@ -57,8 +64,7 @@ class Robot(object):
         # reset every peice in the capture board to the right place
         capturePosition, peice = self.captureBoard.popLast()
         while capturePosition is not None:
-            ### NEED TO UPDATE THIS TO GET ORIGINAL POSITION!
-            originalPoisiton = Position(0,0) #capturePosition.getOrignalPosition?
+            originalPoisiton = Position(peice.StartingX,peice.StartingY)
             self.robotMove(capturePosition,originalPoisiton)
             capturePosition, peice = self.captureBoard.popLast()
 

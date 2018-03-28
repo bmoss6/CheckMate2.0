@@ -72,9 +72,9 @@ def setupRobots():
       quit()
 
    # Robots share the same board 
-   robot = Robot(robotList[0],gameBoard,captureBoard1)
+   robot = Robot(robotList[0],gameBoard,captureBoard1,"gold")
    GPIO.add_event_detect(1, GPIO.BOTH, robot.resetBoard)
-   robot2 = Robot(robotList[1],gameBoard,captureBoard2)
+   robot2 = Robot(robotList[1],gameBoard,captureBoard2, "silver")
 
    # Check to verify the robots are not switched
    robot1ID = conf.S('robotIdents','robot1')

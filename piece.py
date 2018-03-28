@@ -5,7 +5,8 @@ class Piece:
         self.name = name
         self.color = color
         self.gpio = 0
-        self.StartingPosition = None
+        self.StartingX = None
+        self.StartingY = None
         
 
     def getName(self):
