@@ -7,7 +7,7 @@ from time import sleep
 #  The [original wrapper](https://github.com/uArm-Developer/pyuf) is currently
 #  very unrealiable so this give a limited list of commands that our robot needs.
 #
-#  This wrapper communitates over a ceral connection to the robot by sending
+#  This wrapper communitates over a serial connection to the robot by sending
 #  the raw API commands to the arduino on board the robot. To see a list of
 #  commands view [their documentation](http://download.ufactory.cc/docs/en/uArm-Swift-Pro-Develper-Guide-171221.pdf).
 #  
