@@ -2,8 +2,13 @@
 
 import serial, sys, glob
 
+## Dynamicly locate serial ports avalible
+#  Helper class that find list of avliable serial connections
 class RobotList(object):
-    """docstring for RobotList"""
+    
+    ## Constructor
+    #  @param numRobots Number of robots that are expected to be found
+    #  @
     def __init__(self,numRobots):
         super(RobotList, self).__init__()
         self.numOfRobots = numRobots

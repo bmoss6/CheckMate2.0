@@ -1,18 +1,25 @@
 #!/usr/bin/env python3
 import configparser
 
-
+## Config object to read in configuration file 
 class Conf(object):
-	"""docstring for conf"""
+	
+	## Constructor
 	def __init__(self):
 		super(Conf, self).__init__()
 		self.config = configparser.ConfigParser()
 		self.config.read('config.ini')
 	
-	#Get Interger
+	## Get Interger type
+	# @param obj:string main section
+	# @param var:string variable
+	# @return interger representation of object 
 	def I(self,obj,var):
 		return int(self.config[obj][var])
 
-	#Get String
+	## Get String type
+	# @param obj:string main section
+	# @param var:string variable
+	# @return interger representation of object 
 	def S(self,obj,var):
 		return self.config[obj][var]

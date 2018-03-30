@@ -160,33 +160,28 @@ class Robot(object):
         if self.test:
             return
 
-        #Up
         self.movUp()
 
         #Start Position
         #logging.debug('\tSTART POS Board(%d,%d) Robot(%d:,%d)'%(start.getXBoard(),start.getYBoard(),start.getX(),start.getY()))
         self.swift.set_position(x = start.getX(), y = start.getY())
 
-        #DOWN
         self.movDown()
 
         #Grip Peice
         self.swift.close()
 
-        #UP
         self.movUp()
 
         #End Posistion
         #logging.debug('\tEND POS Board(%d,%d) robot(%d:,%d)'%(end.getXBoard(),end.getYBoard(),end.getX(),end.getY()))
         self.swift.set_position(x = end.getX(), y = end.getY())
 
-        #DOWN
         self.movDown()
 
         #Release
         self.swift.open()
 
-        #Up
         self.movUp()
 
         #RETURN TO RESTING

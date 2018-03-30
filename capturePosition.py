@@ -20,7 +20,3 @@ class CapturePosition(Position):
       else:
          self.y += confI('offsets','captureR')
 
-
-      #print("INVERT %d x:%d"%(invert,self.x))
-      #print(super(CapturePosition, self).getXBoard())
-

@@ -78,7 +78,6 @@ class CaptureBoard(object):
          self.lastColI = self.ROW_LENGTH-1
          assert(self.lastRowI>=0)
       self.peiceCount -= 1
-      #print(self.board[row][col])
       return pos, peice
 
    def resetBoard(self):
@@ -119,10 +118,6 @@ class CaptureBoard(object):
                continue
             self.board[x][y].printPeice()
          print()
-
-
-      
-
 
 
 def test():

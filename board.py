@@ -22,6 +22,7 @@ class Board:
         else:
             self.gpio = GPIOBOARD()
             self.gpio.setup()
+
     def populate_blank(self):
         list = []
         for x in range (0,8):
@@ -67,8 +68,7 @@ class Board:
         for x in range (8):
             for y in range(8):
                   if x < 2 or x > 5:
-                      self.board[x][y].StartingX = x
-                      self.board[x][y].StartingY = y
+                      self.board[x][y].setStartPos(x,y)
 
     # Check if where we are moving to results in a collision
     def isCollision(self,end):
@@ -134,6 +134,7 @@ class Board:
         if self.board[startx][starty].gpio!=1:
             logging.error('\tGPIO Check Failed, GPIO Says no piece exists at this move')
             self.GPIOerrors += 1
+
     def print_board(self):
         self.GPIOUpdate()
         for x in range(0, len(self.board)):
@@ -160,7 +161,6 @@ class Board:
                     print("  :  |",end='')
                     continue
                 self.board[x][y].printPeice()
-                #print ("|%s %s %s|"%( color, name, str(gpio)),StartingPosition, end='')
             print()
         
         
@@ -182,22 +182,6 @@ def test():
         print()
         testboard.print_board()
         time.sleep(2)
-#    print ("Start board")
-#    testboard.print_board()
-#    print ("\n\nMoving 1,0 to 2,0\n\n")
-#    testboard.move(Position(1,0),Position(2,0))
-#    testboard.print_board()
-#    print ("\n\nMoving 0,4 to 3,1\n\n")
-#    testboard.move(Position(0,4),Position(3,1))
-#    testboard.print_board()
-#    print ("\n\nMoving 3,0 to 4,0 (does not exist)\n\n")
-#    testboard.move(Position(1,0),Position(2,0))
-#    testboard.print_board()
-#    print ("\n\nMoving 0,0 to 0,1 (collision)\n\n")
-#    testboard.move(Position(0,0),Position(0,1))
-#    testboard.print_board()
-#
-
 
 
 if __name__ == "__main__":
