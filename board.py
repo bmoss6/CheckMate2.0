@@ -223,7 +223,7 @@ class Board:
 #   [ rook, knight, bishop, queen, king, bishop, knight, rook ]
 
 
-    ## Test function that creates a new board and displays initial print objects 
+    ## Test function that creates a new board and displays initial print objects
 def test():
     filepath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'GameScripts'))
     fishergame = os.path.join(filepath,"GameScripts/Fischer.pgn")
