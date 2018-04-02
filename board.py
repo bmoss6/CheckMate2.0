@@ -134,6 +134,7 @@ class Board:
         if self.test:
             return
         self.gpio.boardcheck()
+        # Updates each PIECE object in the board with the actual GPIO values
         for x in range(8):
             for y in range(8):
                 self.board[x][y].setGPIO(self.gpio.gpioboard[x][y])
@@ -167,13 +168,21 @@ class Board:
         # self.board[startx][starty].name = "null"
         # self.board[startx][starty].color = "null"
 
+    ## Checks a piece object to ensure that a GPIO (Reed Switch) is activated, which means that a magnet (attached to the piece)
+    # is in the square relating to the piece object.
+    #  @param startx: x-coordinate of square to check on the board.
+    #  @param starty: y-coordinate of square to check on the board.
     def GPIOError(self,startx,starty):
         if self.test:
             return
+        # If not in test mode, make sure that piece has a magnet. IF not, increment the gpio error count.
         if self.board[startx][starty].gpio!=1:
             logging.error('\tGPIO Check Failed, GPIO Says no piece exists at this move')
             self.GPIOerrors += 1
 
+
+    ## Print board function that will print board and it's piece objects + attributes.
+    #  Used mainly to test the gpio function to ensure that gpio tracking is working properly
     def print_board(self):
         self.GPIOUpdate()
         for x in range(0, len(self.board)):
@@ -191,6 +200,7 @@ class Board:
                 print ("|%s %s %s|"%( color, name, str(gpio)),StartingPosition, end='')
             print("\n------------------------------------")
 
+    ## Simplified print function for showing board state throughout a chess game. Does not display GPIO information.
     def print_simple_no_gpio(self):
         print("      [0]   [1]   [2]   [3]   [4]   [5]   [6]   [7]")
         for x in range(0, len(self.board)):
@@ -213,6 +223,7 @@ class Board:
 #   [ rook, knight, bishop, queen, king, bishop, knight, rook ]
 
 
+    ## Test function that creates a new board and displays initial print objects 
 def test():
     filepath = os.path.abspath(os.path.join(os.path.dirname(__file__), 'GameScripts'))
     fishergame = os.path.join(filepath,"GameScripts/Fischer.pgn")
