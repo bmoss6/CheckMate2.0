@@ -59,6 +59,9 @@ def playGame(game,robot,robot2):
    #The board is shared so it can be reset by either robot.
    robot.resetBoard(None)
 
+def pauseGame():
+   while True:
+      time.sleep()
 def setupRobots():
    #Both boards should just be in the same class.
    gameBoard = Board()
@@ -72,9 +75,9 @@ def setupRobots():
       quit()
 
    # Robots share the same board 
-   robot = Robot(robotList[0],gameBoard,captureBoard1,"gold")
-   GPIO.add_event_detect(1, GPIO.BOTH, robot.resetBoard)
-   robot2 = Robot(robotList[1],gameBoard,captureBoard2, "silver")
+   robot = Robot(robotList[0],gameBoard,captureBoard1,"white")
+   GPIO.add_event_detect(1, GPIO.BOTH, pauseGame)
+   robot2 = Robot(robotList[1],gameBoard,captureBoard2, "black")
 
    # Check to verify the robots are not switched
    robot1ID = conf.S('robotIdents','robot1')
@@ -106,7 +109,14 @@ def testRobotSetup():
    robot = Robot(None,gameBoard,captureBoard1,test=True)
    robot2 = Robot(None,gameBoard,captureBoard2,test=True)
    return robot, robot2
-
+def testRobotRestart():
+   robot, robot2 = setupRobots()
+   robot.clearRobotPieces()
+   robot2.clearRobotPieces()
+   robot.resetToOriginalPosition()
+   robot2.resetToOriginalPosition()
+   
+   
 def main():
 
    # Setup board and capture board to share between robots
@@ -130,4 +140,5 @@ def main():
       sleep(1)
 
 if __name__ == "__main__":
-   main()
+ #  main()
+    testRobotRestart()

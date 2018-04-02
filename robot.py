@@ -35,36 +35,21 @@ class Robot(object):
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
         self.swift.reset()
 
-#    def ResetStartingPositionRows(self):
-#        for x in range (8):
-#            for y in range (8):
-#                if x < 2 or x > 5:
-#                    if self.board[x][y] is not None: 
-#                        origin = self.board[x][y].StartingPosition.split(",")
-#                        originx = origin[0]
-#                        originy = origin[1]
-#                        self.move(Position(x,y),Position(originx,originy)
-# This will take a little bit of work
-    def resetBoard(self,channel):
-        # looks through board and move each peice back to its normal position
-        # possibly we could trake this in the orignal peice class?
-
-## This will iterate through the board, removing the remaining robot's peices (according to color) to the capture board.
-#        for x in range (self.board.height):
-#            for y in range (self.board.width):
-#                if self.board[x][y]!=None and self.board[x][y].color == self.color:
-#                    self.handleCollision(Position(x,y,False))
-
-        logging.debug("resetBoard is not written yet!")
-        return
-        self.ResetStartingPositionRows()
-        exit(1)
-        return
-
-        # reset every peice in the capture board to the right place
+    def clearRobotPieces(self):
+        for x in range (self.board.height):
+            for y in range (self.board.width):
+                if self.board.board[x][y].name!=None and self.board.board[x][y].color == self.color:
+                    if self.color != "white":
+                        self.handleCollision(Position(x,y,True))
+                    else:
+                        self.handleCollision(Position(x,y,False))
+    def resetToOriginalPosition(self):
         capturePosition, peice = self.captureBoard.popLast()
         while capturePosition is not None:
-            originalPoisiton = Position(peice.StartingX,peice.StartingY)
+            if self.color != "white":
+                originalPoisiton = Position(peice.StartingX,peice.StartingY,True)
+            else:
+                originalPosition = Position(peice.StartingX,peice.StartyingY,False)
             self.robotMove(capturePosition,originalPoisiton)
             capturePosition, peice = self.captureBoard.popLast()
 
