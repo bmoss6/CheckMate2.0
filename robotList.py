@@ -24,7 +24,7 @@ class RobotList(object):
             :returns:
                 A list of the serial ports available on the system
         """
-
+        self.robotList=[]
         if sys.platform.startswith('linux'):
             # this excludes your current terminal "/dev/tty"
             ports = glob.glob('/dev/ttyACM[0-9]*')
@@ -41,11 +41,7 @@ class RobotList(object):
                 print("Unable to connect to serial port %s"%port)
         if(len(self.robotList) == self.numOfRobots):
             self.initialized = True
-        else:
-            print("Found to many or not enough robots to start." \
-                "\nChange the number of robots in RobotList in run.py if testing.")
-
-
+        
     def getList(self):
         if self.initialized:
             return self.robotList

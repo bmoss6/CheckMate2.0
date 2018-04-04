@@ -63,6 +63,12 @@ def pauseGame():
    while True:
       time.sleep()
 def setupRobots():
+
+   retry_autostart = conf.I('game','retry_autostart')
+   autostart = False
+   if conf.S('game','autostart') == 'True':
+      autostart = True
+
    #Both boards should just be in the same class.
    gameBoard = Board()
    captureBoard1 = CaptureBoard()
@@ -70,8 +76,25 @@ def setupRobots():
 
    #Setup Robots
    RL = RobotList(2)
-   robotList = RL.getList()
+   robotList = None
+   while True:
+      robotList = RL.getList()
+      if robotList is False and autostart:
+         retry_autostart -= 1
+         #try again to get serial ports
+         RL.serial_ports()
+         if retry_autostart <= 0:
+            logging.error("Unable to find robots on start")
+            break
+         sleep(3)
+      elif not autostart:
+         break
+      else:
+         break
+     
    if robotList is False:
+      print("Found to many or not enough robots to start." \
+         "\nChange the number of robots in RobotList in run.py if testing.")
       quit()
 
    # Robots share the same board 
