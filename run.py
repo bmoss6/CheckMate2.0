@@ -1,7 +1,27 @@
 #!/usr/bin/env python3
+from time import sleep
+import os
+# This is a super hacky way to make sure python is ready before we start
+if False:
+   os.chdir("/home/pi/Documents/CheckMate2.0")
+   tries = 0
+   tmpFile ="test.txt"
+   maxTries = 60
+   while True:
+      if (tries > 60):
+         exit()
+      try:
+         f= open(tmpFile,"w+")
+         f.write("script has run\n")
+         f.close()
+         os.remove(tmpFile)
+         break
+      except Exception as e:
+         tries += 1
+         sleep(1)
+
 from robot import Robot 
 from position import Position
-from time import sleep
 from robotList import RobotList
 from game import Game
 from board import Board
@@ -9,11 +29,11 @@ from captureBoard import CaptureBoard
 from itertools import zip_longest
 from os import listdir
 from os.path import isfile, join
-from config import Conf
 import logging, sys
 import RPi.GPIO as GPIO
-logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+from config import Conf
 conf = Conf()
+logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 # Set to true to test off of the robots and PI. 
 # also comment out "from gpio import GPIOBOARD" in board.py
@@ -162,6 +182,26 @@ def main():
    while True:
       sleep(1)
 
+#This is a super hacky way to make sure the python is ready to run the script on boot
+def waitToStart():
+   tries = 0
+   tmpFile ="test.txt"
+   maxTries = 60
+
+   while True:
+      if (tries > 60):
+         exit()
+      
+      try:
+         f= open(tmpFile,"w+")
+         f.write("script has run\n")
+         f.close()
+         #os.remove(tmpFile)
+         break
+      except Exception as e:
+         tries += 1
+         sleep(1)
+
 if __name__ == "__main__":
- #  main()
-    testRobotRestart()
+   main()
+   #testRobotRestart()
