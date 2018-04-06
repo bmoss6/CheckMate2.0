@@ -47,6 +47,9 @@ if not testMode:
 
 GameScripts = "GameScripts"
 
+## play game read in for PGN file from the GameScirpts folder
+#  @param robot:Robot first robot for game
+#  @param robot2:Robot second robot for game
 def playGame(game,robot,robot2):
    game = Game(game)
    robot1Moves, robot2Moves = game.getMoves()
@@ -82,6 +85,9 @@ def playGame(game,robot,robot2):
 def pauseGame():
    while True:
       time.sleep()
+
+## initialize the robots and board used for the game
+#  @return Robot1, Robot2
 def setupRobots():
 
    retry_autostart = conf.I('game','retry_autostart')
@@ -143,6 +149,8 @@ def setupRobots():
 
    return robot, robot2
 
+## setup the robots without connection the API to test without the robots
+#  @return Robot1, Robot2
 def testRobotSetup():
    gameBoard = Board(test=True)
    captureBoard1 = CaptureBoard()
@@ -152,6 +160,7 @@ def testRobotSetup():
    robot = Robot(None,gameBoard,captureBoard1,test=True)
    robot2 = Robot(None,gameBoard,captureBoard2,test=True)
    return robot, robot2
+
 def testRobotRestart():
    robot, robot2 = setupRobots()
    robot.clearRobotPieces()
@@ -181,26 +190,6 @@ def main():
    logging.debug('Sleep Loop')
    while True:
       sleep(1)
-
-#This is a super hacky way to make sure the python is ready to run the script on boot
-def waitToStart():
-   tries = 0
-   tmpFile ="test.txt"
-   maxTries = 60
-
-   while True:
-      if (tries > 60):
-         exit()
-      
-      try:
-         f= open(tmpFile,"w+")
-         f.write("script has run\n")
-         f.close()
-         #os.remove(tmpFile)
-         break
-      except Exception as e:
-         tries += 1
-         sleep(1)
 
 if __name__ == "__main__":
    main()

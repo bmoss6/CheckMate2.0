@@ -73,6 +73,9 @@ $(function() {
 <div class="title">robot.Robot Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classrobot_1_1Robot.html" title="Robot Class This class is at the center of where all of the classes interaction starts. ">Robot</a> Class This class is at the center of where all of the classes interaction starts.  
+ <a href="classrobot_1_1Robot.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for robot.Robot:</div>
 <div class="dyncontent">
@@ -84,36 +87,468 @@ Inheritance diagram for robot.Robot:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7d50b65bb6f602bc24eace066c093ef"><td class="memItemLeft" align="right" valign="top"><a id="ac7d50b65bb6f602bc24eace066c093ef"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, port, board, captureBoard, color, test=False)</td></tr>
+<tr class="memitem:ac7d50b65bb6f602bc24eace066c093ef"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#ac7d50b65bb6f602bc24eace066c093ef">__init__</a> (self, port, <a class="el" href="classrobot_1_1Robot.html#a2c1030c696f5c601885014a5556ea92d">board</a>, <a class="el" href="classrobot_1_1Robot.html#a269fadec5f595ecea8defd3dd0b83680">captureBoard</a>, <a class="el" href="classrobot_1_1Robot.html#a697a3f6338c6d9dcbd833a1a34e1b2a2">color</a>, test=False)</td></tr>
+<tr class="memdesc:ac7d50b65bb6f602bc24eace066c093ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ac7d50b65bb6f602bc24eace066c093ef">More...</a><br /></td></tr>
 <tr class="separator:ac7d50b65bb6f602bc24eace066c093ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1b3a449c28e1167bddcc7ad30af3db24"><td class="memItemLeft" align="right" valign="top"><a id="a1b3a449c28e1167bddcc7ad30af3db24"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>resetBoard</b> (self, channel)</td></tr>
-<tr class="separator:a1b3a449c28e1167bddcc7ad30af3db24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bd7580fcca95b7e79d934b3b95b1d31"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a0bd7580fcca95b7e79d934b3b95b1d31">clearRobotPieces</a> (self)</td></tr>
+<tr class="memdesc:a0bd7580fcca95b7e79d934b3b95b1d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">After a game is complete send all of the peices to the captureboard to reset them.  <a href="#a0bd7580fcca95b7e79d934b3b95b1d31">More...</a><br /></td></tr>
+<tr class="separator:a0bd7580fcca95b7e79d934b3b95b1d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb567eaaba41e57037d611dcaa292909"><td class="memItemLeft" align="right" valign="top"><a id="abb567eaaba41e57037d611dcaa292909"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#abb567eaaba41e57037d611dcaa292909">resetToOriginalPosition</a> (self)</td></tr>
+<tr class="memdesc:abb567eaaba41e57037d611dcaa292909"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pop all of the capture peices off of the capture board and reset them to their orignal position. <br /></td></tr>
+<tr class="separator:abb567eaaba41e57037d611dcaa292909"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41cbaf5a3c9424769675a7cdb47c30a8"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a41cbaf5a3c9424769675a7cdb47c30a8">checkID</a> (self, <a class="el" href="classrobot_1_1Robot.html#a588e04899bb5494345eeb3a2b26e768e">uid</a>)</td></tr>
+<tr class="memdesc:a41cbaf5a3c9424769675a7cdb47c30a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check to see if the uid of the robot is what we think it is.  <a href="#a41cbaf5a3c9424769675a7cdb47c30a8">More...</a><br /></td></tr>
+<tr class="separator:a41cbaf5a3c9424769675a7cdb47c30a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3ba7a7ae610e2827b9c3277fca0acc1"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#aa3ba7a7ae610e2827b9c3277fca0acc1">updateBoard</a> (self, start, end)</td></tr>
+<tr class="memdesc:aa3ba7a7ae610e2827b9c3277fca0acc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wrapper to update the board class for clarity.  <a href="#aa3ba7a7ae610e2827b9c3277fca0acc1">More...</a><br /></td></tr>
+<tr class="separator:aa3ba7a7ae610e2827b9c3277fca0acc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4d0d884aa03b6417ae8ce9c71c35eea"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#ac4d0d884aa03b6417ae8ce9c71c35eea">castle</a> (self, castle, robot)</td></tr>
+<tr class="memdesc:ac4d0d884aa03b6417ae8ce9c71c35eea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Castleing moves are always the same so they are hardcoded depending on the robot.  <a href="#ac4d0d884aa03b6417ae8ce9c71c35eea">More...</a><br /></td></tr>
+<tr class="separator:ac4d0d884aa03b6417ae8ce9c71c35eea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20be35d9d412620199a8d350c335d0f5"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a20be35d9d412620199a8d350c335d0f5">handleCollision</a> (self, peicePosition)</td></tr>
+<tr class="memdesc:a20be35d9d412620199a8d350c335d0f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the end peice onto the capture board and update it.  <a href="#a20be35d9d412620199a8d350c335d0f5">More...</a><br /></td></tr>
+<tr class="separator:a20be35d9d412620199a8d350c335d0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e37280946cc2dfe98bdfcbec45c2b57"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a1e37280946cc2dfe98bdfcbec45c2b57">move</a> (self, start, end)</td></tr>
+<tr class="memdesc:a1e37280946cc2dfe98bdfcbec45c2b57"><td class="mdescLeft">&#160;</td><td class="mdescRight">External move function that should be called outside the class to move a peice.  <a href="#a1e37280946cc2dfe98bdfcbec45c2b57">More...</a><br /></td></tr>
+<tr class="separator:a1e37280946cc2dfe98bdfcbec45c2b57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a4441fcbd81fa8888bc13d8e3566548"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a2a4441fcbd81fa8888bc13d8e3566548">robotMove</a> (self, start, end)</td></tr>
+<tr class="memdesc:a2a4441fcbd81fa8888bc13d8e3566548"><td class="mdescLeft">&#160;</td><td class="mdescRight">Internal move function that will use the serial API from one position to the other.  <a href="#a2a4441fcbd81fa8888bc13d8e3566548">More...</a><br /></td></tr>
+<tr class="separator:a2a4441fcbd81fa8888bc13d8e3566548"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7ad41a79e5350cee43b3e4f64b7a659f"><td class="memItemLeft" align="right" valign="top"><a id="a7ad41a79e5350cee43b3e4f64b7a659f"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a7ad41a79e5350cee43b3e4f64b7a659f">movUp</a> (self)</td></tr>
+<tr class="memdesc:a7ad41a79e5350cee43b3e4f64b7a659f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the robot up to the hight sent in the configuration. <br /></td></tr>
+<tr class="separator:a7ad41a79e5350cee43b3e4f64b7a659f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f88adcf79a19042bc894f550baa0fa"><td class="memItemLeft" align="right" valign="top"><a id="ac9f88adcf79a19042bc894f550baa0fa"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#ac9f88adcf79a19042bc894f550baa0fa">movDown</a> (self)</td></tr>
+<tr class="memdesc:ac9f88adcf79a19042bc894f550baa0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the robot up to the hight sent in the configuration. <br /></td></tr>
+<tr class="separator:ac9f88adcf79a19042bc894f550baa0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ac6f9cffab22675391c0726d78efa6e70"><td class="memItemLeft" align="right" valign="top"><a id="ac6f9cffab22675391c0726d78efa6e70"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>color</b></td></tr>
-<tr class="separator:ac6f9cffab22675391c0726d78efa6e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3749fbdd174024c21a51ddafb4409d93"><td class="memItemLeft" align="right" valign="top"><a id="a3749fbdd174024c21a51ddafb4409d93"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>board</b></td></tr>
-<tr class="separator:a3749fbdd174024c21a51ddafb4409d93"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22cb96f95305877b0bc16a8127ee829e"><td class="memItemLeft" align="right" valign="top"><a id="a22cb96f95305877b0bc16a8127ee829e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>captureBoard</b></td></tr>
-<tr class="separator:a22cb96f95305877b0bc16a8127ee829e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a697a3f6338c6d9dcbd833a1a34e1b2a2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a697a3f6338c6d9dcbd833a1a34e1b2a2">color</a></td></tr>
+<tr class="memdesc:a697a3f6338c6d9dcbd833a1a34e1b2a2"><td class="mdescLeft">&#160;</td><td class="mdescRight">the color of peices used by the robot.  <a href="#a697a3f6338c6d9dcbd833a1a34e1b2a2">More...</a><br /></td></tr>
+<tr class="separator:a697a3f6338c6d9dcbd833a1a34e1b2a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c1030c696f5c601885014a5556ea92d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a2c1030c696f5c601885014a5556ea92d">board</a></td></tr>
+<tr class="memdesc:a2c1030c696f5c601885014a5556ea92d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Board class used by robot.  <a href="#a2c1030c696f5c601885014a5556ea92d">More...</a><br /></td></tr>
+<tr class="separator:a2c1030c696f5c601885014a5556ea92d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a269fadec5f595ecea8defd3dd0b83680"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a269fadec5f595ecea8defd3dd0b83680">captureBoard</a></td></tr>
+<tr class="memdesc:a269fadec5f595ecea8defd3dd0b83680"><td class="mdescLeft">&#160;</td><td class="mdescRight">Capture board used by robot.  <a href="#a269fadec5f595ecea8defd3dd0b83680">More...</a><br /></td></tr>
+<tr class="separator:a269fadec5f595ecea8defd3dd0b83680"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad0e577c3fa7fab478314cb09fed65db3"><td class="memItemLeft" align="right" valign="top"><a id="ad0e577c3fa7fab478314cb09fed65db3"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>test</b></td></tr>
 <tr class="separator:ad0e577c3fa7fab478314cb09fed65db3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae80e25673873043b767d3cc049a4fbc2"><td class="memItemLeft" align="right" valign="top"><a id="ae80e25673873043b767d3cc049a4fbc2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>swift</b></td></tr>
-<tr class="separator:ae80e25673873043b767d3cc049a4fbc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1099215871c8298c07902f1b1e4354a8"><td class="memItemLeft" align="right" valign="top"><a id="a1099215871c8298c07902f1b1e4354a8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>uid</b></td></tr>
-<tr class="separator:a1099215871c8298c07902f1b1e4354a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b4adc6c16a7a79a5368b3e134bba9bf"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a0b4adc6c16a7a79a5368b3e134bba9bf">swift</a></td></tr>
+<tr class="memdesc:a0b4adc6c16a7a79a5368b3e134bba9bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">instance of the API to interact with the robot.  <a href="#a0b4adc6c16a7a79a5368b3e134bba9bf">More...</a><br /></td></tr>
+<tr class="separator:a0b4adc6c16a7a79a5368b3e134bba9bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a588e04899bb5494345eeb3a2b26e768e"><td class="memItemLeft" align="right" valign="top"><a id="a588e04899bb5494345eeb3a2b26e768e"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a588e04899bb5494345eeb3a2b26e768e">uid</a></td></tr>
+<tr class="memdesc:a588e04899bb5494345eeb3a2b26e768e"><td class="mdescLeft">&#160;</td><td class="mdescRight">uid of robot as reported by the API <br /></td></tr>
+<tr class="separator:a588e04899bb5494345eeb3a2b26e768e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><pre class="fragment">docstring for Robot</pre> </div><hr/>The documentation for this class was generated from the following file:<ul>
+<div class="textblock"><p class=""><a class="el" href="classrobot_1_1Robot.html" title="Robot Class This class is at the center of where all of the classes interaction starts. ">Robot</a> Class This class is at the center of where all of the classes interaction starts. </p>
+<p class="">The core code and functionaility of this class is to controll the robot and move the peices into the correct spot. As it moves peices it is reponsible for updating the board classes. This class is the logic for moving a peies into position and handeling any collisions that maay occur. The acutall communcation with the robot is defined within the uArmWrapper </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac7d50b65bb6f602bc24eace066c093ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7d50b65bb6f602bc24eace066c093ef">&#9670;&nbsp;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>port</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>board</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>captureBoard</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>color</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>test</em> = <code>False</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">port:string</td><td>path to the TTY of the robot </td></tr>
+    <tr><td class="paramname">board:Board</td><td>Board class the both robots share </td></tr>
+    <tr><td class="paramname">captureBoard:CaptureBoard</td><td>Capture board for this robot. </td></tr>
+    <tr><td class="paramname">color:string</td><td>color of peices the robot is responsible for </td></tr>
+    <tr><td class="paramname">test:Bool</td><td>Set to true if you want to run test without robots so they dont try to send commnds </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ac4d0d884aa03b6417ae8ce9c71c35eea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4d0d884aa03b6417ae8ce9c71c35eea">&#9670;&nbsp;</a></span>castle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.castle </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>castle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>robot</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Castleing moves are always the same so they are hardcoded depending on the robot. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">castle:int</td><td>1 = king side castle 2 = queenside castle </td></tr>
+    <tr><td class="paramname">robot:int</td><td><a class="el" href="classrobot_1_1Robot.html" title="Robot Class This class is at the center of where all of the classes interaction starts. ">Robot</a> 1 or 2 depending what side of the board it is on. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a41cbaf5a3c9424769675a7cdb47c30a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41cbaf5a3c9424769675a7cdb47c30a8">&#9670;&nbsp;</a></span>checkID()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.checkID </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>uid</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check to see if the uid of the robot is what we think it is. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">uid:string</td><td>uid to verify </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Bool to say if matched or not. </dd></dl>
+
+</div>
+</div>
+<a id="a0bd7580fcca95b7e79d934b3b95b1d31"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bd7580fcca95b7e79d934b3b95b1d31">&#9670;&nbsp;</a></span>clearRobotPieces()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.clearRobotPieces </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>After a game is complete send all of the peices to the captureboard to reset them. </p>
+
+</div>
+</div>
+<a id="a20be35d9d412620199a8d350c335d0f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20be35d9d412620199a8d350c335d0f5">&#9670;&nbsp;</a></span>handleCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.handleCollision </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>peicePosition</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Move the end peice onto the capture board and update it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">peicePosition:Position</td><td>Position of the peice that needs to be discarded </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1e37280946cc2dfe98bdfcbec45c2b57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e37280946cc2dfe98bdfcbec45c2b57">&#9670;&nbsp;</a></span>move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.move </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>External move function that should be called outside the class to move a peice. </p>
+<p class="">It will do any collision handling if nessisary and update the board. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start:Position</td><td>starting position of peice </td></tr>
+    <tr><td class="paramname">end:Position</td><td>ending position of peice </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2a4441fcbd81fa8888bc13d8e3566548"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a4441fcbd81fa8888bc13d8e3566548">&#9670;&nbsp;</a></span>robotMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.robotMove </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Internal move function that will use the serial API from one position to the other. </p>
+<p class="">There is not error handling at this point. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start:Position</td><td>starting position of peice </td></tr>
+    <tr><td class="paramname">end:Position</td><td>ending position of peice </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3ba7a7ae610e2827b9c3277fca0acc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3ba7a7ae610e2827b9c3277fca0acc1">&#9670;&nbsp;</a></span>updateBoard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.updateBoard </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Wrapper to update the board class for clarity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start:Position</td><td>starting position of peice </td></tr>
+    <tr><td class="paramname">end:Position</td><td>ending position of peice </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a2c1030c696f5c601885014a5556ea92d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c1030c696f5c601885014a5556ea92d">&#9670;&nbsp;</a></span>board</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.board</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Board class used by robot. </p>
+<p class="">This is shared between robots </p>
+
+</div>
+</div>
+<a id="a269fadec5f595ecea8defd3dd0b83680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a269fadec5f595ecea8defd3dd0b83680">&#9670;&nbsp;</a></span>captureBoard</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.captureBoard</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Capture board used by robot. </p>
+<p class="">This board is not shared. </p>
+
+</div>
+</div>
+<a id="a697a3f6338c6d9dcbd833a1a34e1b2a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a697a3f6338c6d9dcbd833a1a34e1b2a2">&#9670;&nbsp;</a></span>color</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.color</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>the color of peices used by the robot. </p>
+<p class="">Set the robot in test mode to run without being connected.</p>
+
+</div>
+</div>
+<a id="a0b4adc6c16a7a79a5368b3e134bba9bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b4adc6c16a7a79a5368b3e134bba9bf">&#9670;&nbsp;</a></span>swift</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.swift</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>instance of the API to interact with the robot. </p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
 <li>robot.py</li>
 </ul>
 </div><!-- contents -->

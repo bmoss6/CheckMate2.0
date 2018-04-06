@@ -3,9 +3,16 @@
 #from position import Position
 from capturePosition import CapturePosition
 
+## CaptureBoard
+#  The capture board is an exections of the playing board for each robot in order to keep
+#  track and place the disgarded peices. You can think of it like a stack that you push and
+#  pop pecies on and off of. Structurally it is just a 2D array in which the 1st half of the
+#  rows represent one half of the board and the second. Running the test cases should give a
+#  pretty clear demenstration of how the data structure works 
 class CaptureBoard(object):
 
-   """docstring for CaptureBoard"""
+   ## Constructor
+   #  @param invert:bool store if returned peices should be inverted for this capture board.
    def __init__(self,invert=False):
       super(CaptureBoard, self).__init__()
 
@@ -26,12 +33,8 @@ class CaptureBoard(object):
          for y in range(0,self.ROW_LENGTH):
             row.append(None)
          self.board.append(row)
-      
 
-   #GPIO check
-   def selfCheck(self):
-      pass
-
+   
    def convIndexPos(self,row,col):
       # Check if we are on the other half 
       nextSide = True if row >= self.COLUMN_LENGTH/2 else False

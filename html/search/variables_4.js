@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['ser',['ser',['../classuArmWrapper_1_1uArmWrapper.html#a38cb2bc2470931d05839448be54fbcd5',1,'uArmWrapper::uArmWrapper']]],
-  ['speed',['speed',['../classuArmWrapper_1_1uArmWrapper.html#a63b2a08699e6862cf1077ced093ea8a8',1,'uArmWrapper::uArmWrapper']]],
-  ['startingx',['StartingX',['../classpiece_1_1Piece.html#ab26864c371cbed755f17e0d9fa0079e9',1,'piece::Piece']]],
-  ['startingy',['StartingY',['../classpiece_1_1Piece.html#ae86634d2a82a61aec01f43a04e1cc682',1,'piece::Piece']]]
+  ['game',['game',['../classgame_1_1Game.html#a6eff5f2c264dec265e8380d0914b1a45',1,'game::Game']]],
+  ['gpio',['gpio',['../classpiece_1_1Piece.html#a34377287c5ac03cc5cfa90adce988fd7',1,'piece::Piece']]],
+  ['gpioboard',['gpioboard',['../classgpio_1_1GPIOBOARD.html#a5e7239a7cd7683f24c5d3d96a6bdc33e',1,'gpio::GPIOBOARD']]],
+  ['gpioerrors',['GPIOerrors',['../classboard_1_1Board.html#a31d60635d4b3ce17480d0af3477e02f2',1,'board::Board']]]
 ];

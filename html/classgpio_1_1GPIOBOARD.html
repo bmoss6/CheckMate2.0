@@ -73,29 +73,31 @@ $(function() {
 <div class="title">gpio.GPIOBOARD Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>The GPIO Class for keeping track of where pieces are.  
+ <a href="classgpio_1_1GPIOBOARD.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a15994ac23499085014f44b6bf1db552e"><td class="memItemLeft" align="right" valign="top"><a id="a15994ac23499085014f44b6bf1db552e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self)</td></tr>
+<tr class="memitem:a15994ac23499085014f44b6bf1db552e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#a15994ac23499085014f44b6bf1db552e">__init__</a> (self)</td></tr>
+<tr class="memdesc:a15994ac23499085014f44b6bf1db552e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The inital constructor creates the maps made for reading the gpio switches.  <a href="#a15994ac23499085014f44b6bf1db552e">More...</a><br /></td></tr>
 <tr class="separator:a15994ac23499085014f44b6bf1db552e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86bffb726f63e250cc64e9ff661c3109"><td class="memItemLeft" align="right" valign="top"><a id="a86bffb726f63e250cc64e9ff661c3109"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>updateboard</b> (self, muxnumber, pinvalue, outputvalue)</td></tr>
+<tr class="memitem:a86bffb726f63e250cc64e9ff661c3109"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#a86bffb726f63e250cc64e9ff661c3109">updateboard</a> (self, muxnumber, pinvalue, outputvalue)</td></tr>
+<tr class="memdesc:a86bffb726f63e250cc64e9ff661c3109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates the GPIO board by iterating through every square on the physical board and getting to correct gpio value for that square.  <a href="#a86bffb726f63e250cc64e9ff661c3109">More...</a><br /></td></tr>
 <tr class="separator:a86bffb726f63e250cc64e9ff661c3109"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf4584a91832e2678fa4bd4bce52c486"><td class="memItemLeft" align="right" valign="top"><a id="acf4584a91832e2678fa4bd4bce52c486"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>setup</b> (self)</td></tr>
+<tr class="memitem:acf4584a91832e2678fa4bd4bce52c486"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#acf4584a91832e2678fa4bd4bce52c486">setup</a> (self)</td></tr>
+<tr class="memdesc:acf4584a91832e2678fa4bd4bce52c486"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets up the inital board by performing the setup functions for the gpio reads.  <a href="#acf4584a91832e2678fa4bd4bce52c486">More...</a><br /></td></tr>
 <tr class="separator:acf4584a91832e2678fa4bd4bce52c486"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a20cfe233da2ec1f5bcf387b423135d1c"><td class="memItemLeft" align="right" valign="top"><a id="a20cfe233da2ec1f5bcf387b423135d1c"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>checkmux</b> (self, MuxMap, inputs)</td></tr>
+<tr class="memitem:a20cfe233da2ec1f5bcf387b423135d1c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#a20cfe233da2ec1f5bcf387b423135d1c">checkmux</a> (self, MuxMap, inputs)</td></tr>
+<tr class="memdesc:a20cfe233da2ec1f5bcf387b423135d1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checkmux gets an output value after receving a binary input (0-16) which corresponds to the square that is being checked.  <a href="#a20cfe233da2ec1f5bcf387b423135d1c">More...</a><br /></td></tr>
 <tr class="separator:a20cfe233da2ec1f5bcf387b423135d1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1758300e67afc9b58659f4f0ad75626b"><td class="memItemLeft" align="right" valign="top"><a id="a1758300e67afc9b58659f4f0ad75626b"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>boardcheck</b> (self, muxnumber=0)</td></tr>
+<tr class="memitem:a1758300e67afc9b58659f4f0ad75626b"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#a1758300e67afc9b58659f4f0ad75626b">boardcheck</a> (self, muxnumber=0)</td></tr>
+<tr class="memdesc:a1758300e67afc9b58659f4f0ad75626b"><td class="mdescLeft">&#160;</td><td class="mdescRight">boardcheck iterates through the board and checks each square in each mux (0-16).  <a href="#a1758300e67afc9b58659f4f0ad75626b">More...</a><br /></td></tr>
 <tr class="separator:a1758300e67afc9b58659f4f0ad75626b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa3dce929d9704ebe055837c095f73953"><td class="memItemLeft" align="right" valign="top"><a id="aa3dce929d9704ebe055837c095f73953"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Mux1</b></td></tr>
+<tr class="memitem:aa3dce929d9704ebe055837c095f73953"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#aa3dce929d9704ebe055837c095f73953">Mux1</a></td></tr>
 <tr class="separator:aa3dce929d9704ebe055837c095f73953"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae47992443b48ff2bae063655f9b85f98"><td class="memItemLeft" align="right" valign="top"><a id="ae47992443b48ff2bae063655f9b85f98"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Mux2</b></td></tr>
@@ -106,16 +108,269 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:abe0e9b1b9bbca046481a4feb18ee6463"><td class="memItemLeft" align="right" valign="top"><a id="abe0e9b1b9bbca046481a4feb18ee6463"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>Mux4</b></td></tr>
 <tr class="separator:abe0e9b1b9bbca046481a4feb18ee6463"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae917c2643ed2d364c3cf19ca8b3574fd"><td class="memItemLeft" align="right" valign="top"><a id="ae917c2643ed2d364c3cf19ca8b3574fd"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MuxList</b></td></tr>
+<tr class="memitem:ae917c2643ed2d364c3cf19ca8b3574fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#ae917c2643ed2d364c3cf19ca8b3574fd">MuxList</a></td></tr>
 <tr class="separator:ae917c2643ed2d364c3cf19ca8b3574fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e7239a7cd7683f24c5d3d96a6bdc33e"><td class="memItemLeft" align="right" valign="top"><a id="a5e7239a7cd7683f24c5d3d96a6bdc33e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>gpioboard</b></td></tr>
+<tr class="memitem:a5e7239a7cd7683f24c5d3d96a6bdc33e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#a5e7239a7cd7683f24c5d3d96a6bdc33e">gpioboard</a></td></tr>
 <tr class="separator:a5e7239a7cd7683f24c5d3d96a6bdc33e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d5750729265c692e437706e3b104d99"><td class="memItemLeft" align="right" valign="top"><a id="a0d5750729265c692e437706e3b104d99"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>MuxToCoordinateMap</b></td></tr>
+<tr class="memitem:a0d5750729265c692e437706e3b104d99"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgpio_1_1GPIOBOARD.html#a0d5750729265c692e437706e3b104d99">MuxToCoordinateMap</a></td></tr>
 <tr class="separator:a0d5750729265c692e437706e3b104d99"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p class="">The GPIO Class for keeping track of where pieces are. </p>
+<p class="">Originally this was going to be an integral part of error checking for the robots. However, as time went by it became clear that this functionality was going to be a mere safety feature and not an actual critical function of the project. However, we realized this after prototype boards and wiring had already been made. So it was decided that this feature could actually be a forerunner to a more advanced system where robots are able to play against human counterparts. The gpio class consists of the GPIO pins that are connected to each square of the board as well as logic that checks the state of the gpios to determine whether a reed switch has been activated. Magnets are placed at the bottom of each physical piece which should trigger a reed switch when placed on top of it. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a15994ac23499085014f44b6bf1db552e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15994ac23499085014f44b6bf1db552e">&#9670;&nbsp;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gpio.GPIOBOARD.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The inital constructor creates the maps made for reading the gpio switches. </p>
+<p class="">Please refer to the wiring documentation for more details on the process. A gpioboard is also created, which is just a 2-d array of either 1's or 0's depending on whether a switch has been acgtivated. </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1758300e67afc9b58659f4f0ad75626b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1758300e67afc9b58659f4f0ad75626b">&#9670;&nbsp;</a></span>boardcheck()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gpio.GPIOBOARD.boardcheck </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>muxnumber</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>boardcheck iterates through the board and checks each square in each mux (0-16). </p>
+<p class="">once a square is properly checked, the state of the gpio pin is updated using the updateboard function. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">muxnumber</td><td>The mux that is being checked. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a20cfe233da2ec1f5bcf387b423135d1c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20cfe233da2ec1f5bcf387b423135d1c">&#9670;&nbsp;</a></span>checkmux()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gpio.GPIOBOARD.checkmux </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>MuxMap</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>inputs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checkmux gets an output value after receving a binary input (0-16) which corresponds to the square that is being checked. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MuxMap</td><td>the mux that is being checked </td></tr>
+    <tr><td class="paramname">inputs</td><td>The binary value (0-16) that relates to the square to be checked. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="acf4584a91832e2678fa4bd4bce52c486"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acf4584a91832e2678fa4bd4bce52c486">&#9670;&nbsp;</a></span>setup()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gpio.GPIOBOARD.setup </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets up the inital board by performing the setup functions for the gpio reads. </p>
+
+</div>
+</div>
+<a id="a86bffb726f63e250cc64e9ff661c3109"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86bffb726f63e250cc64e9ff661c3109">&#9670;&nbsp;</a></span>updateboard()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def gpio.GPIOBOARD.updateboard </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>muxnumber</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>pinvalue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>outputvalue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Updates the GPIO board by iterating through every square on the physical board and getting to correct gpio value for that square. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">muxnumber</td><td>the mux the board is checking </td></tr>
+    <tr><td class="paramname">pinvalue</td><td>the value of the pins that relates to the square we are checking </td></tr>
+    <tr><td class="paramname">outputvalue</td><td>The output value that is read from the gpio pin relating to the square whether a piece is on (1) or off (0) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a5e7239a7cd7683f24c5d3d96a6bdc33e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e7239a7cd7683f24c5d3d96a6bdc33e">&#9670;&nbsp;</a></span>gpioboard</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gpio.GPIOBOARD.gpioboard</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">gpioboard</td><td>Initial gpio board (2-d array) containing all 0's (default state) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa3dce929d9704ebe055837c095f73953"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3dce929d9704ebe055837c095f73953">&#9670;&nbsp;</a></span>Mux1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gpio.GPIOBOARD.Mux1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Mux</td><td>Tables: Maps a GPIO pin to the mux inputs. See wiring documentation for further details. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae917c2643ed2d364c3cf19ca8b3574fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae917c2643ed2d364c3cf19ca8b3574fd">&#9670;&nbsp;</a></span>MuxList</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gpio.GPIOBOARD.MuxList</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MuxList</td><td>Combined list of all the muxmaps. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a0d5750729265c692e437706e3b104d99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d5750729265c692e437706e3b104d99">&#9670;&nbsp;</a></span>MuxToCoordinateMap</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gpio.GPIOBOARD.MuxToCoordinateMap</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">MuxToCoordinateMap</td><td>Each square on the grid needs to match a particular mux and gpio reading (1-16). This map maps a square on the physical board to a mux and input number. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>gpio.py</li>
 </ul>

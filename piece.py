@@ -40,6 +40,7 @@ class Piece:
         return self.gpio
 
     ## Check if peice is empty
+    #  @return Bool
     def isEmpty(self):
         if (self.name is None) and (self.color is None) and (self.gpio is 0):
             return True

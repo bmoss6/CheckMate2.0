@@ -73,6 +73,9 @@ $(function() {
 <div class="title">game.Game Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>A class that reads a PGN formatted game and translates it into a series of moves for the robots.  
+ <a href="classgame_1_1Game.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for game.Game:</div>
 <div class="dyncontent">
@@ -84,17 +87,17 @@ Inheritance diagram for game.Game:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a5b68ec80b411a0b6a8dadc49cbb2885c"><td class="memItemLeft" align="right" valign="top"><a id="a5b68ec80b411a0b6a8dadc49cbb2885c"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>altElement</b> (self, a)</td></tr>
+<tr class="memitem:a5b68ec80b411a0b6a8dadc49cbb2885c"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#a5b68ec80b411a0b6a8dadc49cbb2885c">altElement</a> (self, a)</td></tr>
+<tr class="memdesc:a5b68ec80b411a0b6a8dadc49cbb2885c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve every other move starting with the first move in index 0.  <a href="#a5b68ec80b411a0b6a8dadc49cbb2885c">More...</a><br /></td></tr>
 <tr class="separator:a5b68ec80b411a0b6a8dadc49cbb2885c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2e0ef6617cd94202ed532b71ad88fbc"><td class="memItemLeft" align="right" valign="top"><a id="ad2e0ef6617cd94202ed532b71ad88fbc"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>otheraltelement</b> (self, b)</td></tr>
+<tr class="memitem:ad2e0ef6617cd94202ed532b71ad88fbc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#ad2e0ef6617cd94202ed532b71ad88fbc">otheraltelement</a> (self, b)</td></tr>
+<tr class="memdesc:ad2e0ef6617cd94202ed532b71ad88fbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve every other move starting with the second move in index 1.  <a href="#ad2e0ef6617cd94202ed532b71ad88fbc">More...</a><br /></td></tr>
 <tr class="separator:ad2e0ef6617cd94202ed532b71ad88fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00a64eb4da1292b75eeb27ad038b2379"><td class="memItemLeft" align="right" valign="top"><a id="a00a64eb4da1292b75eeb27ad038b2379"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>convertMove</b> (self, move)</td></tr>
+<tr class="memitem:a00a64eb4da1292b75eeb27ad038b2379"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#a00a64eb4da1292b75eeb27ad038b2379">convertMove</a> (self, move)</td></tr>
+<tr class="memdesc:a00a64eb4da1292b75eeb27ad038b2379"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the move we have retrived from PGN format into something the robot class will be able to interpret and use for movement.  <a href="#a00a64eb4da1292b75eeb27ad038b2379">More...</a><br /></td></tr>
 <tr class="separator:a00a64eb4da1292b75eeb27ad038b2379"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86ace39269d2c357912d4057e27149d0"><td class="memItemLeft" align="right" valign="top"><a id="a86ace39269d2c357912d4057e27149d0"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, filename)</td></tr>
+<tr class="memitem:a86ace39269d2c357912d4057e27149d0"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#a86ace39269d2c357912d4057e27149d0">__init__</a> (self, filename)</td></tr>
+<tr class="memdesc:a86ace39269d2c357912d4057e27149d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor to initialize and define the different datastructures that hold the moves, as well as read the file containing the PGN formatted game.  <a href="#a86ace39269d2c357912d4057e27149d0">More...</a><br /></td></tr>
 <tr class="separator:a86ace39269d2c357912d4057e27149d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af48aff33b4b3ba555a478956764a0429"><td class="memItemLeft" align="right" valign="top"><a id="af48aff33b4b3ba555a478956764a0429"></a>
 def&#160;</td><td class="memItemRight" valign="bottom"><b>getMoves</b> (self)</td></tr>
@@ -103,27 +106,246 @@ def&#160;</td><td class="memItemRight" valign="bottom"><b>getMoves</b> (self)</t
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a72d05e041e9d64c065f5cb44e6584664"><td class="memItemLeft" align="right" valign="top"><a id="a72d05e041e9d64c065f5cb44e6584664"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>robot1_moves</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#a72d05e041e9d64c065f5cb44e6584664">robot1_moves</a></td></tr>
+<tr class="memdesc:a72d05e041e9d64c065f5cb44e6584664"><td class="mdescLeft">&#160;</td><td class="mdescRight">an array that will hold all of the moves for robot 1 <br /></td></tr>
 <tr class="separator:a72d05e041e9d64c065f5cb44e6584664"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a54b5d7aedbad688952b0f712b935f414"><td class="memItemLeft" align="right" valign="top"><a id="a54b5d7aedbad688952b0f712b935f414"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>robot2_moves</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#a54b5d7aedbad688952b0f712b935f414">robot2_moves</a></td></tr>
+<tr class="memdesc:a54b5d7aedbad688952b0f712b935f414"><td class="mdescLeft">&#160;</td><td class="mdescRight">an array that will hold all of the moves for robot 2 <br /></td></tr>
 <tr class="separator:a54b5d7aedbad688952b0f712b935f414"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad97d3c6957c84c053891d3a2b6d4e7b5"><td class="memItemLeft" align="right" valign="top"><a id="ad97d3c6957c84c053891d3a2b6d4e7b5"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>all_moves</b></td></tr>
+<tr class="memitem:ad97d3c6957c84c053891d3a2b6d4e7b5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#ad97d3c6957c84c053891d3a2b6d4e7b5">all_moves</a></td></tr>
+<tr class="memdesc:ad97d3c6957c84c053891d3a2b6d4e7b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">an array that will temporarily hold all of the moves in the game while we assign moves to each of the robots.  <a href="#ad97d3c6957c84c053891d3a2b6d4e7b5">More...</a><br /></td></tr>
 <tr class="separator:ad97d3c6957c84c053891d3a2b6d4e7b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8af704960d809cd27f9d646fafa477f3"><td class="memItemLeft" align="right" valign="top"><a id="a8af704960d809cd27f9d646fafa477f3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>pgn</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#a8af704960d809cd27f9d646fafa477f3">pgn</a></td></tr>
+<tr class="memdesc:a8af704960d809cd27f9d646fafa477f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The game file with the PGN game information. <br /></td></tr>
 <tr class="separator:a8af704960d809cd27f9d646fafa477f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6eff5f2c264dec265e8380d0914b1a45"><td class="memItemLeft" align="right" valign="top"><a id="a6eff5f2c264dec265e8380d0914b1a45"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>game</b></td></tr>
+<tr class="memitem:a6eff5f2c264dec265e8380d0914b1a45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#a6eff5f2c264dec265e8380d0914b1a45">game</a></td></tr>
+<tr class="memdesc:a6eff5f2c264dec265e8380d0914b1a45"><td class="mdescLeft">&#160;</td><td class="mdescRight">The actual game, translated from the PGN file we received during initialization.  <a href="#a6eff5f2c264dec265e8380d0914b1a45">More...</a><br /></td></tr>
 <tr class="separator:a6eff5f2c264dec265e8380d0914b1a45"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af272b68d1323640b770768c45aa131d3"><td class="memItemLeft" align="right" valign="top"><a id="af272b68d1323640b770768c45aa131d3"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Square</b></td></tr>
+<tr class="memitem:af272b68d1323640b770768c45aa131d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#af272b68d1323640b770768c45aa131d3">Square</a></td></tr>
+<tr class="memdesc:af272b68d1323640b770768c45aa131d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">A namedTuple to hold the x and y coordinates of a single position or square.  <a href="#af272b68d1323640b770768c45aa131d3">More...</a><br /></td></tr>
 <tr class="separator:af272b68d1323640b770768c45aa131d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add70466e9358ef83213287b8675faeac"><td class="memItemLeft" align="right" valign="top"><a id="add70466e9358ef83213287b8675faeac"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Move</b></td></tr>
+<tr class="memitem:add70466e9358ef83213287b8675faeac"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classgame_1_1Game.html#add70466e9358ef83213287b8675faeac">Move</a></td></tr>
+<tr class="memdesc:add70466e9358ef83213287b8675faeac"><td class="mdescLeft">&#160;</td><td class="mdescRight">A namedTuple to hold the starting and ending postion of a whole move, as well as keep track of whether or not the move is a castling move.  <a href="#add70466e9358ef83213287b8675faeac">More...</a><br /></td></tr>
 <tr class="separator:add70466e9358ef83213287b8675faeac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p class="">A class that reads a PGN formatted game and translates it into a series of moves for the robots. </p>
+<p class="">PGN, or portable game notation, and a commonly used format for digitized chess games. PGN formatted games include information on the location of the game when it was played, who the participants were, the various moves stored in different formats, and also rankings on the quality of move made.</p>
+<p class="">The most useful format that moves are stored in is called algebraic notation. Information on the specifics can be found online. This class will read through the PGN formatted game and retrieve the moves for each player. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a86ace39269d2c357912d4057e27149d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86ace39269d2c357912d4057e27149d0">&#9670;&nbsp;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def game.Game.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>filename</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The constructor to initialize and define the different datastructures that hold the moves, as well as read the file containing the PGN formatted game. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">filename:string</td><td>the name of the file that holds the PGN formatted game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a5b68ec80b411a0b6a8dadc49cbb2885c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b68ec80b411a0b6a8dadc49cbb2885c">&#9670;&nbsp;</a></span>altElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def game.Game.altElement </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>a</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve every other move starting with the first move in index 0. </p>
+<p class="">This represents the moves made by the first robot. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">a:string</td><td>array of all moves in this game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a00a64eb4da1292b75eeb27ad038b2379"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00a64eb4da1292b75eeb27ad038b2379">&#9670;&nbsp;</a></span>convertMove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def game.Game.convertMove </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>move</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert the move we have retrived from PGN format into something the robot class will be able to interpret and use for movement. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">move:string</td><td>move retrieved from PGN file. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ad2e0ef6617cd94202ed532b71ad88fbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2e0ef6617cd94202ed532b71ad88fbc">&#9670;&nbsp;</a></span>otheraltelement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def game.Game.otheraltelement </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>b</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Retrieve every other move starting with the second move in index 1. </p>
+<p class="">This represent the moves made by the second robot. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b:string</td><td>array of all moves in this game. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad97d3c6957c84c053891d3a2b6d4e7b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad97d3c6957c84c053891d3a2b6d4e7b5">&#9670;&nbsp;</a></span>all_moves</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">game.Game.all_moves</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>an array that will temporarily hold all of the moves in the game while we assign moves to each of the robots. </p>
+
+</div>
+</div>
+<a id="a6eff5f2c264dec265e8380d0914b1a45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eff5f2c264dec265e8380d0914b1a45">&#9670;&nbsp;</a></span>game</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">game.Game.game</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The actual game, translated from the PGN file we received during initialization. </p>
+<p class="">This holds all of the information about the game such as moves, as well as metadata about the chess players and location and time of play. </p>
+
+</div>
+</div>
+<a id="add70466e9358ef83213287b8675faeac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add70466e9358ef83213287b8675faeac">&#9670;&nbsp;</a></span>Move</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">game.Game.Move</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A namedTuple to hold the starting and ending postion of a whole move, as well as keep track of whether or not the move is a castling move. </p>
+
+</div>
+</div>
+<a id="af272b68d1323640b770768c45aa131d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af272b68d1323640b770768c45aa131d3">&#9670;&nbsp;</a></span>Square</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">game.Game.Square</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A namedTuple to hold the x and y coordinates of a single position or square. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>game.py</li>
 </ul>

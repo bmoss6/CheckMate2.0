@@ -4,15 +4,15 @@ import os, logging, sys, time
 from piece import Piece as piece
 from position import Position
 from gpio import GPIOBOARD
+
+logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
+
 ## Board class
 #  In order to keep track of the various states the board is in during a particular game,
 #  this class was designed. Essentially, the board object of this class is a 2-D array of
 #  PIECE object (See piece.py for more information). The movements of the robot are replicated in the board class
 #  so that state can be kept and collisions can be handled.
 #  The board class also plays an important role in resetting the board to a default state (ie. for a new game)
-
-logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
-
 class Board:
     ## The constructor which initializes the board object by constructing an initial (starting position) chessboard
     #  @param width: Width of the game board. Default for chess games should always be 8.

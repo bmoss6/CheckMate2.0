@@ -73,76 +73,545 @@ $(function() {
 <div class="title">board.Board Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><a class="el" href="classboard_1_1Board.html" title="Board class In order to keep track of the various states the board is in during a particular game...">Board</a> class In order to keep track of the various states the board is in during a particular game, this class was designed.  
+ <a href="classboard_1_1Board.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6100c6e25356748d6c2320d4b5f103de"><td class="memItemLeft" align="right" valign="top"><a id="a6100c6e25356748d6c2320d4b5f103de"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>__init__</b> (self, width=8, height=8, test=False)</td></tr>
+<tr class="memitem:a6100c6e25356748d6c2320d4b5f103de"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a6100c6e25356748d6c2320d4b5f103de">__init__</a> (self, width=8, <a class="el" href="classboard_1_1Board.html#ae1fef3be4abb2c765b81cad7042e6df9">height</a>=8, <a class="el" href="classboard_1_1Board.html#a438c66a98789e121832d0d374f7433ed">test</a>=False)</td></tr>
+<tr class="memdesc:a6100c6e25356748d6c2320d4b5f103de"><td class="mdescLeft">&#160;</td><td class="mdescRight">The constructor which initializes the board object by constructing an initial (starting position) chessboard.  <a href="#a6100c6e25356748d6c2320d4b5f103de">More...</a><br /></td></tr>
 <tr class="separator:a6100c6e25356748d6c2320d4b5f103de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a901aa40a875d6d0bad9585f8387710ea"><td class="memItemLeft" align="right" valign="top"><a id="a901aa40a875d6d0bad9585f8387710ea"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>populate_blank</b> (self)</td></tr>
+<tr class="memitem:a901aa40a875d6d0bad9585f8387710ea"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a901aa40a875d6d0bad9585f8387710ea">populate_blank</a> (self)</td></tr>
+<tr class="memdesc:a901aa40a875d6d0bad9585f8387710ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates an array of blank PIECE objects.  <a href="#a901aa40a875d6d0bad9585f8387710ea">More...</a><br /></td></tr>
 <tr class="separator:a901aa40a875d6d0bad9585f8387710ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1c25f5935a4837dbd4d6e38feabaed55"><td class="memItemLeft" align="right" valign="top"><a id="a1c25f5935a4837dbd4d6e38feabaed55"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>first_line</b> (self, color)</td></tr>
+<tr class="memitem:a1c25f5935a4837dbd4d6e38feabaed55"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a1c25f5935a4837dbd4d6e38feabaed55">first_line</a> (self, color)</td></tr>
+<tr class="memdesc:a1c25f5935a4837dbd4d6e38feabaed55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates the first and last row of the chessboard with corresponding PIECE objects.  <a href="#a1c25f5935a4837dbd4d6e38feabaed55">More...</a><br /></td></tr>
 <tr class="separator:a1c25f5935a4837dbd4d6e38feabaed55"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf12a73edb4cf2743c33d1c81a4006ae"><td class="memItemLeft" align="right" valign="top"><a id="abf12a73edb4cf2743c33d1c81a4006ae"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>second_line</b> (self, color)</td></tr>
+<tr class="memitem:abf12a73edb4cf2743c33d1c81a4006ae"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#abf12a73edb4cf2743c33d1c81a4006ae">second_line</a> (self, color)</td></tr>
+<tr class="memdesc:abf12a73edb4cf2743c33d1c81a4006ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a row of all pawns to be placed in front of the first and last rows of the board.  <a href="#abf12a73edb4cf2743c33d1c81a4006ae">More...</a><br /></td></tr>
 <tr class="separator:abf12a73edb4cf2743c33d1c81a4006ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a479890a51da178129bad86650185945e"><td class="memItemLeft" align="right" valign="top"><a id="a479890a51da178129bad86650185945e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>reset</b> (self)</td></tr>
+<tr class="memitem:a479890a51da178129bad86650185945e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a479890a51da178129bad86650185945e">reset</a> (self)</td></tr>
+<tr class="memdesc:a479890a51da178129bad86650185945e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset function that creates a new board with the default positioning of pieces.  <a href="#a479890a51da178129bad86650185945e">More...</a><br /></td></tr>
 <tr class="separator:a479890a51da178129bad86650185945e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a414b3ff6d01771ea6b5e045fbbafc01e"><td class="memItemLeft" align="right" valign="top"><a id="a414b3ff6d01771ea6b5e045fbbafc01e"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>getPeice</b> (self, position)</td></tr>
+<tr class="memitem:a414b3ff6d01771ea6b5e045fbbafc01e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a414b3ff6d01771ea6b5e045fbbafc01e">getPeice</a> (self, position)</td></tr>
+<tr class="memdesc:a414b3ff6d01771ea6b5e045fbbafc01e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a specific piece on the board when given x/y coordinates.  <a href="#a414b3ff6d01771ea6b5e045fbbafc01e">More...</a><br /></td></tr>
 <tr class="separator:a414b3ff6d01771ea6b5e045fbbafc01e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a50f3f62e92ceaeb51f07af542a3349e3"><td class="memItemLeft" align="right" valign="top"><a id="a50f3f62e92ceaeb51f07af542a3349e3"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>construct_8x8_board</b> (self)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a50f3f62e92ceaeb51f07af542a3349e3">construct_8x8_board</a> (self)</td></tr>
+<tr class="memdesc:a50f3f62e92ceaeb51f07af542a3349e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs the 8x8 board by using the <a class="el" href="classboard_1_1Board.html#a1c25f5935a4837dbd4d6e38feabaed55" title="Creates the first and last row of the chessboard with corresponding PIECE objects. ">first_line()</a> and <a class="el" href="classboard_1_1Board.html#abf12a73edb4cf2743c33d1c81a4006ae" title="Creates a row of all pawns to be placed in front of the first and last rows of the board...">second_line()</a> and <a class="el" href="classboard_1_1Board.html#a901aa40a875d6d0bad9585f8387710ea" title="Creates an array of blank PIECE objects. ">populate_blank()</a> functions Also sets the piece count and the original positions (to be used when resetting the board) <br /></td></tr>
 <tr class="separator:a50f3f62e92ceaeb51f07af542a3349e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf37ba572d41fb077768d6674d0f38ca"><td class="memItemLeft" align="right" valign="top"><a id="adf37ba572d41fb077768d6674d0f38ca"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>isCollision</b> (self, end)</td></tr>
+<tr class="memitem:adf37ba572d41fb077768d6674d0f38ca"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#adf37ba572d41fb077768d6674d0f38ca">isCollision</a> (self, end)</td></tr>
+<tr class="memdesc:adf37ba572d41fb077768d6674d0f38ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if a collision will occur before a move function.  <a href="#adf37ba572d41fb077768d6674d0f38ca">More...</a><br /></td></tr>
 <tr class="separator:adf37ba572d41fb077768d6674d0f38ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b195767d035d9f6365528ac23263670"><td class="memItemLeft" align="right" valign="top"><a id="a9b195767d035d9f6365528ac23263670"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>remove</b> (self, position)</td></tr>
+<tr class="memitem:a9b195767d035d9f6365528ac23263670"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a9b195767d035d9f6365528ac23263670">remove</a> (self, position)</td></tr>
+<tr class="memdesc:a9b195767d035d9f6365528ac23263670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove function sets a PIECE object on the board to empty.  <a href="#a9b195767d035d9f6365528ac23263670">More...</a><br /></td></tr>
 <tr class="separator:a9b195767d035d9f6365528ac23263670"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a566f280709d8587d3148f2b28890ee25"><td class="memItemLeft" align="right" valign="top"><a id="a566f280709d8587d3148f2b28890ee25"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>GPIOUpdate</b> (self)</td></tr>
+<tr class="memitem:a566f280709d8587d3148f2b28890ee25"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a566f280709d8587d3148f2b28890ee25">GPIOUpdate</a> (self)</td></tr>
+<tr class="memdesc:a566f280709d8587d3148f2b28890ee25"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO Check will iterate through the board and update each piece object with it's GPIO tag GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches) WARNING: Not always reliable.  <a href="#a566f280709d8587d3148f2b28890ee25">More...</a><br /></td></tr>
 <tr class="separator:a566f280709d8587d3148f2b28890ee25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5403c80f6f642c0e4db4ac034883cdd"><td class="memItemLeft" align="right" valign="top"><a id="af5403c80f6f642c0e4db4ac034883cdd"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>move</b> (self, start, end)</td></tr>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#af5403c80f6f642c0e4db4ac034883cdd">move</a> (self, start, end)</td></tr>
+<tr class="memdesc:af5403c80f6f642c0e4db4ac034883cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to move pieces around on the board Use position objects for start and end Pieces will inherently get removed as the overwrite. <br /></td></tr>
 <tr class="separator:af5403c80f6f642c0e4db4ac034883cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add6c15bdf94a3167513cd90770cab1cc"><td class="memItemLeft" align="right" valign="top"><a id="add6c15bdf94a3167513cd90770cab1cc"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>GPIOError</b> (self, startx, starty)</td></tr>
+<tr class="memitem:add6c15bdf94a3167513cd90770cab1cc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#add6c15bdf94a3167513cd90770cab1cc">GPIOError</a> (self, startx, starty)</td></tr>
+<tr class="memdesc:add6c15bdf94a3167513cd90770cab1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks a piece object to ensure that a GPIO (Reed Switch) is activated, which means that a magnet (attached to the piece) is in the square relating to the piece object.  <a href="#add6c15bdf94a3167513cd90770cab1cc">More...</a><br /></td></tr>
 <tr class="separator:add6c15bdf94a3167513cd90770cab1cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefc9d1d94c291d150c7cc4f171156238"><td class="memItemLeft" align="right" valign="top"><a id="aefc9d1d94c291d150c7cc4f171156238"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>print_board</b> (self)</td></tr>
+<tr class="memitem:aefc9d1d94c291d150c7cc4f171156238"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#aefc9d1d94c291d150c7cc4f171156238">print_board</a> (self)</td></tr>
+<tr class="memdesc:aefc9d1d94c291d150c7cc4f171156238"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print board function that will print board and it's piece objects + attributes.  <a href="#aefc9d1d94c291d150c7cc4f171156238">More...</a><br /></td></tr>
 <tr class="separator:aefc9d1d94c291d150c7cc4f171156238"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b3cfefefab5a65c78e6d358184910d7"><td class="memItemLeft" align="right" valign="top"><a id="a2b3cfefefab5a65c78e6d358184910d7"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>print_simple_no_gpio</b> (self)</td></tr>
+<tr class="memitem:a2b3cfefefab5a65c78e6d358184910d7"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a2b3cfefefab5a65c78e6d358184910d7">print_simple_no_gpio</a> (self)</td></tr>
+<tr class="memdesc:a2b3cfefefab5a65c78e6d358184910d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Simplified print function for showing board state throughout a chess game.  <a href="#a2b3cfefefab5a65c78e6d358184910d7">More...</a><br /></td></tr>
 <tr class="separator:a2b3cfefefab5a65c78e6d358184910d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:ae6848bf13953b18fbae9d54063bdd469"><td class="memItemLeft" align="right" valign="top"><a id="ae6848bf13953b18fbae9d54063bdd469"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>name</b></td></tr>
+<tr class="memitem:ae6848bf13953b18fbae9d54063bdd469"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#ae6848bf13953b18fbae9d54063bdd469">name</a></td></tr>
+<tr class="memdesc:ae6848bf13953b18fbae9d54063bdd469"><td class="mdescLeft">&#160;</td><td class="mdescRight">Name of the chess board to be created.  <a href="#ae6848bf13953b18fbae9d54063bdd469">More...</a><br /></td></tr>
 <tr class="separator:ae6848bf13953b18fbae9d54063bdd469"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1fef3be4abb2c765b81cad7042e6df9"><td class="memItemLeft" align="right" valign="top"><a id="ae1fef3be4abb2c765b81cad7042e6df9"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>height</b></td></tr>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#ae1fef3be4abb2c765b81cad7042e6df9">height</a></td></tr>
+<tr class="memdesc:ae1fef3be4abb2c765b81cad7042e6df9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Width and heightof chessboard to be created. <br /></td></tr>
 <tr class="separator:ae1fef3be4abb2c765b81cad7042e6df9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aece806dcfd4c75f3cc8c0f5c8fd5c544"><td class="memItemLeft" align="right" valign="top"><a id="aece806dcfd4c75f3cc8c0f5c8fd5c544"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>board</b></td></tr>
+<tr class="memitem:aece806dcfd4c75f3cc8c0f5c8fd5c544"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#aece806dcfd4c75f3cc8c0f5c8fd5c544">board</a></td></tr>
+<tr class="memdesc:aece806dcfd4c75f3cc8c0f5c8fd5c544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Actual 2-D array created for creating an abstract board.  <a href="#aece806dcfd4c75f3cc8c0f5c8fd5c544">More...</a><br /></td></tr>
 <tr class="separator:aece806dcfd4c75f3cc8c0f5c8fd5c544"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac9fbb44de8a196630b29f47b184db4d6"><td class="memItemLeft" align="right" valign="top"><a id="ac9fbb44de8a196630b29f47b184db4d6"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>pieceCount</b></td></tr>
+<tr class="memitem:ac9fbb44de8a196630b29f47b184db4d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#ac9fbb44de8a196630b29f47b184db4d6">pieceCount</a></td></tr>
+<tr class="memdesc:ac9fbb44de8a196630b29f47b184db4d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of pieces created on the board.  <a href="#ac9fbb44de8a196630b29f47b184db4d6">More...</a><br /></td></tr>
 <tr class="separator:ac9fbb44de8a196630b29f47b184db4d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a31d60635d4b3ce17480d0af3477e02f2"><td class="memItemLeft" align="right" valign="top"><a id="a31d60635d4b3ce17480d0af3477e02f2"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>GPIOerrors</b></td></tr>
+<tr class="memitem:a31d60635d4b3ce17480d0af3477e02f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a31d60635d4b3ce17480d0af3477e02f2">GPIOerrors</a></td></tr>
+<tr class="memdesc:a31d60635d4b3ce17480d0af3477e02f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Keeps track of the number of GPIO errors.  <a href="#a31d60635d4b3ce17480d0af3477e02f2">More...</a><br /></td></tr>
 <tr class="separator:a31d60635d4b3ce17480d0af3477e02f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a438c66a98789e121832d0d374f7433ed"><td class="memItemLeft" align="right" valign="top"><a id="a438c66a98789e121832d0d374f7433ed"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>test</b></td></tr>
+<tr class="memitem:a438c66a98789e121832d0d374f7433ed"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a438c66a98789e121832d0d374f7433ed">test</a></td></tr>
+<tr class="memdesc:a438c66a98789e121832d0d374f7433ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flag to determine whether program will run in test (no robots) mode or performance mode.  <a href="#a438c66a98789e121832d0d374f7433ed">More...</a><br /></td></tr>
 <tr class="separator:a438c66a98789e121832d0d374f7433ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abfd91ba6672eee2c1c95838d30dfc17a"><td class="memItemLeft" align="right" valign="top"><a id="abfd91ba6672eee2c1c95838d30dfc17a"></a>
 &#160;</td><td class="memItemRight" valign="bottom"><b>gpio</b></td></tr>
 <tr class="separator:abfd91ba6672eee2c1c95838d30dfc17a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p class=""><a class="el" href="classboard_1_1Board.html" title="Board class In order to keep track of the various states the board is in during a particular game...">Board</a> class In order to keep track of the various states the board is in during a particular game, this class was designed. </p>
+<p class="">Essentially, the board object of this class is a 2-D array of PIECE object (See piece.py for more information). The movements of the robot are replicated in the board class so that state can be kept and collisions can be handled. The board class also plays an important role in resetting the board to a default state (ie. for a new game) </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a6100c6e25356748d6c2320d4b5f103de"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6100c6e25356748d6c2320d4b5f103de">&#9670;&nbsp;</a></span>__init__()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.__init__ </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>width</em> = <code>8</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>height</em> = <code>8</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>test</em> = <code>False</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The constructor which initializes the board object by constructing an initial (starting position) chessboard. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>Width of the game board. Default for chess games should always be 8. </td></tr>
+    <tr><td class="paramname">height</td><td>Height of the game board. Default for chess games should always be 8. WARNING: If width or height are set to number other than 8. Constructing of board will fail. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a1c25f5935a4837dbd4d6e38feabaed55"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c25f5935a4837dbd4d6e38feabaed55">&#9670;&nbsp;</a></span>first_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.first_line </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates the first and last row of the chessboard with corresponding PIECE objects. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>The color or team the piece corresponds to (ie black/white) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a414b3ff6d01771ea6b5e045fbbafc01e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a414b3ff6d01771ea6b5e045fbbafc01e">&#9670;&nbsp;</a></span>getPeice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.getPeice </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a specific piece on the board when given x/y coordinates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>a POSITION object with x and y coordinates. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="add6c15bdf94a3167513cd90770cab1cc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add6c15bdf94a3167513cd90770cab1cc">&#9670;&nbsp;</a></span>GPIOError()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.GPIOError </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>startx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>starty</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks a piece object to ensure that a GPIO (Reed Switch) is activated, which means that a magnet (attached to the piece) is in the square relating to the piece object. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">startx</td><td>x-coordinate of square to check on the board. </td></tr>
+    <tr><td class="paramname">starty</td><td>y-coordinate of square to check on the board. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a566f280709d8587d3148f2b28890ee25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a566f280709d8587d3148f2b28890ee25">&#9670;&nbsp;</a></span>GPIOUpdate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.GPIOUpdate </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>GPIO Check will iterate through the board and update each piece object with it's GPIO tag GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches) WARNING: Not always reliable. </p>
+<p class="">See GPIO Error Threshold for more information. </p>
+
+</div>
+</div>
+<a id="adf37ba572d41fb077768d6674d0f38ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf37ba572d41fb077768d6674d0f38ca">&#9670;&nbsp;</a></span>isCollision()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.isCollision </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if a collision will occur before a move function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">end</td><td>A position object relating to the position the piece is to move to. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a901aa40a875d6d0bad9585f8387710ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a901aa40a875d6d0bad9585f8387710ea">&#9670;&nbsp;</a></span>populate_blank()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.populate_blank </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates an array of blank PIECE objects. </p>
+<p class="">Only works for 8x8 board. </p>
+
+</div>
+</div>
+<a id="aefc9d1d94c291d150c7cc4f171156238"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aefc9d1d94c291d150c7cc4f171156238">&#9670;&nbsp;</a></span>print_board()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.print_board </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Print board function that will print board and it's piece objects + attributes. </p>
+<p class="">Used mainly to test the gpio function to ensure that gpio tracking is working properly </p>
+
+</div>
+</div>
+<a id="a2b3cfefefab5a65c78e6d358184910d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b3cfefefab5a65c78e6d358184910d7">&#9670;&nbsp;</a></span>print_simple_no_gpio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.print_simple_no_gpio </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Simplified print function for showing board state throughout a chess game. </p>
+<p class="">Does not display GPIO information. </p>
+
+</div>
+</div>
+<a id="a9b195767d035d9f6365528ac23263670"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9b195767d035d9f6365528ac23263670">&#9670;&nbsp;</a></span>remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.remove </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove function sets a PIECE object on the board to empty. </p>
+<p class="">Used when setting a piece to empty during the move. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>Position object corresponding to the square on the board that needs to be cleared. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a479890a51da178129bad86650185945e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a479890a51da178129bad86650185945e">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.reset </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reset function that creates a new board with the default positioning of pieces. </p>
+
+</div>
+</div>
+<a id="abf12a73edb4cf2743c33d1c81a4006ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abf12a73edb4cf2743c33d1c81a4006ae">&#9670;&nbsp;</a></span>second_line()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.second_line </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Creates a row of all pawns to be placed in front of the first and last rows of the board. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color</td><td>The color or team the piece corresponds to (ie black/white) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="aece806dcfd4c75f3cc8c0f5c8fd5c544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aece806dcfd4c75f3cc8c0f5c8fd5c544">&#9670;&nbsp;</a></span>board</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">board.Board.board</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Actual 2-D array created for creating an abstract board. </p>
+
+</div>
+</div>
+<a id="a31d60635d4b3ce17480d0af3477e02f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31d60635d4b3ce17480d0af3477e02f2">&#9670;&nbsp;</a></span>GPIOerrors</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">board.Board.GPIOerrors</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Keeps track of the number of GPIO errors. </p>
+<p class="">This function will merely track the number of errors the gpio class encounters. It will not change the execution of the program </p>
+
+</div>
+</div>
+<a id="ae6848bf13953b18fbae9d54063bdd469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae6848bf13953b18fbae9d54063bdd469">&#9670;&nbsp;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">board.Board.name</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Name of the chess board to be created. </p>
+
+</div>
+</div>
+<a id="ac9fbb44de8a196630b29f47b184db4d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9fbb44de8a196630b29f47b184db4d6">&#9670;&nbsp;</a></span>pieceCount</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">board.Board.pieceCount</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Number of pieces created on the board. </p>
+
+</div>
+</div>
+<a id="a438c66a98789e121832d0d374f7433ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a438c66a98789e121832d0d374f7433ed">&#9670;&nbsp;</a></span>test</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">board.Board.test</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Flag to determine whether program will run in test (no robots) mode or performance mode. </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li>board.py</li>
 </ul>

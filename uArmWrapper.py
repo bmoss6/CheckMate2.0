@@ -15,40 +15,43 @@ from time import sleep
 #  all of the commands block on read on the serial connection until they recive a response 
 #  that the robot has completed the command or it has errored. 
 #
+#  Lastley robot does have limits and so not all coordinates you input will work. The arduino API
+#  is a little unreliable but set_position should print an error if something goes wrong. 
+#
 class uArmWrapper(object):
 
    ## The constructor to initlize defaults and establish a serial communcation 
    #  to the robot.
    #  @param devPort:string USB port to robot. /dev/ttyACM[0-9]*
    def __init__(self, devPort):
-      ## @var defaultX
+      ## @var defaultX:int
       #  defualt X (forward and backward from the robot perspective) resting position of the robot.
       self.defaultX = 120
-      ## @var defaultY
+      ## @var defaultY:int
       #  defualt Y (left to right from the robot perspective) resting position of the robot.
       self.defaultY = 0
-      ## @var defaultZ
+      ## @var defaultZ:int
       #  defualt resting position of the robot.
       self.defaultZ = 60
-      ## @var speed
+      ## @var speed:int
       #  defualt resting position of the robot.
       self.speed = 10000
-      ## @var debugNum
+      ## @var debugNum:int
       #  You can assing a number to a command that is run to verify that it comes back correctly
       #  beuase we only run one command at a time and block this is not super helpful but we used it.
       self.debugNum = 0
 
-      ## @var curX
+      ## @var curX:int
       #  the current x position of the robot
       self.curX=0
-      ## @var curY
+      ## @var curY:int
       #  the current y position of the robot
       self.curY=0
-      ## @var curZ
+      ## @var curZ:int
       #  the current z position of the robot
       self.curZ=0
       
-      ## @var ser
+      ## @var ser:Serial
       # serial connection to communcate with aurdino within the robot.
       self.ser = ser = serial.Serial(
          port=devPort,
