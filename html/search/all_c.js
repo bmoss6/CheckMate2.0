@@ -8,7 +8,8 @@ var searchData=
   ['position',['Position',['../classposition_1_1Position.html',1,'position']]],
   ['print_5fboard',['print_board',['../classboard_1_1Board.html#aefc9d1d94c291d150c7cc4f171156238',1,'board::Board']]],
   ['print_5fsimple_5fno_5fgpio',['print_simple_no_gpio',['../classboard_1_1Board.html#a2b3cfefefab5a65c78e6d358184910d7',1,'board::Board']]],
-  ['printboard',['printBoard',['../classcaptureBoard_1_1CaptureBoard.html#a25a954989afa8f65dace3a646ff4b5dc',1,'captureBoard::CaptureBoard']]],
+  ['printboard',['printBoard',['../classcaptureBoard_1_1CaptureBoard.html#a25a954989afa8f65dace3a646ff4b5dc',1,'captureBoard.CaptureBoard.printBoard()'],['../classrobot_1_1Robot.html#a1b54fee20253a125e9a0874b4139a91d',1,'robot.Robot.printBoard()']]],
+  ['printcaptureboard',['printCaptureBoard',['../classrobot_1_1Robot.html#af1d8f2a75a772d79685cc9859ecaeea0',1,'robot::Robot']]],
   ['printpeice',['printPeice',['../classpiece_1_1Piece.html#a073631aa1d87c9a40c065f732e9825ea',1,'piece::Piece']]],
   ['printright',['printRight',['../classcaptureBoard_1_1CaptureBoard.html#ac1cdc4937eb056d3cd0c6ebf5905f63b',1,'captureBoard::CaptureBoard']]]
 ];

@@ -3,7 +3,7 @@
 import os, logging, sys, time
 from piece import Piece as piece
 from position import Position
-from gpio import GPIOBOARD
+#from gpio import GPIOBOARD
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
@@ -146,9 +146,30 @@ class Board:
             for y in range(8):
                 self.board[x][y].setGPIO(self.gpio.gpioboard[x][y])
 
+    ## when clearing the board we need to clear peices
+    #  @param position:Position position of the piece to clear
+    def clearPosition(self,position):
+        x = position.getXBoard()
+        y = position.getYBoard()
+        if self.board[x][y].isEmpty():
+            logging.error('clearing non-existant piece?')
+            return
+        self.board[x][y] = piece()
+
+    ## When resetting the board set the position of a peice
+    #  @param position:Position position of the piece to clear
+    #  @param position:Position position of the piece to clear
+    def setPosition(self,position,peice):
+        x = position.getXBoard()
+        y = position.getYBoard()
+        if not self.board[x][y].isEmpty():
+            logging.error('setting existant piece?')
+            return
+        self.board[x][y] = peice
+
     ## Used to move pieces around on the board Use position objects for start and end
     # Pieces will inherently get removed as the overwrite
-    # @param start:Position starting poistion
+    # @param start:Position starting position
     # @param end:Position ending position
     def move(self,start,end):
         self.GPIOUpdate()

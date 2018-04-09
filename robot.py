@@ -58,25 +58,36 @@ class Robot(object):
         self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
         self.swift.reset()
 
+    ## If the robots switch you need to change their color os they are correct
+    #  @param color:string
+    def setColor(self,color):
+        self.color = color
+
     ## After a game is complete send all of the peices to the captureboard to reset them.
     def clearRobotPieces(self):
         for x in range (self.board.height):
             for y in range (self.board.width):
-                if self.board.board[x][y].name!=None and self.board.board[x][y].color == self.color:
+                # You only capture peices that are not your own so those are the ones to reset.
+                if self.board.board[x][y].name!=None and self.board.board[x][y].color != self.color:
+                    # The second robot which is black should be inverted
+                    position = None
                     if self.color != "white":
-                        self.handleCollision(Position(x,y,True))
+                        position = Position(x,y,True)
                     else:
-                        self.handleCollision(Position(x,y,False))
+                        position = Position(x,y,False)
+                    self.handleCollision(position)
+                    self.board.clearPosition(position)
 
     ## Pop all of the capture peices off of the capture board and reset them to their orignal position
     def resetToOriginalPosition(self):
         capturePosition, peice = self.captureBoard.popLast()
         while capturePosition is not None:
             if self.color != "white":
-                originalPoisiton = Position(peice.StartingX,peice.StartingY,True)
+                originalPosition = Position(peice.StartingX,peice.StartingY,True)
             else:
-                originalPosition = Position(peice.StartingX,peice.StartyingY,False)
-            self.robotMove(capturePosition,originalPoisiton)
+                originalPosition = Position(peice.StartingX,peice.StartingY,False)
+            self.robotMove(capturePosition,originalPosition)
+            self.board.setPosition(originalPosition,peice)
             capturePosition, peice = self.captureBoard.popLast()
 
     ## Check to see if the uid of the robot is what we think it is
@@ -222,3 +233,11 @@ class Robot(object):
         #logging.debug('\tMOV Down z=%d'%(conf.I('offsets','minHeight')))
         self.swift.set_position(z = conf.I('offsets','minHeight'))
 
+    ## Print the board for debugging
+    def printBoard(self):
+        self.board.print_simple_no_gpio()
+
+    ## Print the the capture board for debugging
+    def printCaptureBoard(self):
+        print(self.color)
+        self.captureBoard.printBoard()

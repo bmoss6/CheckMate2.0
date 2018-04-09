@@ -90,6 +90,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac7d50b65bb6f602bc24eace066c093ef"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#ac7d50b65bb6f602bc24eace066c093ef">__init__</a> (self, port, <a class="el" href="classrobot_1_1Robot.html#a2c1030c696f5c601885014a5556ea92d">board</a>, <a class="el" href="classrobot_1_1Robot.html#a269fadec5f595ecea8defd3dd0b83680">captureBoard</a>, <a class="el" href="classrobot_1_1Robot.html#a697a3f6338c6d9dcbd833a1a34e1b2a2">color</a>, test=False)</td></tr>
 <tr class="memdesc:ac7d50b65bb6f602bc24eace066c093ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#ac7d50b65bb6f602bc24eace066c093ef">More...</a><br /></td></tr>
 <tr class="separator:ac7d50b65bb6f602bc24eace066c093ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32a409c9bbf842ca39bcfb7428cef1a9"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a32a409c9bbf842ca39bcfb7428cef1a9">setColor</a> (self, <a class="el" href="classrobot_1_1Robot.html#a697a3f6338c6d9dcbd833a1a34e1b2a2">color</a>)</td></tr>
+<tr class="memdesc:a32a409c9bbf842ca39bcfb7428cef1a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">If the robots switch you need to change their color os they are correct.  <a href="#a32a409c9bbf842ca39bcfb7428cef1a9">More...</a><br /></td></tr>
+<tr class="separator:a32a409c9bbf842ca39bcfb7428cef1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0bd7580fcca95b7e79d934b3b95b1d31"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a0bd7580fcca95b7e79d934b3b95b1d31">clearRobotPieces</a> (self)</td></tr>
 <tr class="memdesc:a0bd7580fcca95b7e79d934b3b95b1d31"><td class="mdescLeft">&#160;</td><td class="mdescRight">After a game is complete send all of the peices to the captureboard to reset them.  <a href="#a0bd7580fcca95b7e79d934b3b95b1d31">More...</a><br /></td></tr>
 <tr class="separator:a0bd7580fcca95b7e79d934b3b95b1d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -123,6 +126,14 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#ac9f88adcf79a19042bc894f550baa0fa">movDown</a> (self)</td></tr>
 <tr class="memdesc:ac9f88adcf79a19042bc894f550baa0fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the robot up to the hight sent in the configuration. <br /></td></tr>
 <tr class="separator:ac9f88adcf79a19042bc894f550baa0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1b54fee20253a125e9a0874b4139a91d"><td class="memItemLeft" align="right" valign="top"><a id="a1b54fee20253a125e9a0874b4139a91d"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#a1b54fee20253a125e9a0874b4139a91d">printBoard</a> (self)</td></tr>
+<tr class="memdesc:a1b54fee20253a125e9a0874b4139a91d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the board for debugging. <br /></td></tr>
+<tr class="separator:a1b54fee20253a125e9a0874b4139a91d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d8f2a75a772d79685cc9859ecaeea0"><td class="memItemLeft" align="right" valign="top"><a id="af1d8f2a75a772d79685cc9859ecaeea0"></a>
+def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobot_1_1Robot.html#af1d8f2a75a772d79685cc9859ecaeea0">printCaptureBoard</a> (self)</td></tr>
+<tr class="memdesc:af1d8f2a75a772d79685cc9859ecaeea0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the the capture board for debugging. <br /></td></tr>
+<tr class="separator:af1d8f2a75a772d79685cc9859ecaeea0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -431,6 +442,42 @@ Public Attributes</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">start:Position</td><td>starting position of peice </td></tr>
     <tr><td class="paramname">end:Position</td><td>ending position of peice </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a32a409c9bbf842ca39bcfb7428cef1a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32a409c9bbf842ca39bcfb7428cef1a9">&#9670;&nbsp;</a></span>setColor()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robot.Robot.setColor </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>color</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>If the robots switch you need to change their color os they are correct. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">color:string</td><td></td></tr>
   </table>
   </dd>
 </dl>

@@ -110,6 +110,12 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:a566f280709d8587d3148f2b28890ee25"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a566f280709d8587d3148f2b28890ee25">GPIOUpdate</a> (self)</td></tr>
 <tr class="memdesc:a566f280709d8587d3148f2b28890ee25"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO Check will iterate through the board and update each piece object with it's GPIO tag GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches) WARNING: Not always reliable.  <a href="#a566f280709d8587d3148f2b28890ee25">More...</a><br /></td></tr>
 <tr class="separator:a566f280709d8587d3148f2b28890ee25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c1e17dc5807d79827aa3ef316e31ab4"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a4c1e17dc5807d79827aa3ef316e31ab4">clearPosition</a> (self, position)</td></tr>
+<tr class="memdesc:a4c1e17dc5807d79827aa3ef316e31ab4"><td class="mdescLeft">&#160;</td><td class="mdescRight">when clearing the board we need to clear peices  <a href="#a4c1e17dc5807d79827aa3ef316e31ab4">More...</a><br /></td></tr>
+<tr class="separator:a4c1e17dc5807d79827aa3ef316e31ab4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acad993413e622eb81b64b4b27788e033"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#acad993413e622eb81b64b4b27788e033">setPosition</a> (self, position, peice)</td></tr>
+<tr class="memdesc:acad993413e622eb81b64b4b27788e033"><td class="mdescLeft">&#160;</td><td class="mdescRight">When resetting the board set the position of a peice.  <a href="#acad993413e622eb81b64b4b27788e033">More...</a><br /></td></tr>
+<tr class="separator:acad993413e622eb81b64b4b27788e033"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5403c80f6f642c0e4db4ac034883cdd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#af5403c80f6f642c0e4db4ac034883cdd">move</a> (self, start, end)</td></tr>
 <tr class="memdesc:af5403c80f6f642c0e4db4ac034883cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to move pieces around on the board Use position objects for start and end Pieces will inherently get removed as the overwrite.  <a href="#af5403c80f6f642c0e4db4ac034883cdd">More...</a><br /></td></tr>
 <tr class="separator:af5403c80f6f642c0e4db4ac034883cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -203,6 +209,42 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4c1e17dc5807d79827aa3ef316e31ab4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c1e17dc5807d79827aa3ef316e31ab4">&#9670;&nbsp;</a></span>clearPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.clearPosition </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>position</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>when clearing the board we need to clear peices </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position:Position</td><td>position of the piece to clear </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a1c25f5935a4837dbd4d6e38feabaed55"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1c25f5935a4837dbd4d6e38feabaed55">&#9670;&nbsp;</a></span>first_line()</h2>
 
@@ -413,7 +455,7 @@ Public Attributes</h2></td></tr>
 <p>Used to move pieces around on the board Use position objects for start and end Pieces will inherently get removed as the overwrite. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">start:Position</td><td>starting poistion </td></tr>
+    <tr><td class="paramname">start:Position</td><td>starting position </td></tr>
     <tr><td class="paramname">end:Position</td><td>ending position </td></tr>
   </table>
   </dd>
@@ -574,6 +616,49 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>type:Piece array. Array of second chess row </dd></dl>
+
+</div>
+</div>
+<a id="acad993413e622eb81b64b4b27788e033"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acad993413e622eb81b64b4b27788e033">&#9670;&nbsp;</a></span>setPosition()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.setPosition </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>position</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>peice</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>When resetting the board set the position of a peice. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position:Position</td><td>position of the piece to clear </td></tr>
+    <tr><td class="paramname">position:Position</td><td>position of the piece to clear </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

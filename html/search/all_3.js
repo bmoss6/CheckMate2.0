@@ -6,6 +6,7 @@ var searchData=
   ['checkid',['checkID',['../classrobot_1_1Robot.html#a41cbaf5a3c9424769675a7cdb47c30a8',1,'robot::Robot']]],
   ['checkmux',['checkmux',['../classgpio_1_1GPIOBOARD.html#a20cfe233da2ec1f5bcf387b423135d1c',1,'gpio::GPIOBOARD']]],
   ['clear',['clear',['../classpiece_1_1Piece.html#a0a0e9f32c8c39505f2a58385ad4f1a24',1,'piece::Piece']]],
+  ['clearposition',['clearPosition',['../classboard_1_1Board.html#a4c1e17dc5807d79827aa3ef316e31ab4',1,'board::Board']]],
   ['clearrobotpieces',['clearRobotPieces',['../classrobot_1_1Robot.html#a0bd7580fcca95b7e79d934b3b95b1d31',1,'robot::Robot']]],
   ['close',['close',['../classuArmWrapper_1_1uArmWrapper.html#acf55d96058b4ab4ab8c1c4ddc5e3825a',1,'uArmWrapper::uArmWrapper']]],
   ['color',['color',['../classpiece_1_1Piece.html#aa88b6d2f3453ce6b850e8f1de55c47a9',1,'piece.Piece.color()'],['../classrobot_1_1Robot.html#a697a3f6338c6d9dcbd833a1a34e1b2a2',1,'robot.Robot.color()']]],

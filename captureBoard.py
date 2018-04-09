@@ -58,6 +58,8 @@ class CaptureBoard(object):
          if ( (self.lastColI % self.ROW_LENGTH) == 0):
             self.lastRowI += 1
             self.lastColI = 0
+            # print("test %d"%self.peiceCount)
+            # self.printBoard()
             assert(self.lastRowI<self.COLUMN_LENGTH)
       # insert peice
       self.board[self.lastRowI][self.lastColI] = peice

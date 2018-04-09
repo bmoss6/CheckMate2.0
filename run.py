@@ -4,7 +4,7 @@ import os
 
 # Set to true to test off of the robots and PI. 
 # also comment out "from gpio import GPIOBOARD" in board.py
-testMode = False 
+testMode = True 
 # This is a super hacky way to make sure python is ready before we start
 Autostart = False
 ProjectPath = "/home/pi/Documents/CheckMate2.0"
@@ -12,16 +12,16 @@ if Autostart:
    #Change this path to 
    os.chdir(ProjectPath)
    tries = 0
-   tmpFile ="test.txt"
+   testFile ="config.ini"
    maxTries = 60
    while True:
       if (tries > 60):
          exit()
       try:
-         f= open(tmpFile,"w+")
-         f.write("script has run\n")
-         f.close()
-         os.remove(tmpFile)
+         f= open(tmpFile,"r")
+         # f.write("script has run\n")
+         # f.close()
+         # os.remove(tmpFile)
          break
       except Exception as e:
          tries += 1
@@ -48,6 +48,8 @@ if not testMode:
    GPIO.setup(1,GPIO.IN,pull_up_down=GPIO.PUD_UP)
 
 GameScripts = "GameScripts"
+ROBOT_1_COLOR = "white"
+ROBOT_2_COLOR = "black"
 
 ## play game read in for PGN file from the GameScirpts folder
 #  @param robot:Robot first robot for game
@@ -55,14 +57,16 @@ GameScripts = "GameScripts"
 def playGame(game,robot,robot2):
    game = Game(game)
    robot1Moves, robot2Moves = game.getMoves()
+   assert(robot.color == ROBOT_1_COLOR)
+   assert(robot2.color == ROBOT_2_COLOR)
 
    turn = 0
    for rb1Move, rb2Move in zip_longest(robot1Moves,robot2Moves,fillvalue=None):
       turn += 1
       logging.debug("Turn:%d"%turn)
       if rb1Move is not None:
-         logging.debug("ROBOT1: Start[%d,%d] End[%d,%d]"% \
-            (rb1Move[0][0],rb1Move[0][1],rb1Move[1][0],rb1Move[1][1]))
+         logging.debug("ROBOT1: Start[%d,%d] End[%d,%d] %s"% \
+            (rb1Move[0][0],rb1Move[0][1],rb1Move[1][0],rb1Move[1][1],robot.color))
          start = Position(rb1Move[0][0],rb1Move[0][1])
          end = Position(rb1Move[1][0],rb1Move[1][1])
          castle = int(rb1Move[2])
@@ -71,8 +75,8 @@ def playGame(game,robot,robot2):
          else:
             robot.move(start,end)
       if rb2Move is not None:
-         logging.debug("ROBOT2: Start[%d,%d] End[%d,%d]"% \
-            (rb2Move[0][0],rb2Move[0][1],rb2Move[1][0],rb2Move[1][1]))
+         logging.debug("ROBOT2: Start[%d,%d] End[%d,%d] %s"% \
+            (rb2Move[0][0],rb2Move[0][1],rb2Move[1][0],rb2Move[1][1],robot2.color))
          start = Position(rb2Move[0][0],rb2Move[0][1],True)
          end = Position(rb2Move[1][0],rb2Move[1][1],True)
          castle = int(rb2Move[2])
@@ -85,8 +89,17 @@ def playGame(game,robot,robot2):
    #robot.resetBoard(None)
    robot.clearRobotPieces()
    robot2.clearRobotPieces()
+   print("Cleared")
+   robot.printBoard()
+   robot.printCaptureBoard()
+   robot2.printCaptureBoard()
    robot.resetToOriginalPosition()
    robot2.resetToOriginalPosition()
+   logging.debug("game complete and reset")
+   if testMode:
+      robot.printBoard()
+      robot.printCaptureBoard()
+      robot2.printCaptureBoard()
 
 def pauseGame():
    while True:
@@ -125,14 +138,14 @@ def setupRobots():
          break
      
    if robotList is False:
-      print("Found to many or not enough robots to start." \
+      logging.error("Found to many or not enough robots to start." \
          "\nChange the number of robots in RobotList in run.py if testing.")
       quit()
 
    # Robots share the same board 
-   robot = Robot(robotList[0],gameBoard,captureBoard1,"white")
+   robot = Robot(robotList[0],gameBoard,captureBoard1,ROBOT_1_COLOR)
    GPIO.add_event_detect(1, GPIO.BOTH, pauseGame)
-   robot2 = Robot(robotList[1],gameBoard,captureBoard2, "black")
+   robot2 = Robot(robotList[1],gameBoard,captureBoard2, ROBOT_2_COLOR)
 
    # Check to verify the robots are not switched
    robot1ID = conf.S('robotIdents','robot1')
@@ -146,6 +159,10 @@ def setupRobots():
       tmpRobot = robot2
       robot2 = robot
       robot = tmpRobot
+      #reset color so they are correct
+      robot.setColor(ROBOT_1_COLOR)
+      robot2.setColor(ROBOT_2_COLOR)
+
 
    # Sanity check to make sure they match up after switch
    if robot.checkID(robot1ID):
@@ -163,8 +180,8 @@ def testRobotSetup():
    captureBoard2 = CaptureBoard()
 
    # Robots share the same board 
-   robot = Robot(None,gameBoard,captureBoard1,"white",test=True)
-   robot2 = Robot(None,gameBoard,captureBoard2,"black",test=True)
+   robot = Robot(None,gameBoard,captureBoard1,ROBOT_1_COLOR,test=True)
+   robot2 = Robot(None,gameBoard,captureBoard2,ROBOT_2_COLOR,test=True)
    return robot, robot2
 
 def testRobotRestart():

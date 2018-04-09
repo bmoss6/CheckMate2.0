@@ -38,4 +38,8 @@ The following hardware components were used to build this project
 * Custom enclosure
 
 ### Documentation 
-To regenerate the source code document ion run `doxygen config`
+To regenerate the source code documentation run `doxygen config`
+
+### Running Test
+Many of the classes have test built into them and by running the classes on their own will run the test.
+Several other miscellaneous tests can be found in the test folder.
