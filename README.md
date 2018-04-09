@@ -36,3 +36,6 @@ The following hardware components were used to build this project
 * Reed switches
 * Custom chess pieces
 * Custom enclosure
+
+### Documentation 
+To regenerate the source code document ion run `doxygen config`

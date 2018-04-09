@@ -3,7 +3,7 @@
 import os, logging, sys, time
 from piece import Piece as piece
 from position import Position
-#from gpio import GPIOBOARD
+from gpio import GPIOBOARD
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 

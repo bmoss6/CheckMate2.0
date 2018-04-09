@@ -4,7 +4,7 @@ import os
 
 # Set to true to test off of the robots and PI. 
 # also comment out "from gpio import GPIOBOARD" in board.py
-testMode = True 
+testMode = False 
 # This is a super hacky way to make sure python is ready before we start
 Autostart = False
 ProjectPath = "/home/pi/Documents/CheckMate2.0"
