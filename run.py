@@ -6,7 +6,7 @@ import os
 # also comment out "from gpio import GPIOBOARD" in board.py
 testMode = False 
 # This is a super hacky way to make sure python is ready before we start
-Autostart = False
+Autostart = True
 ProjectPath = "/home/pi/Documents/CheckMate2.0"
 if Autostart:
    #Change this path to 
@@ -18,10 +18,8 @@ if Autostart:
       if (tries > 60):
          exit()
       try:
-         f= open(tmpFile,"r")
-         # f.write("script has run\n")
-         # f.close()
-         # os.remove(tmpFile)
+         f= open(testFile,"r")
+         f.close()
          break
       except Exception as e:
          tries += 1
