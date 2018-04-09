@@ -3,7 +3,7 @@
 import os, logging, sys, time
 from piece import Piece as piece
 from position import Position
-from gpio import GPIOBOARD
+#from gpio import GPIOBOARD
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
@@ -15,8 +15,9 @@ logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 #  The board class also plays an important role in resetting the board to a default state (ie. for a new game)
 class Board:
     ## The constructor which initializes the board object by constructing an initial (starting position) chessboard
-    #  @param width: Width of the game board. Default for chess games should always be 8.
-    #  @param height: Height of the game board. Default for chess games should always be 8.
+    #  @param width:int Width of the game board. Default for chess games should always be 8.
+    #  @param height:int Height of the game board. Default for chess games should always be 8.
+    #  @param test:Bool Default=False set when testing the programs without the robots.
     #  WARNING: If width or height are set to number other than 8. Constructing of board will fail.
     def __init__(self, width=8, height=8,test=False):
         ## @var name
@@ -47,7 +48,8 @@ class Board:
             self.gpio.setup()
 
     ## Creates an array of blank PIECE objects.
-    # Only works for 8x8 board.
+    #  Only works for 8x8 board.
+    #  @return type:Piece array. Array of blank Pieces
     def populate_blank(self):
         list = []
         for x in range (0,8):
@@ -55,7 +57,8 @@ class Board:
         return list
 
     ## Creates the first and last row of the chessboard with corresponding PIECE objects.
-    #  @param color: The color or team the piece corresponds to (ie black/white)
+    #  @param color:string The color or team the piece corresponds to (ie black/white)
+    #  @return type:Piece array. Array of first chess row
     def first_line(self,color):
         first_line = []
         first_line.append(piece("rook",color))
@@ -69,7 +72,8 @@ class Board:
         return first_line
 
     ## Creates a row of all pawns to be placed in front of the first and last rows of the board
-    #  @param color: The color or team the piece corresponds to (ie black/white)
+    #  @param color:string The color or team the piece corresponds to (ie black/white)
+    #  @return type:Piece array. Array of second chess row
     def second_line(self,color):
         second_line = []
         for x in range(0,self.width):
@@ -82,10 +86,12 @@ class Board:
 
     ## Returns a specific piece on the board when given x/y coordinates
     #  @param position: a POSITION object with x and y coordinates.
+    #  @return type:Piece
     def getPeice(self,position):
         x = position.getXBoard()
         y = position.getYBoard()
         return self.board[x][y]
+
     ## Constructs the 8x8 board by using the first_line() and second_line() and populate_blank() functions
     #  Also sets the piece count and the original positions (to be used when resetting the board)
     def construct_8x8_board(self):
@@ -104,7 +110,8 @@ class Board:
                       self.board[x][y].setStartPos(x,y)
 
     ## Checks if a collision will occur before a move function
-    #  @param end: A position object relating to the position the piece is to move to.
+    #  @param end:Position A position object relating to the position the piece is to move to.
+    #  @return type:bool
     def isCollision(self,end):
         endx = end.getXBoard()
         endy = end.getYBoard()
@@ -117,7 +124,7 @@ class Board:
         return False
 
     ## Remove function sets a PIECE object on the board to empty. Used when setting a piece to empty during the move.
-    #  @param position: Position object corresponding to the square on the board that needs to be cleared.
+    #  @param position:Position Position object corresponding to the square on the board that needs to be cleared.
     def remove(self,position):
         posx = position.getXBoard()
         posy = position.getYBoard()
@@ -141,6 +148,8 @@ class Board:
 
     ## Used to move pieces around on the board Use position objects for start and end
     # Pieces will inherently get removed as the overwrite
+    # @param start:Position starting poistion
+    # @param end:Position ending position
     def move(self,start,end):
         self.GPIOUpdate()
         startx = start.getXBoard()
@@ -170,8 +179,8 @@ class Board:
 
     ## Checks a piece object to ensure that a GPIO (Reed Switch) is activated, which means that a magnet (attached to the piece)
     # is in the square relating to the piece object.
-    #  @param startx: x-coordinate of square to check on the board.
-    #  @param starty: y-coordinate of square to check on the board.
+    #  @param startx:int x-coordinate of square to check on the board.
+    #  @param starty:int y-coordinate of square to check on the board.
     def GPIOError(self,startx,starty):
         if self.test:
             return

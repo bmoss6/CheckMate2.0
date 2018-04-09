@@ -1,7 +1,9 @@
 var searchData=
 [
   ['get_5fposition',['get_position',['../classuArmWrapper_1_1uArmWrapper.html#aba2f13b601294971f37c342797f517a2',1,'uArmWrapper::uArmWrapper']]],
+  ['getboard',['getBoard',['../classcaptureBoard_1_1CaptureBoard.html#afa215317778f475817e7590e2a20705d',1,'captureBoard::CaptureBoard']]],
   ['getdefault',['getDefault',['../classuArmWrapper_1_1uArmWrapper.html#a070ead6edc766f128fd0a42e7b3f0cba',1,'uArmWrapper::uArmWrapper']]],
+  ['getlist',['getList',['../classrobotList_1_1RobotList.html#aabd30ed3a2042d859b61055fa8854252',1,'robotList::RobotList']]],
   ['getpeice',['getPeice',['../classboard_1_1Board.html#a414b3ff6d01771ea6b5e045fbbafc01e',1,'board::Board']]],
   ['getuid',['getUID',['../classuArmWrapper_1_1uArmWrapper.html#a403eec16a0c4a47ed10a560ee9e570c7',1,'uArmWrapper::uArmWrapper']]],
   ['getx',['getX',['../classposition_1_1Position.html#a4782d6db983f4ec704947c55bea53084',1,'position::Position']]],

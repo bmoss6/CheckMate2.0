@@ -27,11 +27,11 @@ class Piece:
         # inital Y position of peice for reset
         self.StartingY = None
         
-    # @return name:string
+    # @return type:string
     def getName(self):
         return self.name
 
-    # @return color:string
+    # @return type:string
     def getColor(self):
         return self.color
 
@@ -40,7 +40,7 @@ class Piece:
         return self.gpio
 
     ## Check if peice is empty
-    #  @return Bool
+    #  @return type:Bool
     def isEmpty(self):
         if (self.name is None) and (self.color is None) and (self.gpio is 0):
             return True

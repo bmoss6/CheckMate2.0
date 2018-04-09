@@ -12,6 +12,7 @@ var searchData=
   ['conf',['Conf',['../classconfig_1_1Conf.html',1,'config']]],
   ['construct_5f8x8_5fboard',['construct_8x8_board',['../classboard_1_1Board.html#a50f3f62e92ceaeb51f07af542a3349e3',1,'board::Board']]],
   ['convertmove',['convertMove',['../classgame_1_1Game.html#a00a64eb4da1292b75eeb27ad038b2379',1,'game::Game']]],
+  ['convindexpos',['convIndexPos',['../classcaptureBoard_1_1CaptureBoard.html#a4a1fda8b09d53d12469a51ce2db35a7e',1,'captureBoard::CaptureBoard']]],
   ['curx',['curX',['../classuArmWrapper_1_1uArmWrapper.html#a35b173a76911ac172a58e234f2a5aa63',1,'uArmWrapper::uArmWrapper']]],
   ['cury',['curY',['../classuArmWrapper_1_1uArmWrapper.html#af32c8e3f21c63e8522cedcdad07f9d3b',1,'uArmWrapper::uArmWrapper']]],
   ['curz',['curZ',['../classuArmWrapper_1_1uArmWrapper.html#aff9e67e9c1b16eff64e9ccf9fbe6ba0a',1,'uArmWrapper::uArmWrapper']]]

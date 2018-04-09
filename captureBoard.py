@@ -12,7 +12,7 @@ from capturePosition import CapturePosition
 class CaptureBoard(object):
 
    ## Constructor
-   #  @param invert:bool store if returned peices should be inverted for this capture board.
+   #  @param invert:bool invert:bool store if returned peices should be inverted for this capture board.
    def __init__(self,invert=False):
       super(CaptureBoard, self).__init__()
 
@@ -34,7 +34,10 @@ class CaptureBoard(object):
             row.append(None)
          self.board.append(row)
 
-   
+   ## Convert the index of the array on the board to a Position on the capture board
+   #  @param row:int index of row
+   #  @param col:int index of column
+   #  @return type:CapturePoisiton poistion on capture board
    def convIndexPos(self,row,col):
       # Check if we are on the other half 
       nextSide = True if row >= self.COLUMN_LENGTH/2 else False
@@ -42,8 +45,9 @@ class CaptureBoard(object):
          row = row % int(self.COLUMN_LENGTH/2)
       return CapturePosition(row,col,nextSide,self.invert)
 
-   #This function inserts an object into the array at index
-   #Return the next position
+   ## Insert a peice on the the next avaliable space of the CaptureBorad
+   #  @param peice:Piece Piece to store in capture board
+   #  @return type:CapturePosition poistion of the empty space found
    def insertNextPos(self,peice):
       if self.peiceCount == 0:
          self.lastRowI = 0
@@ -60,13 +64,10 @@ class CaptureBoard(object):
       self.peiceCount += 1
 
       return self.convIndexPos(self.lastRowI,self.lastColI)
-   
-   #Return a list of all of the captured pecies so that we can rest board
-   def captureList(self,piece):
-      pass
 
-   #There may be times we will want to hold a peice in the discard pile and need to get it back.
-   #return last index
+   ## Get the last peice placed on the capture board. You can think of the board as a stack 
+   ##  that you popping the next peice off of.
+   #  @return type:CapturePoistion, type:Piece The poistion and piece that are popped off.
    def popLast(self):
       if self.peiceCount == 0:
          return None, None
@@ -83,6 +84,7 @@ class CaptureBoard(object):
       self.peiceCount -= 1
       return pos, peice
 
+   ## Clear all of the pieces from the capture board.
    def resetBoard(self):
       self.lastRowI = 0
       self.lastColI = 0
@@ -91,15 +93,19 @@ class CaptureBoard(object):
          for y in range(0,self.ROW_LENGTH):
             self.board[x][y] = None
 
+   ## get the board array
+   #  @return type:2D array of pieces
    def getBoard(self):
       return self.board
 
+   ## Used to debug and print the contents of the board.
    def printBoard(self):
       print("RIGHT")
       self.printRight()
       print("LEFT")
       self.printLeft()
 
+   ## Used to debug and print the right side of the board.
    def printRight(self):
       print("      [0]   [1]")
       for x in range(0,int(self.COLUMN_LENGTH/2)):
@@ -111,6 +117,7 @@ class CaptureBoard(object):
             self.board[x][y].printPeice()
          print()
 
+    ## Used to debug and print the left side of the board.
    def printLeft(self):
       print("      [0]   [1]")
       for x in range(int(self.COLUMN_LENGTH/2),self.COLUMN_LENGTH):

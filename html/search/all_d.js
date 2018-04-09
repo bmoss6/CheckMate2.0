@@ -2,6 +2,7 @@ var searchData=
 [
   ['remove',['remove',['../classboard_1_1Board.html#a9b195767d035d9f6365528ac23263670',1,'board::Board']]],
   ['reset',['reset',['../classboard_1_1Board.html#a479890a51da178129bad86650185945e',1,'board.Board.reset()'],['../classuArmWrapper_1_1uArmWrapper.html#abe3e5b106fd49760c99c3034c741aac7',1,'uArmWrapper.uArmWrapper.reset()']]],
+  ['resetboard',['resetBoard',['../classcaptureBoard_1_1CaptureBoard.html#ac40a4dbaa81a2354fd70b58e0bc3fea1',1,'captureBoard::CaptureBoard']]],
   ['resettooriginalposition',['resetToOriginalPosition',['../classrobot_1_1Robot.html#abb567eaaba41e57037d611dcaa292909',1,'robot::Robot']]],
   ['robot',['Robot',['../classrobot_1_1Robot.html',1,'robot']]],
   ['robot1_5fmoves',['robot1_moves',['../classgame_1_1Game.html#a72d05e041e9d64c065f5cb44e6584664',1,'game::Game']]],

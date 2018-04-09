@@ -74,7 +74,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Dynamicly locate serial ports avalible Helper class that find list of avliable serial connections.  
+<p>Dynamicly locate the list serial ports avalible.  
  <a href="classrobotList_1_1RobotList.html#details">More...</a></p>
 <div class="dynheader">
 Inheritance diagram for robotList.RobotList:</div>
@@ -91,9 +91,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a3adfa0f70cb5f60fab0fd2a268fbc789"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="#a3adfa0f70cb5f60fab0fd2a268fbc789">More...</a><br /></td></tr>
 <tr class="separator:a3adfa0f70cb5f60fab0fd2a268fbc789"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a35f82cd788aaba2e1dc4e71769370c7e"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobotList_1_1RobotList.html#a35f82cd788aaba2e1dc4e71769370c7e">serial_ports</a> (self)</td></tr>
+<tr class="memdesc:a35f82cd788aaba2e1dc4e71769370c7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check for a list of avaliable serial ports.  <a href="#a35f82cd788aaba2e1dc4e71769370c7e">More...</a><br /></td></tr>
 <tr class="separator:a35f82cd788aaba2e1dc4e71769370c7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabd30ed3a2042d859b61055fa8854252"><td class="memItemLeft" align="right" valign="top"><a id="aabd30ed3a2042d859b61055fa8854252"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><b>getList</b> (self)</td></tr>
+<tr class="memitem:aabd30ed3a2042d859b61055fa8854252"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classrobotList_1_1RobotList.html#aabd30ed3a2042d859b61055fa8854252">getList</a> (self)</td></tr>
+<tr class="memdesc:aabd30ed3a2042d859b61055fa8854252"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of the avabliable serial ports if avaliable.  <a href="#aabd30ed3a2042d859b61055fa8854252">More...</a><br /></td></tr>
 <tr class="separator:aabd30ed3a2042d859b61055fa8854252"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
@@ -109,7 +110,7 @@ Public Attributes</h2></td></tr>
 <tr class="separator:acd0c03db395b295105e08315c75d790f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p class="">Dynamicly locate serial ports avalible Helper class that find list of avliable serial connections. </p>
+<div class="textblock"><p class="">Dynamicly locate the list serial ports avalible. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a3adfa0f70cb5f60fab0fd2a268fbc789"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3adfa0f70cb5f60fab0fd2a268fbc789">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -140,7 +141,7 @@ Public Attributes</h2></td></tr>
 <p>Constructor. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">numRobots</td><td>Number of robots that are expected to be found @ </td></tr>
+    <tr><td class="paramname">numRobots</td><td>Number of robots that are expected to be found </td></tr>
   </table>
   </dd>
 </dl>
@@ -148,6 +149,27 @@ Public Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="aabd30ed3a2042d859b61055fa8854252"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aabd30ed3a2042d859b61055fa8854252">&#9670;&nbsp;</a></span>getList()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def robotList.RobotList.getList </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a list of the avabliable serial ports if avaliable. </p>
+<dl class="section return"><dt>Returns</dt><dd>Type:Bool or Type:string array. Thats gross... </dd></dl>
+
+</div>
+</div>
 <a id="a35f82cd788aaba2e1dc4e71769370c7e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a35f82cd788aaba2e1dc4e71769370c7e">&#9670;&nbsp;</a></span>serial_ports()</h2>
 
@@ -163,13 +185,10 @@ Public Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<pre class="fragment">Lists serial port names
 
-    :raises EnvironmentError:
-On unsupported or unknown platforms
-    :returns:
-A list of the serial ports available on the system
-</pre> 
+<p>Check for a list of avaliable serial ports. </p>
+<p class="">It will set initilized to true if all you find the number of robots you expect. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>

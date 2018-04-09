@@ -110,9 +110,8 @@ def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memitem:a566f280709d8587d3148f2b28890ee25"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#a566f280709d8587d3148f2b28890ee25">GPIOUpdate</a> (self)</td></tr>
 <tr class="memdesc:a566f280709d8587d3148f2b28890ee25"><td class="mdescLeft">&#160;</td><td class="mdescRight">GPIO Check will iterate through the board and update each piece object with it's GPIO tag GPIO tag: 1 if physical piece is on square, 0 if physical piece not on square (as determined by reed switches) WARNING: Not always reliable.  <a href="#a566f280709d8587d3148f2b28890ee25">More...</a><br /></td></tr>
 <tr class="separator:a566f280709d8587d3148f2b28890ee25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5403c80f6f642c0e4db4ac034883cdd"><td class="memItemLeft" align="right" valign="top"><a id="af5403c80f6f642c0e4db4ac034883cdd"></a>
-def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#af5403c80f6f642c0e4db4ac034883cdd">move</a> (self, start, end)</td></tr>
-<tr class="memdesc:af5403c80f6f642c0e4db4ac034883cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to move pieces around on the board Use position objects for start and end Pieces will inherently get removed as the overwrite. <br /></td></tr>
+<tr class="memitem:af5403c80f6f642c0e4db4ac034883cdd"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#af5403c80f6f642c0e4db4ac034883cdd">move</a> (self, start, end)</td></tr>
+<tr class="memdesc:af5403c80f6f642c0e4db4ac034883cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used to move pieces around on the board Use position objects for start and end Pieces will inherently get removed as the overwrite.  <a href="#af5403c80f6f642c0e4db4ac034883cdd">More...</a><br /></td></tr>
 <tr class="separator:af5403c80f6f642c0e4db4ac034883cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add6c15bdf94a3167513cd90770cab1cc"><td class="memItemLeft" align="right" valign="top">def&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classboard_1_1Board.html#add6c15bdf94a3167513cd90770cab1cc">GPIOError</a> (self, startx, starty)</td></tr>
 <tr class="memdesc:add6c15bdf94a3167513cd90770cab1cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks a piece object to ensure that a GPIO (Reed Switch) is activated, which means that a magnet (attached to the piece) is in the square relating to the piece object.  <a href="#add6c15bdf94a3167513cd90770cab1cc">More...</a><br /></td></tr>
@@ -194,8 +193,9 @@ Public Attributes</h2></td></tr>
 <p>The constructor which initializes the board object by constructing an initial (starting position) chessboard. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">width</td><td>Width of the game board. Default for chess games should always be 8. </td></tr>
-    <tr><td class="paramname">height</td><td>Height of the game board. Default for chess games should always be 8. WARNING: If width or height are set to number other than 8. Constructing of board will fail. </td></tr>
+    <tr><td class="paramname">width:int</td><td>Width of the game board. Default for chess games should always be 8. </td></tr>
+    <tr><td class="paramname">height:int</td><td>Height of the game board. Default for chess games should always be 8. </td></tr>
+    <tr><td class="paramname">test:Bool</td><td>Default=False set when testing the programs without the robots. WARNING: If width or height are set to number other than 8. Constructing of board will fail. </td></tr>
   </table>
   </dd>
 </dl>
@@ -232,10 +232,11 @@ Public Attributes</h2></td></tr>
 <p>Creates the first and last row of the chessboard with corresponding PIECE objects. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>The color or team the piece corresponds to (ie black/white) </td></tr>
+    <tr><td class="paramname">color:string</td><td>The color or team the piece corresponds to (ie black/white) </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>type:Piece array. Array of first chess row </dd></dl>
 
 </div>
 </div>
@@ -272,6 +273,7 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>type:Piece </dd></dl>
 
 </div>
 </div>
@@ -310,8 +312,8 @@ Public Attributes</h2></td></tr>
 <p>Checks a piece object to ensure that a GPIO (Reed Switch) is activated, which means that a magnet (attached to the piece) is in the square relating to the piece object. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">startx</td><td>x-coordinate of square to check on the board. </td></tr>
-    <tr><td class="paramname">starty</td><td>y-coordinate of square to check on the board. </td></tr>
+    <tr><td class="paramname">startx:int</td><td>x-coordinate of square to check on the board. </td></tr>
+    <tr><td class="paramname">starty:int</td><td>y-coordinate of square to check on the board. </td></tr>
   </table>
   </dd>
 </dl>
@@ -368,7 +370,51 @@ Public Attributes</h2></td></tr>
 <p>Checks if a collision will occur before a move function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">end</td><td>A position object relating to the position the piece is to move to. </td></tr>
+    <tr><td class="paramname">end:Position</td><td>A position object relating to the position the piece is to move to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>type:bool </dd></dl>
+
+</div>
+</div>
+<a id="af5403c80f6f642c0e4db4ac034883cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5403c80f6f642c0e4db4ac034883cdd">&#9670;&nbsp;</a></span>move()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">def board.Board.move </td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>self</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>start</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>end</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Used to move pieces around on the board Use position objects for start and end Pieces will inherently get removed as the overwrite. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">start:Position</td><td>starting poistion </td></tr>
+    <tr><td class="paramname">end:Position</td><td>ending position </td></tr>
   </table>
   </dd>
 </dl>
@@ -392,7 +438,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Creates an array of blank PIECE objects. </p>
-<p class="">Only works for 8x8 board. </p>
+<p class="">Only works for 8x8 board. </p><dl class="section return"><dt>Returns</dt><dd>type:Piece array. Array of blank Pieces </dd></dl>
 
 </div>
 </div>
@@ -467,7 +513,7 @@ Public Attributes</h2></td></tr>
 <p>Remove function sets a PIECE object on the board to empty. </p>
 <p class="">Used when setting a piece to empty during the move. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">position</td><td>Position object corresponding to the square on the board that needs to be cleared. </td></tr>
+    <tr><td class="paramname">position:Position</td><td>Position object corresponding to the square on the board that needs to be cleared. </td></tr>
   </table>
   </dd>
 </dl>
@@ -523,10 +569,11 @@ Public Attributes</h2></td></tr>
 <p>Creates a row of all pawns to be placed in front of the first and last rows of the board. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">color</td><td>The color or team the piece corresponds to (ie black/white) </td></tr>
+    <tr><td class="paramname">color:string</td><td>The color or team the piece corresponds to (ie black/white) </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>type:Piece array. Array of second chess row </dd></dl>
 
 </div>
 </div>

@@ -1,9 +1,16 @@
 #!/usr/bin/env python3
 from time import sleep
 import os
+
+# Set to true to test off of the robots and PI. 
+# also comment out "from gpio import GPIOBOARD" in board.py
+testMode = True 
 # This is a super hacky way to make sure python is ready before we start
-if False:
-   os.chdir("/home/pi/Documents/CheckMate2.0")
+Autostart = False
+ProjectPath = "/home/pi/Documents/CheckMate2.0"
+if Autostart:
+   #Change this path to 
+   os.chdir(ProjectPath)
    tries = 0
    tmpFile ="test.txt"
    maxTries = 60
@@ -30,14 +37,9 @@ from itertools import zip_longest
 from os import listdir
 from os.path import isfile, join
 import logging, sys
-import RPi.GPIO as GPIO
 from config import Conf
 conf = Conf()
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
-
-# Set to true to test off of the robots and PI. 
-# also comment out "from gpio import GPIOBOARD" in board.py
-testMode = False 
 
 if not testMode:
    import RPi.GPIO as GPIO
@@ -80,7 +82,11 @@ def playGame(game,robot,robot2):
             robot2.move(start,end)
 
    #The board is shared so it can be reset by either robot.
-   robot.resetBoard(None)
+   #robot.resetBoard(None)
+   robot.clearRobotPieces()
+   robot2.clearRobotPieces()
+   robot.resetToOriginalPosition()
+   robot2.resetToOriginalPosition()
 
 def pauseGame():
    while True:
@@ -157,8 +163,8 @@ def testRobotSetup():
    captureBoard2 = CaptureBoard()
 
    # Robots share the same board 
-   robot = Robot(None,gameBoard,captureBoard1,test=True)
-   robot2 = Robot(None,gameBoard,captureBoard2,test=True)
+   robot = Robot(None,gameBoard,captureBoard1,"white",test=True)
+   robot2 = Robot(None,gameBoard,captureBoard2,"black",test=True)
    return robot, robot2
 
 def testRobotRestart():
@@ -171,18 +177,26 @@ def testRobotRestart():
    
 def main():
 
+   # Read all of the games from GameScript folder
+   gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
+   loopForever = conf.S('game','loopForever')
+   if loopForever == "True":
+      loopForever = True
+   else:
+      loopForever = False
+
    # Setup board and capture board to share between robots
    if testMode:
       robot, robot2 = testRobotSetup()
    else:
       robot, robot2 = setupRobots()
 
-   # Read all of the games from GameScript folder
-   gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
-
    # Loop this forever
-   for game in gameFiles:
-      playGame(game,robot,robot2)
+   while True:
+      for game in gameFiles:
+         playGame(game,robot,robot2)
+      if not loopForever:
+         break
 
    if testMode:
       return

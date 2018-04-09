@@ -25,7 +25,7 @@ class Robot(object):
     #  @param board:Board Board class the both robots share
     #  @param captureBoard:CaptureBoard Capture board for this robot.
     #  @param color:string color of peices the robot is responsible for
-    #  @param test:Bool Set to true if you want to run test without robots so they dont try to send commnds
+    #  @param test:Bool Default:False Set to true if you want to run test without robots so they dont try to send commnds
     def __init__(self,port,board,captureBoard,color,test=False):
         super(Robot, self).__init__()
         logging.debug('\tsetup self.swift ...')
@@ -81,7 +81,7 @@ class Robot(object):
 
     ## Check to see if the uid of the robot is what we think it is
     #  @param uid:string uid to verify
-    #  @return Bool to say if matched or not.
+    #  @return type:Bool to say if matched or not.
     def checkID(self,uid):
         if self.uid == uid:
             return True

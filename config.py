@@ -13,13 +13,13 @@ class Conf(object):
 	## Get Interger type
 	# @param obj:string main section
 	# @param var:string variable
-	# @return interger representation of object 
+	# @return type:int interger representation of object 
 	def I(self,obj,var):
 		return int(self.config[obj][var])
 
 	## Get String type
 	# @param obj:string main section
 	# @param var:string variable
-	# @return interger representation of object 
+	# @return type:string interger representation of object 
 	def S(self,obj,var):
 		return self.config[obj][var]

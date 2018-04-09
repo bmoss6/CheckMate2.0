@@ -161,7 +161,8 @@ Public Attributes</h2></td></tr>
 <div class="textblock"><p class="">A simplified wrapper to the UARM robot. </p>
 <p class="">The <a href="https://github.com/uArm-Developer/pyuf">original wrapper</a> is currently very unrealiable so this give a limited list of commands that our robot needs.</p>
 <p class="">This wrapper communitates over a serial connection to the robot by sending the raw API commands to the arduino on board the robot. To see a list of commands view <a href="http://download.ufactory.cc/docs/en/uArm-Swift-Pro-Develper-Guide-171221.pdf">their documentation</a>.</p>
-<p class="">It is imporant to not that unlike the orignal wrapper all function calls are blocking. all of the commands block on read on the serial connection until they recive a response that the robot has completed the command or it has errored. </p>
+<p class="">It is imporant to not that unlike the orignal wrapper all function calls are blocking. all of the commands block on read on the serial connection until they recive a response that the robot has completed the command or it has errored.</p>
+<p class="">Lastley robot does have limits and so not all coordinates you input will work. The arduino API is a little unreliable but set_position should print an error if something goes wrong. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a0d27f94fb388e087ad111e0818b9fe05"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0d27f94fb388e087ad111e0818b9fe05">&#9670;&nbsp;</a></span>__init__()</h2>
@@ -217,7 +218,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get current position of the robot. </p>
-<p class="">Although we save the position this function asks the robot what it thinks its current position is to make sure the position is correct </p><dl class="section return"><dt>Returns</dt><dd>API response:string </dd></dl>
+<p class="">Although we save the position this function asks the robot what it thinks its current position is to make sure the position is correct </p><dl class="section return"><dt>Returns</dt><dd>type:string API response </dd></dl>
 
 </div>
 </div>
@@ -238,7 +239,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>get set defaults </p>
-<dl class="section return"><dt>Returns</dt><dd>x:int, y:int, z:int </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>type:int, type:int, type:int x,y,z </dd></dl>
 
 </div>
 </div>
@@ -259,7 +260,7 @@ Public Attributes</h2></td></tr>
 </div><div class="memdoc">
 
 <p>get UID get the unique identification number of the robot so that we are able to tell them apart. </p>
-<p class="">This is important becuase the ports they are assigned to may switch </p><dl class="section return"><dt>Returns</dt><dd>UID:string </dd></dl>
+<p class="">This is important becuase the ports they are assigned to may switch </p><dl class="section return"><dt>Returns</dt><dd>type:string UID </dd></dl>
 
 </div>
 </div>
@@ -310,6 +311,7 @@ Public Attributes</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>type:int, type:int, type:int x,y,z </dd></dl>
 
 </div>
 </div>

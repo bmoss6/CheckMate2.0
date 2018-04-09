@@ -7,5 +7,6 @@ var searchData=
   ['clearrobotpieces',['clearRobotPieces',['../classrobot_1_1Robot.html#a0bd7580fcca95b7e79d934b3b95b1d31',1,'robot::Robot']]],
   ['close',['close',['../classuArmWrapper_1_1uArmWrapper.html#acf55d96058b4ab4ab8c1c4ddc5e3825a',1,'uArmWrapper::uArmWrapper']]],
   ['construct_5f8x8_5fboard',['construct_8x8_board',['../classboard_1_1Board.html#a50f3f62e92ceaeb51f07af542a3349e3',1,'board::Board']]],
-  ['convertmove',['convertMove',['../classgame_1_1Game.html#a00a64eb4da1292b75eeb27ad038b2379',1,'game::Game']]]
+  ['convertmove',['convertMove',['../classgame_1_1Game.html#a00a64eb4da1292b75eeb27ad038b2379',1,'game::Game']]],
+  ['convindexpos',['convIndexPos',['../classcaptureBoard_1_1CaptureBoard.html#a4a1fda8b09d53d12469a51ce2db35a7e',1,'captureBoard::CaptureBoard']]]
 ];

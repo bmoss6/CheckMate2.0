@@ -2,13 +2,11 @@
 
 import serial, sys, glob
 
-## Dynamicly locate serial ports avalible
-#  Helper class that find list of avliable serial connections
+## Dynamicly locate the list serial ports avalible
 class RobotList(object):
     
     ## Constructor
     #  @param numRobots Number of robots that are expected to be found
-    #  @
     def __init__(self,numRobots):
         super(RobotList, self).__init__()
         self.numOfRobots = numRobots
@@ -16,14 +14,9 @@ class RobotList(object):
         self.initialized = False
         self.serial_ports()
 
+    ## Check for a list of avaliable serial ports. 
+    #  It will set initilized to true if all you find the number of robots you expect.
     def serial_ports(self):
-        """ Lists serial port names
-
-            :raises EnvironmentError:
-                On unsupported or unknown platforms
-            :returns:
-                A list of the serial ports available on the system
-        """
         self.robotList=[]
         if sys.platform.startswith('linux'):
             # this excludes your current terminal "/dev/tty"
@@ -31,7 +24,6 @@ class RobotList(object):
         else:
             raise EnvironmentError('Unsupported platform')
 
-        
         for port in ports:
             try:
                 s = serial.Serial(port)
@@ -42,13 +34,13 @@ class RobotList(object):
         if(len(self.robotList) == self.numOfRobots):
             self.initialized = True
         
+    ## Get a list of the avabliable serial ports if avaliable
+    #  @return Type:Bool or Type:string array. Thats gross... 
     def getList(self):
         if self.initialized:
             return self.robotList
         return False
              
-
-
 
 if __name__ == '__main__':
     rl = RobotList()

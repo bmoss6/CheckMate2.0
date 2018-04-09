@@ -47,22 +47,22 @@ class Position(object):
         self.yConvert(y)
 
     ## get y poition of robot in mm
-    #  @return int
+    #  @return type:int
     def getY(self):
         return self.y
         
     ## get x poition of robot in mm
-    #  @return int
+    #  @return type:int
     def getX(self):
         return self.x
 
     ## get x board poition of robot
-    #  @return int
+    #  @return type:int
     def getXBoard(self):
         return self.xBoard
 
     ## get y board poition of robot
-    #  @return int
+    #  @return type:int
     def getYBoard(self):
         return self.yBoard
 
@@ -77,6 +77,7 @@ class Position(object):
         self.x = confI('offsets','x') + x * confI('offsets','inc')
 
     ## invert the coordinates for second robot
+    #  @return type:int type:int inverted x, inverted y
     def invert(self,x,y):
         invertDict = {7:0, 6:1, 5:2, 4:3, 3:4, 2:5, 1:6, 0:7}
         return invertDict[x], invertDict[y]

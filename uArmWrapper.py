@@ -75,6 +75,7 @@ class uArmWrapper(object):
    #  @param x:int X position
    #  @param y:int Y position
    #  @param z:int Z position
+   #  @return type:int, type:int, type:int x,y,z
    def savePos(self,x,y,z):
       if x is None:
          x = self.curX
@@ -116,7 +117,7 @@ class uArmWrapper(object):
    ## Get current position of the robot.
    #  Although we save the position this function asks the robot what it thinks its current position is
    #  to make sure the position is correct
-   #  @return API response:string
+   #  @return type:string API response
    def get_position(self):
       logging.debug("\tChecking Current Position")
       cmdStr = '#%sP2220\n'%(self.debugNum)
@@ -150,14 +151,14 @@ class uArmWrapper(object):
       self.speed = speed
 
    ## get set defaults
-   #  @return x:int, y:int, z:int
+   #  @return type:int, type:int, type:int x,y,z
    def getDefault(self):
       return self.defaultX, self.defaultY, self.defaultZ
 
    ## get UID
    #  get the unique identification number of the robot so that we are able to tell them apart.
    #  This is important becuase the ports they are assigned to may switch
-   #  @return UID:string
+   #  @return type:string UID
    def getUID(self):
       self.ser.write(b'P2205\n') 
       ret = str(self.ser.readline(),'utf-8')
