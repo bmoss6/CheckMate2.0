@@ -98,6 +98,8 @@ if __name__=='__main__':
 	                    type=int)
     args = parser.parse_args()
     testgpio.setup()
+    print(str(testgpio.checkmux(testgpio.Mux4,[1,1,0,0])))
+    print(str(testgpio.gpioboard))
     while(1):
         testgpio.boardcheck(args.muxnumber)
         print ("++++++++++++++++++++++++++++++++++++++++++")

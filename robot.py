@@ -55,7 +55,7 @@ class Robot(object):
         #  uid of robot as reported by the API
         self.uid = self.swift.getUID()
         # Set to the inital resting position
-        self.swift.setDefault(conf.I('robot','restX'), 0, conf.I('robot','restZ'), conf.I('robot','speed'))
+        self.swift.setDefault(conf.I('robot','restX'), conf.I('robot','restY'), conf.I('robot','restZ'), conf.I('robot','speed'))
         self.swift.reset()
 
     ## If the robots switch you need to change their color os they are correct

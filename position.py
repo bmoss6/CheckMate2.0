@@ -68,13 +68,17 @@ class Position(object):
 
     ## convert and set the y board coordinate to the coordinate read by the robot
     def yConvert(self,y):
-        yPos = y - confI('board','threshHold')
-        #logging.debug(yPos)
-        self.y = (yPos * confI('offsets','inc')) + confI('offsets', 'y')
+        yCoord = "c" + str(y)
+        self.y = confI('board', yCoord)
+    #    yPos = y - confI('board','threshHold')
+    #    #logging.debug(yPos)
+    #    self.y = (yPos * confI('offsets','inc')) + confI('offsets', 'y')
 
     ## convert and set the x board coordinate to the coordinate read by the robot
     def xConvert(self,x):
-        self.x = confI('offsets','x') + x * confI('offsets','inc')
+        xCoord = "r" + str(x)
+        self.x = confI('board', xCoord)
+    #    self.x = confI('offsets','x') + x * confI('offsets','inc')
 
     ## invert the coordinates for second robot
     #  @return type:int type:int inverted x, inverted y

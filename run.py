@@ -34,7 +34,7 @@ from captureBoard import CaptureBoard
 from itertools import zip_longest
 from os import listdir
 from os.path import isfile, join
-import logging, sys
+import logging, sys, signal
 from config import Conf
 conf = Conf()
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
@@ -48,6 +48,19 @@ if not testMode:
 GameScripts = "GameScripts"
 ROBOT_1_COLOR = "white"
 ROBOT_2_COLOR = "black"
+# FIRST_TIME = True 
+
+# # This is 
+# def fake_botton_push(signal, frame):
+#    #os.setuid(0) 
+#    #print(os.getuid())
+#    global FIRST_TIME
+#    if FIRST_TIME:
+#       FIRST_TIME = False
+#       main()
+#    os.system("reboot")
+#    exit()
+# signal.signal(signal.SIGINT, fake_botton_push)
 
 ## play game read in for PGN file from the GameScirpts folder
 #  @param robot:Robot first robot for game
@@ -87,10 +100,10 @@ def playGame(game,robot,robot2):
    #robot.resetBoard(None)
    robot.clearRobotPieces()
    robot2.clearRobotPieces()
-   print("Cleared")
-   robot.printBoard()
-   robot.printCaptureBoard()
-   robot2.printCaptureBoard()
+   logging.debug("Cleared")
+   # robot.printBoard()
+   # robot.printCaptureBoard()
+   # robot2.printCaptureBoard()
    robot.resetToOriginalPosition()
    robot2.resetToOriginalPosition()
    logging.debug("game complete and reset")
@@ -221,5 +234,11 @@ def main():
       sleep(1)
 
 if __name__ == "__main__":
+   # if Autostart:
+   #    timeout = conf.I('game','timeout')
+   #    while timeout > 0:
+   #       timeout-=1
+   #       print(timeout)
+   #       sleep(1)
    main()
    #testRobotRestart()
