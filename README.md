@@ -5,6 +5,7 @@ This project is a cross discipline capstone at BYU within the School of Technolo
 
 #### File Structure
 * run.py - Start of the main program. 
+* killSwitch.py - Background script used to shutdown PI when finished with the display.
 * *.py - The supporting classes used to run the chess game.
 * config.ini - Robot settings and offsets to the board 
 * config - Doxygen config file to generate documentation
