@@ -1,0 +1,26 @@
+<ImageButton>:
+    size_hint: 0.15, 0.15
+<RootWidget>:
+
+    name: "background"
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: 'background.png'
+
+    ImageButton:  
+        source:'PlayChess.png'  
+        pos_hint: {"x": 0.25, 'y':0.55}
+
+    ImageButton:  
+        source:'Power.png'  
+        pos_hint: {"x": 0.58, 'y':0.55}
+
+    ImageButton:  
+        source:'WatchChess.png'  
+        pos_hint: {"x": 0.58, 'y':0.25}
+    
+    ImageButton:  
+        source:'DemoMode.png'  
+        pos_hint: {"x": 0.25, 'y':0.25}

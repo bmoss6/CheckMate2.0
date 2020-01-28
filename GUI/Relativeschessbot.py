@@ -17,6 +17,11 @@ from kivy.uix.relativelayout import RelativeLayout
 # To change the kivy default settings  
 # we use this module config  
 from kivy.config import Config  
+
+# Import Image and Button Behavior and Button in attempt to make buttons work
+from kivy.uix.behaviors import ButtonBehavior
+from kivy.uix.image import Image
+from kivy.uix.button import Button
       
 # 0 being off 1 being on as in true / false  
 # you can use 0 or 1 && True or False  
