@@ -1,0 +1,100 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+    ThirdWindow:
+    FourthWindow:
+
+<MainWindow>:
+    name: "main"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'background.png'
+        
+        ImageButton:  
+            source:'PlayChess.png'
+            size_hint: 0.15, 0.15  
+            pos_hint: {"x": 0.25, 'y':0.55}
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"
+
+        ImageButton:  
+            source:'Power.png' 
+            size_hint: 0.15, 0.15 
+            pos_hint: {"x": 0.58, 'y':0.55}
+            on_release:
+                app.root.current = "second"
+                root.manager.transition.direction = "left"            
+
+        ImageButton:  
+            source:'WatchChess.png'  
+            pos_hint: {"x": 0.58, 'y':0.25}
+            size_hint: 0.15, 0.15
+            on_release:
+                app.root.current = "third"
+                root.manager.transition.direction = "left"
+        
+        ImageButton:  
+            source:'DemoMode.png'  
+            pos_hint: {"x": 0.25, 'y':0.25}
+            size_hint: 0.15, 0.15
+            on_release:
+                app.root.current = "fourth"
+                root.manager.transition.direction = "left"
+
+
+<SecondWindow>:
+    name: "second"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'background.png'
+
+        ImageButton:
+            source:'BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<ThirdWindow>:
+    name: "third"
+
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'background.png'
+
+        ImageButton:
+            source:'BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+
+<FourthWindow>:
+    name: "fourth"
+
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'background.png'
+
+        ImageButton:
+            source:'BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
