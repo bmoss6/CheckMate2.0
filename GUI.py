@@ -8,7 +8,7 @@ from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.image import Image 
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
-
+from game import Game
 import run
 import os
 
