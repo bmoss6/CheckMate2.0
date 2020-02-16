@@ -1,0 +1,104 @@
+WindowManager:
+    MainWindow:
+    PlayChessWindow:
+    WatchChessWindow:
+    DemoWindow:
+    ShutDown:
+<MainWindow>:
+    name: "main"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'GUIPics/background.png'
+        
+        ImageButton:  
+            source:'GUIPics/PlayChess.png'
+            size_hint: 0.15, 0.15  
+            pos_hint: {"x": 0.25, 'y':0.55}
+            on_release:
+                app.root.current = "playchess"
+                root.manager.transition.direction = "left"
+        ImageButton:  
+            source:'GUIPics/Power.png' 
+            size_hint: 0.15, 0.15 
+            pos_hint: {"x": 0.58, 'y':0.55}
+            on_release:
+                app.root.current = "shutdown"
+                root.manager.transition.direction = "left"            
+        ImageButton:  
+            source:'GUIPics/WatchChess.png'  
+            pos_hint: {"x": 0.58, 'y':0.25}
+            size_hint: 0.15, 0.15
+            on_release:
+                app.root.current = "watchchess"
+                root.manager.transition.direction = "left"
+        
+        ImageButton:  
+            source:'GUIPics/DemoMode.png'  
+            pos_hint: {"x": 0.25, 'y':0.25}
+            size_hint: 0.15, 0.15
+            on_release:
+                app.root.current = "demoscreen"
+                root.manager.transition.direction = "left"
+<PlayChessWindow>:
+    name: "playchess"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'GUIPics/background.png'
+        ImageButton:
+            source:'GUIPics/BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+<WatchChessWindow>:
+    name: "watchchess"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'GUIPics/background.png'
+        ImageButton:
+            source:'GUIPics/BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+<DemoWindow>:
+    name: "demoscreen"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'GUIPics/background.png'
+        ImageButton:
+            source:'GUIPics/BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+<ShutDown>:
+    name: "shutdown"
+    FloatLayout:
+        canvas.before:
+            Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'GUIPics/background.png'
+        ImageButton:
+            source:'GUIPics/BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
