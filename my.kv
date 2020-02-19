@@ -71,6 +71,7 @@ WindowManager:
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
             on_release:
+                root.end_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 <DemoWindow>:
