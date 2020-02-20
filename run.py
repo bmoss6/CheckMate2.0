@@ -203,13 +203,9 @@
 #    robot2.clearRobotPieces()
 #    robot.resetToOriginalPosition()
 #    robot2.resetToOriginalPosition()
-   
-   
-def main():
 
-     print("running")
-#    # Read all of the games from GameScript folder
-#    gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
+# def setup_game():
+#     gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
 #    loopForever = conf.S('game','loopForever')
 #    if loopForever == "True":
 #       loopForever = True
@@ -228,6 +224,10 @@ def main():
 #          playGame(game,robot,robot2)
 #       if not loopForever:
 #          break
+   
+def main():
+
+     print("running")
 
 #    if testMode:
 #       return
