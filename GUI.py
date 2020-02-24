@@ -18,9 +18,7 @@ run.main()
 
 
 class MainWindow(Screen):
-    def start_game(self):
-        print('start game')
-        run.setup_game()
+    
     pass
 
 
@@ -29,9 +27,18 @@ class PlayChessWindow(Screen):
 
 
 class WatchChessWindow(Screen):
-    def end_game(self):
+    def on_enter(self):
+        print('start game')
+        t = Thread(target=run.setup_game).start()
+   
+    def stop_game(self):
         print('ending game')
-        # Add code here to reset the board. We need to have some waiting prompt while it resets.
+        run.stop_game()
+    
+    def reset_game(self):
+        print('resetting game')
+        run.reset_game()
+        
     pass
 
 

@@ -36,7 +36,6 @@ WindowManager:
             on_release:
                 app.root.current = "watchchess"
                 root.manager.transition.direction = "left"
-                threading.Thread(target=root.run.start_game()).start()
         
         ImageButton:  
             source:'GUIPics/DemoMode.png'  
@@ -76,8 +75,25 @@ WindowManager:
                 root.end_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+        ImageButton:  
+            source:'GUIPics/PlayChess.png'
+            size_hint: 0.15, 0.15  
+            pos_hint: {"x": 0.25, 'y':0.65}
+            on_release:
+                root.stop_game()
+                app.root.current = "main"
+                root.manager.transition.direction = "left"
+        ImageButton:  
+            source:'GUIPics/Power.png' 
+            size_hint: 0.15, 0.15 
+            pos_hint: {"x": 0.58, 'y':0.65}
+            on_release:
+                root.reset_game()
+                app.root.current = "main"
+                root.manager.transition.direction = "left"
 <DemoWindow>:
     name: "demoscreen"
+    on_start:
     FloatLayout:
         canvas.before:
             Rectangle:

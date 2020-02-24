@@ -2,6 +2,8 @@
 from time import sleep
 import os
 
+
+
 # Set to true to test off of the robots and PI. 
 # also comment out "from gpio import GPIOBOARD" in board.py
 testMode = False
@@ -51,7 +53,8 @@ if not testMode:
 GameScripts = "GameScripts"
 ROBOT_1_COLOR = "white"
 ROBOT_2_COLOR = "black"
-
+stopGame = False
+resetGame = False
 
 # FIRST_TIME = True
 
@@ -77,7 +80,15 @@ def playGame(game, robot, robot2):
     assert (robot2.color == ROBOT_2_COLOR)
 
     turn = 0
+    global stopGame
+    global resetGame
     for rb1Move, rb2Move in zip_longest(robot1Moves, robot2Moves, fillvalue=None):
+        if resetGame is True:
+            print('resetting')
+            break
+        if stopGame is True:
+            print('stopping')
+            return
         turn += 1
         logging.debug("Turn:%d" % turn)
         if rb1Move is not None:
@@ -182,8 +193,22 @@ def setupRobots():
         logging.error("Unable to identify robot 2!")
     return robot, robot2
 
+def stop_game():
+    global stopGame
+    stopGame = True
+
+
+def reset_game():
+    global resetGame
+    resetGame = True
 
 robot, robot2 = setupRobots()
+
+def reset_robots:
+    global robot
+    global robot2
+    robot, robot2 = setupRobots()
+
 
 ## setup the robots without connection the API to test without the robots
 #  @return Robot1, Robot2
@@ -206,6 +231,8 @@ def testRobotRestart():
 
 
 def setup_game():
+    global stopGame
+    global resetGame
     gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
     loopForever = conf.S('game', 'loopForever')
     if loopForever == "True":
@@ -213,12 +240,15 @@ def setup_game():
     else:
         loopForever = False
     # Loop this forever
-    while True:
-        for game in gameFiles:
-            playGame(game, robot, robot2)
+    for game in gameFiles:
+        if stopGame is True or resetGame is True:
+            return
+        playGame(game, robot, robot2)
         if not loopForever:
             break
-
+    reset_robots()
+    stopGame = False
+    resetGame = False
 
 def main():
     # Setup board and capture board to share between robots
