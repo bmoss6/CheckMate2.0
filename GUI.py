@@ -11,18 +11,18 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 import run
 import os
-import threading
+from multiprocessing import Process
 
 print("kivy")
 run.main()
 
 
 class MainWindow(Screen):
-    stop = threading.Event()
-
     def start_game(self):
         print('start game')
-        threading.Thread(target=run.setup_game()).start()
+        p = Process(target=run.setup_game())
+        p.start()
+        p.join()
             # The above line will start the CPU vs. CPU games looping through
     pass
 
