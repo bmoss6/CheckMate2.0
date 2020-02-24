@@ -11,7 +11,7 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 import run
 import os
-from multiprocessing import Process
+from threading import Thread
 
 print("kivy")
 run.main()
@@ -20,9 +20,10 @@ run.main()
 class MainWindow(Screen):
     def start_game(self):
         print('start game')
-        p = Process(target=run.setup_game())
-        p.start()
-        pass
+        t = Thread(target=run.setup_game())
+        t.daemon = True
+        t.start()
+    pass
 
 
 class PlayChessWindow(Screen):
