@@ -1,3 +1,5 @@
+#:import threading threading
+
 WindowManager:
     MainWindow:
     PlayChessWindow:
@@ -34,7 +36,7 @@ WindowManager:
             on_release:
                 app.root.current = "watchchess"
                 root.manager.transition.direction = "left"
-                root.start_game()
+                threading.Thread(target=root.run.start_game()).start()
         
         ImageButton:  
             source:'GUIPics/DemoMode.png'  

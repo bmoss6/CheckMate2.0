@@ -20,9 +20,7 @@ run.main()
 class MainWindow(Screen):
     def start_game(self):
         print('start game')
-        t = Thread(target=run.setup_game())
-        t.daemon = True
-        t.start()
+        run.setup_game()
     pass
 
 
