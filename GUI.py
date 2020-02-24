@@ -22,9 +22,7 @@ class MainWindow(Screen):
         print('start game')
         p = Process(target=run.setup_game())
         p.start()
-        p.join()
-            # The above line will start the CPU vs. CPU games looping through
-    pass
+        pass
 
 
 class PlayChessWindow(Screen):
