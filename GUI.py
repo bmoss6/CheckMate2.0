@@ -19,7 +19,7 @@ run.main()
 class MainWindow(Screen):
     def start_game(self):
         print('start game')
-#        run.setup_game()
+        run.setup_game()
             # The above line will start the CPU vs. CPU games looping through
     pass
 
