@@ -205,7 +205,7 @@ def testRobotRestart():
     robot2.resetToOriginalPosition()
 
 
-def setup_game(gameFiles, robot1, robot2):
+def setup_game():
     gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
     loopForever = conf.S('game', 'loopForever')
     if loopForever == "True":
