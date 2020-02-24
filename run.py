@@ -204,7 +204,7 @@ def reset_game():
 
 robot, robot2 = setupRobots()
 
-def reset_robots:
+def reset_robots():
     global robot
     global robot2
     robot, robot2 = setupRobots()
