@@ -48,7 +48,6 @@ class DemoWindow(Screen):
 
 class ShutDown(Screen):
     print('Start Shutdown')
-    os.system('pwd')
     pass
 
 
