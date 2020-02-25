@@ -27,8 +27,12 @@ WindowManager:
             size_hint: 0.15, 0.15 
             pos_hint: {"x": 0.58, 'y':0.55}
             on_touch_up:
-                app.root.current = "shutdown"
-                root.manager.transition.direction = "left"            
+				app.root.current = "shutdown"
+                root.manager.transition.direction = "left"  
+				#quit()
+#            on_release:
+#                app.root.current = "shutdown"
+#                root.manager.transition.direction = "left"              
         ImageButton:  
             source:'GUIPics/WatchChess.png'  
             pos_hint: {"x": 0.58, 'y':0.25}
@@ -52,6 +56,13 @@ WindowManager:
                 pos: self.pos
                 size: self.size
                 source: 'GUIPics/background.png'
+        Label:
+            font_size: 20
+			size_hint: 0.5, 0.10
+            pos_hint: {"x": 0.18, 'y':0.8805}
+            text_size: self.width, None
+            color: (1, 1, 1, .8)
+            text: 'Play a Chess Game'
         ImageButton:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
@@ -67,6 +78,13 @@ WindowManager:
                 pos: self.pos
                 size: self.size
                 source: 'GUIPics/background.png'
+        Label:
+            font_size: 20
+			size_hint: 0.5, 0.10
+            pos_hint: {"x": 0.18, 'y':0.8805}
+            text_size: self.width, None
+            color: (1, 1, 1, .8)
+            text: 'Watch a Chess Game'
         ImageButton:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
@@ -75,19 +93,23 @@ WindowManager:
                 root.end_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-        ImageButton:  
-            source:'GUIPics/PlayChess.png'
-            size_hint: 0.15, 0.15  
-            pos_hint: {"x": 0.25, 'y':0.65}
-            on_touch_up:
+        Image:
+			source:'GUIPics/Image 1.png'
+			pos_hint:{'x': .30, 'y': .15}
+			size_hint:.6, .6
+		Button:
+			text:'Stop Game'
+			size_hint:(.2, .20)
+            pos_hint:{'x':.05, 'y':.55}
+            on_release:
                 root.stop_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "left"
-        ImageButton:  
-            source:'GUIPics/Power.png' 
-            size_hint: 0.15, 0.15 
-            pos_hint: {"x": 0.58, 'y':0.65}
-            on_touch_up:
+        Button:
+			text:'Reset Board'
+			size_hint:(.2, .20)
+			pos_hint:{'x':.05, 'y':.20}
+            on_release:
                 root.reset_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "left"
@@ -100,13 +122,31 @@ WindowManager:
                 pos: self.pos
                 size: self.size
                 source: 'GUIPics/background.png'
+        Label:
+            font_size: 20
+			size_hint: 0.5, 0.10
+            pos_hint: {"x": 0.18, 'y':0.8805}
+            text_size: self.width, None
+            color: (1, 1, 1, .8)
+            text: 'Demo Mode'
         ImageButton:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
-            on_touch_up:
+            on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+		Button:
+			text:'Hello world'
+			size_hint:(.7, .80)
+            pos_hint:{'x':.25, 'y':.05}
+		Label:
+            height: 24
+			size_hint: 0.23, 0.30
+            pos_hint: {"x": 0.025, 'y':0.58}
+            text_size: self.width, None
+            color: (1, 1, 1, .8)
+            text: 'View charts and diagrams that were involved in designing this project!'
 <ShutDown>:
     name: "shutdown"
     FloatLayout:
@@ -115,10 +155,40 @@ WindowManager:
                 pos: self.pos
                 size: self.size
                 source: 'GUIPics/background.png'
+        Label:
+            font_size: 20
+			size_hint: 0.5, 0.10
+            pos_hint: {"x": 0.18, 'y':0.8805}
+            text_size: self.width, None
+            color: (1, 1, 1, .8)
+            text: 'Shutdown'
         ImageButton:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
-            on_touch_up:
+            on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+		Button:
+			text:'Yes'
+			font_size: 48
+			size_hint:(.2, .20)
+            pos_hint:{'x':.20, 'y':.35}
+			on_release:
+                quit()
+		Button:
+			text:'No'
+			font_size: 48
+			size_hint:(.2, .20)
+            pos_hint:{'x':.60, 'y':.35}
+			on_release:
+                app.root.current = "main"
+                root.manager.transition.direction = "right"
+		Label:
+            font_size: 30
+			size_hint: 0.95, 0.30
+            pos_hint: {"x": 0.025, 'y':0.55}
+            text_size: self.width, None
+			halign: 'center'
+            color: (1, 1, 1, .8)
+            text: 'Are you sure you would like to shutdown?'
