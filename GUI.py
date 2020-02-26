@@ -1,6 +1,6 @@
 # Uncomment these next two lines to force Kivy to open fullscreen (what we will want when we are ready for production)
-# from kivy.config import Config
-# Config.set('graphics', 'fullscreen', 'auto')
+from kivy.config import Config
+Config.set('graphics', 'fullscreen', 'auto')
 
 from kivy.app import App
 from kivy.lang import Builder
