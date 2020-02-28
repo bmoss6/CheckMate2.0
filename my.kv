@@ -19,14 +19,14 @@ WindowManager:
             source:'GUIPics/PlayChess.png'
             size_hint: 0.15, 0.15  
             pos_hint: {"x": 0.25, 'y':0.55}
-            on_press:
+            on_release:
                 app.root.current = "playchess"
                 root.manager.transition.direction = "left"
         ImageButton:  
             source:'GUIPics/Power.png' 
             size_hint: 0.15, 0.15 
             pos_hint: {"x": 0.58, 'y':0.55}
-            on_press:
+            on_release:
 				app.root.current = "shutdown"
                 root.manager.transition.direction = "left"  
 				#quit()
@@ -37,7 +37,7 @@ WindowManager:
             source:'GUIPics/WatchChess.png'  
             pos_hint: {"x": 0.58, 'y':0.25}
             size_hint: 0.15, 0.15
-            on_press:
+            on_release:
                 app.root.current = "watchchess"
                 root.manager.transition.direction = "left"
         
@@ -45,7 +45,7 @@ WindowManager:
             source:'GUIPics/DemoMode.png'  
             pos_hint: {"x": 0.25, 'y':0.25}
             size_hint: 0.15, 0.15
-            on_press:
+            on_release:
                 app.root.current = "demoscreen"
                 root.manager.transition.direction = "left"
 <PlayChessWindow>:
@@ -67,7 +67,7 @@ WindowManager:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
-            on_press:
+            on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 <WatchChessWindow>:
@@ -89,7 +89,7 @@ WindowManager:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
-            on_press:
+            on_release:
                 root.end_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
@@ -101,7 +101,7 @@ WindowManager:
 			text:'Stop Game'
 			size_hint:(.2, .20)
             pos_hint:{'x':.05, 'y':.55}
-            on_press:
+            on_release:
                 root.stop_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "left"
@@ -109,7 +109,7 @@ WindowManager:
 			text:'Reset Board'
 			size_hint:(.2, .20)
 			pos_hint:{'x':.05, 'y':.20}
-            on_press:
+            on_release:
                 root.reset_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "left"
@@ -133,7 +133,7 @@ WindowManager:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
-            on_press:
+            on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 		Button:
@@ -166,7 +166,7 @@ WindowManager:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
-            on_press:
+            on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 		Button:
@@ -174,14 +174,14 @@ WindowManager:
 			font_size: 48
 			size_hint:(.2, .20)
             pos_hint:{'x':.20, 'y':.35}
-			on_press:
+			on_release:
                 quit()
 		Button:
 			text:'No'
 			font_size: 48
 			size_hint:(.2, .20)
             pos_hint:{'x':.60, 'y':.35}
-			on_press:
+			on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 		Label:
