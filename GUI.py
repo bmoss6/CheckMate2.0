@@ -1,6 +1,6 @@
 # Uncomment these next two lines to force Kivy to open fullscreen (what we will want when we are ready for production)
-# from kivy.config import Config
-# Config.set('graphics', 'fullscreen', 'auto')
+from kivy.config import Config
+Config.set('graphics', 'fullscreen', 'auto')
 
 from kivy.app import App
 from kivy.lang import Builder
@@ -11,16 +11,14 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 
 import run
 import os
+from threading import Thread
 
 print("kivy")
 run.main()
 
 
 class MainWindow(Screen):
-    def start_game(self):
-        print('start game')
-        run.setup_game()
-            # The above line will start the CPU vs. CPU games looping through
+    
     pass
 
 
@@ -29,9 +27,18 @@ class PlayChessWindow(Screen):
 
 
 class WatchChessWindow(Screen):
-    def end_game(self):
+    def on_enter(self):
+        print('start game')
+        t = Thread(target=run.setup_game).start()
+   
+    def stop_game(self):
         print('ending game')
-        # Add code here to reset the board. We need to have some waiting prompt while it resets.
+        run.stop_game()
+    
+    def reset_game(self):
+        print('resetting game')
+        run.reset_game()
+        
     pass
 
 
@@ -41,7 +48,6 @@ class DemoWindow(Screen):
 
 class ShutDown(Screen):
     print('Start Shutdown')
-    os.system('pwd')
     pass
 
 
