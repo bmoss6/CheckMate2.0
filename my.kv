@@ -1,10 +1,12 @@
 #:import threading threading
+#:import win kivy.core.window
 
 WindowManager:
     MainWindow:
     PlayChessWindow:
     WatchChessWindow:
     DemoWindow:
+	PhotoWindow:
     ShutDown:
 <MainWindow>:
     name: "main"
@@ -137,9 +139,26 @@ WindowManager:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 		Button:
-			text:'Hello world'
-			size_hint:(.7, .80)
-            pos_hint:{'x':.25, 'y':.05}
+			text:'Robot-Arms'
+			size_hint:(.7, .1)
+            pos_hint:{'x':.25, 'y':.65}
+			on_release:
+                app.root.current = "photowindow"
+                root.manager.transition.direction = "left"
+		Button:
+			text:'Image 9'
+			size_hint:(.7, .1)
+            pos_hint:{'x':.25, 'y':.50}
+			on_release:
+                app.root.current = "photowindow"
+                root.manager.transition.direction = "left"
+		Button:
+			text:'Image 10'
+			size_hint:(.7, .1)
+            pos_hint:{'x':.25, 'y':.35}
+			on_release:
+                app.root.current = "photowindow"
+                root.manager.transition.direction = "left"
 		Label:
             height: 24
 			size_hint: 0.23, 0.30
@@ -147,6 +166,57 @@ WindowManager:
             text_size: self.width, None
             color: (1, 1, 1, .8)
             text: 'View charts and diagrams that were involved in designing this project!'
+
+<PhotoWindow>:
+	name: "photowindow"
+	on_start:
+	FloatLayout:
+		canvas.before:
+			Rectangle:
+                pos: self.pos
+                size: self.size
+                source: 'GUIPics/background.png'
+		Label:
+            font_size: 20
+			size_hint: 0.5, 0.10
+            pos_hint: {"x": 0.18, 'y':0.8805}
+            text_size: self.width, None
+            color: (1, 1, 1, .8)
+            text: root.selectedFile
+        ImageButton:
+            source:'GUIPics/BackArrow.png'
+            pos_hint: {"x": 0.90, 'y':0.87}
+            size_hint: 0.10, 0.10
+            on_release:
+				root.remove_image()
+                app.root.current = "demoscreen"
+                root.manager.transition.direction = "right"
+			
+<Picture>:
+    # each time a picture is created, the image can delay the loading
+    # as soon as the image is loaded, ensure that the center is changed
+    # to the center of the screen.
+    on_size: self.center = win.Window.center
+    size: image.size
+    size_hint: None, None
+
+    Image:
+        id: image
+        source: root.source
+
+        # create initial image to be 400 pixels width
+        size: 800, 800 / self.image_ratio
+
+        # add shadow background
+        canvas.before:
+            Color:
+                rgba: 1,1,1,1
+            # BorderImage:
+                # source: 'shadow32.png'
+                # border: (36,36,36,36)
+                # size:(self.width+72, self.height+72)
+                # pos: (-36,-36)
+				
 <ShutDown>:
     name: "shutdown"
     FloatLayout:
