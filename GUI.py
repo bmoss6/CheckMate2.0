@@ -2,7 +2,7 @@ from kivy.config import Config
 # Uncomment this next line to force kivy to open fullscreen (when ready for production)
 # Config.set('graphics', 'fullscreen', 'auto')
 
-# Used to match resolution of the touchscreen
+# These two lines are used to match the resolution of the touchscreen
 Config.set('graphics','width','1280')
 Config.set('graphics','height','800')
 
@@ -13,8 +13,7 @@ from kivy.uix.image import Image
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen
 
-
-# Used to display images in demo mode:
+# Modules used to display images in demo mode:
 from glob import glob
 from random import randint
 from os.path import join, dirname
@@ -23,17 +22,14 @@ from kivy.uix.scatter import Scatter
 from kivy.properties import StringProperty
 
 import kivy
-
-#import run
 import os
 from threading import Thread
 
-print("kivy")
+#import run
 #run.main()
 
 
 class MainWindow(Screen):
-    
     pass
 
 
@@ -58,32 +54,31 @@ class WatchChessWindow(Screen):
 
 
 class DemoWindow(Screen):
-	selectedFile = 'Image 9'
+	selectedFile = 'error' # If a button isn't properly selected and somehow the window goes to PhotoWindow(), load the error image
 	def ChangeImage(self, filename):
+		# This function will simply set the selectedFile variable to the text passsed from a selected image button
 		DemoWindow.selectedFile = filename
 	pass
 
 
 class PhotoWindow(Screen):
-	selectedFile = DemoWindow.selectedFile
-	filePath = 'GUIPics\\' + selectedFile + '.png' 
 	def on_enter(self):
-		# the root is created in pictures.kv
-		# root = self.root
-		# get any files into images directory
-		curdir = dirname(__file__)
-		for filename in glob(join(curdir, 'GUIPics', '*')):
+		curdir = dirname(__file__) # Obtain the current directory
+		myFilePath = 'GUIPics\\Diagrams\\' + DemoWindow.selectedFile + '.png' # The image we want to find (selected from a button)
+		print(myFilePath)
+		fileFound = 0 # If the image was never found, some unknown error occurred
+		for filename in glob(join(curdir, 'GUIPics\Diagrams', '*')): # Compare the files in GUIPics/Diagrams/
 			try:
-				# print(filename)
-				print(DemoWindow.selectedFile)
-				myFilePath = 'GUIPics\\' + DemoWindow.selectedFile + '.png' 
-				if(filename == myFilePath):
-					# load the image
-					picture = Picture(source=filename)
-					# add to the main field	
-					self.demoPhoto = self.add_widget(picture)
+				if(filename == myFilePath): # We found the image correlated with the selected button
+					fileFound = 1 # Do not show the error message
+					picture = Picture(source=filename) # load the image
+					self.demoPhoto = self.add_widget(picture) # add to the main field	
 			except Exception as e:
 				Logger.exception('Pictures: Unable to load <%s>' % filename)
+		if(fileFound == 0): # Some unknown error occurred finding an image
+			print("Error finding photo")
+			picture = Picture(source='GUIPics\\Diagrams\\error.png')
+			self.demoPhoto = self.add_widget(picture)
 
 	def on_pause(self):
 		return True
@@ -91,24 +86,16 @@ class PhotoWindow(Screen):
 		print('Removing the image from the PhotoWindow')
 		if self.children:
 			for child in self.children[:1]: # Selects the last element created (the photo)
-				self.remove_widget(child)
+				self.remove_widget(child) # remove it
 	pass
 
 	
 class Picture(Scatter):
-    '''Picture is the class that will show the image with a white border and a
-    shadow. They are nothing here because almost everything is inside the
-    picture.kv. Check the rule named <Picture> inside the file, and you'll see
-    how the Picture() is really constructed and used.
-
-    The source property will be the filename to show.
-    '''
-
+    # Picture shows the diagrams on the page, most of its format is in the kivy file
     source = StringProperty(None)
 	
 
 class ShutDown(Screen):
-    print('Start Shutdown')
     pass
 
 
@@ -117,9 +104,8 @@ class WindowManager(ScreenManager):
 
 
 class ImageButton(ButtonBehavior, Image):
-    def on_press(self):
-        print('pressed')
-
+    # def on_press(self):
+        # print('pressed')
     pass
 
 
