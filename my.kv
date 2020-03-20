@@ -138,34 +138,94 @@ WindowManager:
             on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-		Button:
-			text:'Robot-Arms'
-			size_hint:(.7, .1)
-            pos_hint:{'x':.25, 'y':.65}
-			on_release:
-                app.root.current = "photowindow"
-                root.manager.transition.direction = "left"
-		Button:
-			text:'Image 9'
-			size_hint:(.7, .1)
-            pos_hint:{'x':.25, 'y':.50}
-			on_release:
-                app.root.current = "photowindow"
-                root.manager.transition.direction = "left"
-		Button:
-			text:'Image 10'
-			size_hint:(.7, .1)
-            pos_hint:{'x':.25, 'y':.35}
-			on_release:
-                app.root.current = "photowindow"
-                root.manager.transition.direction = "left"
 		Label:
             height: 24
 			size_hint: 0.23, 0.30
-            pos_hint: {"x": 0.025, 'y':0.58}
-            text_size: self.width, None
+            pos_hint: {"x": 0.025, 'y':0.56}
+            font_size: 20
+			text_size: self.width, None
             color: (1, 1, 1, .8)
-            text: 'View charts and diagrams that were involved in designing this project!'
+            text: 'View charts and diagrams that were involved in designing this project! First select a file and then you can zomm into the image using two fingers.'
+			
+		ScrollView:
+			do_scroll_x: False
+			do_scroll_y: True
+			size_hint: (0.7, 0.65)
+			pos_hint: {'x':.25, 'y':.15}
+			GridLayout:
+				cols: 1
+				padding: 5
+				spacing: 20
+				size_hint: (None, None)
+				size_hint_y:  None
+				width: 1000
+				height: self.minimum_height
+				Label:
+					text:""
+					font_size: 15
+					size: (900, 80)
+				Label:
+					text: "Engineering Diagrams"
+					font_size: 20
+					size: (900, 80)
+					text_size: self.size
+					halign: 'left'
+				Button:
+					text: "Robot-Arms"
+					size: (900, 80)
+					size_hint: (None, None)
+					on_release:
+						root.ChangeImage('Robot-Arms')
+						app.root.current = "photowindow"
+						root.manager.transition.direction = "left"
+				Button:
+					text: "Image 9"
+					size: (900, 80)
+					size_hint: (None, None)
+					on_release:
+						root.ChangeImage('Image 9')
+						app.root.current = "photowindow"
+						root.manager.transition.direction = "left"
+				Button:
+					text: "Image 10"
+					size: (900, 80)
+					size_hint: (None, None)
+					on_release:
+						root.ChangeImage('Image 10')
+						app.root.current = "photowindow"
+						root.manager.transition.direction = "left"
+				Button:
+					text: "Robot-Arms4"
+					size: (900, 80)
+					size_hint: (None, None)
+					on_release:
+						app.root.current = "photowindow"
+						root.manager.transition.direction = "left"
+				Button:
+					text: "Robot-Arms5"
+					size: (900, 80)
+					size_hint: (None, None)
+					on_release:
+						app.root.current = "photowindow"
+						root.manager.transition.direction = "left"
+				Label:
+					text:""
+					font_size: 15
+					size: (900, 80)
+				Label:
+					text: "Code Samples"
+					font_size: 20
+					size: (900, 80)
+					text_size: self.size
+					halign: 'left'
+				Button:
+					text: "Code 1"
+					size: (900, 80)
+					size_hint: (None, None)
+					on_release:
+						app.root.current = "photowindow"
+						root.manager.transition.direction = "left"
+
 
 <PhotoWindow>:
 	name: "photowindow"
@@ -199,13 +259,15 @@ WindowManager:
     on_size: self.center = win.Window.center
     size: image.size
     size_hint: None, None
+	#pos_hint:{'x': .1, 'y': .025}
+
 
     Image:
         id: image
         source: root.source
 
         # create initial image to be 400 pixels width
-        size: 800, 800 / self.image_ratio
+        size: 1050, 1050 / self.image_ratio
 
         # add shadow background
         canvas.before:

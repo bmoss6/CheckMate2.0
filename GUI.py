@@ -1,6 +1,10 @@
-# Uncomment these next two lines to force Kivy to open fullscreen (what we will want when we are ready for production)
-# from kivy.config import Config
+from kivy.config import Config
+# Uncomment this next line to force kivy to open fullscreen (when ready for production)
 # Config.set('graphics', 'fullscreen', 'auto')
+
+# Used to match resolution of the touchscreen
+Config.set('graphics','width','1280')
+Config.set('graphics','height','800')
 
 from kivy.app import App
 from kivy.lang import Builder
@@ -54,35 +58,41 @@ class WatchChessWindow(Screen):
 
 
 class DemoWindow(Screen):
-    pass
+	selectedFile = 'Image 9'
+	def ChangeImage(self, filename):
+		DemoWindow.selectedFile = filename
+	pass
 
 
 class PhotoWindow(Screen):
-    selectedFile = 'GUIPics\Robot-Arms.png'
-    def on_enter(self):  
-        # the root is created in pictures.kv
-        # root = self.root
-        # get any files into images directory
-        curdir = dirname(__file__)
-        for filename in glob(join(curdir, 'GUIPics', '*')):
-            try:
-                # print(filename)
-                if(filename == self.selectedFile):
-				    # load the image
-                    picture = Picture(source=filename, size_hint=(0.98, 0.98))
-                    # add to the main field	
-                    self.demoPhoto = self.add_widget(picture)
-            except Exception as e:
-                Logger.exception('Pictures: Unable to load <%s>' % filename)
+	selectedFile = DemoWindow.selectedFile
+	filePath = 'GUIPics\\' + selectedFile + '.png' 
+	def on_enter(self):
+		# the root is created in pictures.kv
+		# root = self.root
+		# get any files into images directory
+		curdir = dirname(__file__)
+		for filename in glob(join(curdir, 'GUIPics', '*')):
+			try:
+				# print(filename)
+				print(DemoWindow.selectedFile)
+				myFilePath = 'GUIPics\\' + DemoWindow.selectedFile + '.png' 
+				if(filename == myFilePath):
+					# load the image
+					picture = Picture(source=filename)
+					# add to the main field	
+					self.demoPhoto = self.add_widget(picture)
+			except Exception as e:
+				Logger.exception('Pictures: Unable to load <%s>' % filename)
 
-    def on_pause(self):
-        return True
-    def remove_image(self):
-        print('Removing the image from the PhotoWindow')
-        if self.children:
-            for child in self.children[:1]: # Selects the last element created (the photo)
-                self.remove_widget(child)
-    pass
+	def on_pause(self):
+		return True
+	def remove_image(self):
+		print('Removing the image from the PhotoWindow')
+		if self.children:
+			for child in self.children[:1]: # Selects the last element created (the photo)
+				self.remove_widget(child)
+	pass
 
 	
 class Picture(Scatter):
