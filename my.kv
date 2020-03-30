@@ -6,7 +6,7 @@ WindowManager:
     PlayChessWindow:
     WatchChessWindow:
     DemoWindow:
-	PhotoWindow:
+    PhotoWindow:
     ShutDown:
 	
 	
@@ -94,6 +94,14 @@ WindowManager:
             text_size: self.width, None
             color: (1, 1, 1, .8)
             text: 'Watch a Chess Game'
+        Label:
+            id: facts_label
+            font_size: 24
+			size_hint: 0.4, 0.9
+            pos_hint: {"x": 0.4, 'y':0.3}
+            text_size: self.size
+            color: (1, 1, 1, .8)
+            text: root.facts
         ImageButton:
             source:'GUIPics/BackArrow.png'
             pos_hint: {"x": 0.90, 'y':0.87}
@@ -102,15 +110,16 @@ WindowManager:
                 root.end_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-				
-        Image:
-			source:'GUIPics/Image 1.png'
-			pos_hint:{'x': .30, 'y': .15}
-			size_hint:.6, .6
+        Button:
+			text:'Start Game'
+			size_hint:(.2, .20)
+            pos_hint:{'x':.05, 'y':.55}
+            on_release:
+                root.ids.facts_label.text = root.start_game()
 		Button:
 			text:'Stop Game'
 			size_hint:(.2, .20)
-            pos_hint:{'x':.05, 'y':.55}
+            pos_hint:{'x':.05, 'y':.35}
             on_release:
                 root.stop_game()
                 app.root.current = "main"
@@ -118,7 +127,7 @@ WindowManager:
         Button:
 			text:'Reset Board'
 			size_hint:(.2, .20)
-			pos_hint:{'x':.05, 'y':.20}
+			pos_hint:{'x':.05, 'y':.15}
             on_release:
                 root.reset_game()
                 app.root.current = "main"

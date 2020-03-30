@@ -3,11 +3,12 @@ from kivy.config import Config
 # Config.set('graphics', 'fullscreen', 'auto')
 
 # These two lines are used to match the resolution of the touchscreen
-Config.set('graphics','width','1280')
-Config.set('graphics','height','800')
+# Config.set('graphics','width','1280')
+# Config.set('graphics','height','800')
 
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.properties import StringProperty
 from kivy.uix.behaviors import ButtonBehavior
 from kivy.uix.image import Image
 from kivy.uix.floatlayout import FloatLayout
@@ -24,9 +25,11 @@ from kivy.properties import StringProperty
 import kivy
 import os
 from threading import Thread
+import queue
 
-#import run
-#run.main()
+# Uncomment the next two lines when testing other functions
+import run
+run.main()
 
 
 class MainWindow(Screen):
@@ -38,18 +41,29 @@ class PlayChessWindow(Screen):
 
 
 class WatchChessWindow(Screen):
-    def on_enter(self):
+    def __init__(self, **kw):
+        super().__init__(**kw)
+        self.facts = "1"
+
+    #def on_enter(self):
+        #self.facts = self.start_game()
+
+    def start_game(self):
+        q = queue.Queue()
         print('start game')
-#        t = Thread(target=run.setup_game).start()
-   
+        t = Thread(target=run.setup_game, args=[q]).start()
+        facts = q.get()
+        print(facts)
+        return facts
+
     def stop_game(self):
         print('ending game')
-#        run.stop_game()
-    
+        run.stop_game()
+
     def reset_game(self):
         print('resetting game')
-#        run.reset_game()
-        
+        run.reset_game()
+
     pass
 
 
@@ -89,11 +103,11 @@ class PhotoWindow(Screen):
 				self.remove_widget(child) # remove it
 	pass
 
-	
+
 class Picture(Scatter):
     # Picture shows the diagrams on the page, most of its format is in the kivy file
     source = StringProperty(None)
-	
+
 
 class ShutDown(Screen):
     pass
@@ -113,6 +127,7 @@ kv = Builder.load_file("my.kv")
 
 
 class MyMainApp(App):
+    facts = ""
     def build(self):
         return kv
 
