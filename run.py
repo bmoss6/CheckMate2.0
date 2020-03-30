@@ -41,7 +41,7 @@ logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
 print("running")
 
- if not testMode:
+if not testMode:
     import RPi.GPIO as GPIO
 
     ##Setup GPIO PIN for Reset Button ##
@@ -153,7 +153,7 @@ def setupRobots():
     captureBoard1 = CaptureBoard()
     captureBoard2 = CaptureBoard()
     # Setup Robots
-    RL = RobotList(0)
+    RL = RobotList(2)   # change to 0 to test
     robotList = None
     while True:
         robotList = RL.getList()
@@ -267,7 +267,7 @@ def main():
     #      robot, robot2 = testRobotSetup()
     #   else:
     #      robot, robot2 = setupRobots()
-    print("running")
+    print("starting run.py")
 
 #    if testMode:
 #       return
