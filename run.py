@@ -39,8 +39,6 @@ from config import Conf
 conf = Conf()
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
 
-print("running")
-
 if not testMode:
     import RPi.GPIO as GPIO
 
@@ -211,9 +209,6 @@ def reset_game():
     resetGame = True
 
 
-robot, robot2 = setupRobots()
-
-
 def reset_robots():
     global robot
     global robot2
@@ -241,6 +236,9 @@ def testRobotRestart():
 
 
 def setup_game(q):
+    # Setup the robots AFTER the GUI appears
+    robot, robot2 = setupRobots()
+    
     global stopGame
     global resetGame
     gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
@@ -268,6 +266,8 @@ def main():
     #   else:
     #      robot, robot2 = setupRobots()
     print("starting run.py")
+    
+
 
 #    if testMode:
 #       return

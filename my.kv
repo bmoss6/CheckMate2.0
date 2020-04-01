@@ -32,11 +32,7 @@ WindowManager:
             pos_hint: {"x": 0.58, 'y':0.55}
             on_release:
 				app.root.current = "shutdown"
-                root.manager.transition.direction = "left"  
-				#quit()
-#            on_release:
-#                app.root.current = "shutdown"
-#                root.manager.transition.direction = "left"              
+                root.manager.transition.direction = "left"           
         ImageButton:  
             source:'GUIPics/WatchChess.png'  
             pos_hint: {"x": 0.58, 'y':0.25}
@@ -384,6 +380,7 @@ WindowManager:
 			size_hint:(.2, .20)
             pos_hint:{'x':.20, 'y':.35}
 			on_release:
+                root.turn_off()
                 quit()
 		Button:
 			text:'No'

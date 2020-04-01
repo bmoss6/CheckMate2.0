@@ -27,9 +27,8 @@ import os
 from threading import Thread
 import queue
 
-# Uncomment the next two lines when testing other functions
 import run
-run.main()
+
 
 
 class MainWindow(Screen):
@@ -77,11 +76,12 @@ class DemoWindow(Screen):
 
 class PhotoWindow(Screen):
 	def on_enter(self):
-		curdir = dirname(__file__) # Obtain the current directory
-		myFilePath = 'GUIPics/Diagrams/' + DemoWindow.selectedFile + '.png' # The image we want to find (selected from a button)
+		#curdir = dirname(__file__) # Obtain the current directory
+		myFilePath = '/home/pi/Documents/CheckMate2.0/GUIPics/Diagrams/' + DemoWindow.selectedFile + '.png' # The image we want to find (selected from a button)
 		print(myFilePath)
 		fileFound = 0 # If the image was never found, some unknown error occurred
-		for filename in glob(join(curdir, 'GUIPics/Diagrams', '*')): # Compare the files in GUIPics/Diagrams/
+		for filename in glob(join('/home/pi/Documents/CheckMate2.0/GUIPics/Diagrams/', '*')): # Compare the files in GUIPics/Diagrams/
+			print(filename)
 			try:
 				if(filename == myFilePath): # We found the image correlated with the selected button
 					fileFound = 1 # Do not show the error message
@@ -91,7 +91,7 @@ class PhotoWindow(Screen):
 				Logger.exception('Pictures: Unable to load <%s>' % filename)
 		if(fileFound == 0): # Some unknown error occurred finding an image
 			print("Error finding photo")
-			picture = Picture(source='GUIPics/Diagrams/error.png')
+			picture = Picture(source='/home/pi/Documents/GUIPics/Diagrams/error.png')
 			self.demoPhoto = self.add_widget(picture)
 
 	def on_pause(self):
@@ -110,6 +110,8 @@ class Picture(Scatter):
 
 
 class ShutDown(Screen):
+    def turn_off(self):
+        os.system("sudo shutdown -h now")
     pass
 
 
