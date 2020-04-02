@@ -232,6 +232,10 @@ class Robot(object):
     def movDown(self):
         #logging.debug('\tMOV Down z=%d'%(conf.I('offsets','minHeight')))
         self.swift.set_position(z = conf.I('offsets','minHeight'))
+        
+    def movDownQuit(self):
+        #logging.debug('\tMOV Down z=%d'%(conf.I('offsets','minHeight')))
+        self.swift.set_position(z = conf.I('offsets','quitHeight'))
 
     ## Print the board for debugging
     def printBoard(self):

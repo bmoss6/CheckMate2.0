@@ -58,6 +58,7 @@ class WatchChessWindow(Screen):
     def stop_game(self):
         print('ending game')
         run.stop_game()
+        run.lower_positions()
 
     def reset_game(self):
         print('resetting game')

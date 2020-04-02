@@ -106,8 +106,8 @@ class Game(object):
         self.facts_arr.append("Site: " + self.game.headers["Site"])
         self.facts_arr.append("Date: " + self.game.headers["Date"])
         self.facts_arr.append("Round: " + self.game.headers["Round"])
-        self.facts_arr.append("White: " + self.game.headers["White"])
-        self.facts_arr.append("Black: " + self.game.headers["Black"])
+        self.facts_arr.append("Silver (White): " + self.game.headers["White"])
+        self.facts_arr.append("Gold (Black): " + self.game.headers["Black"])
         self.facts_arr.append("Result: " + self.game.headers["Result"])
         for fact in self.facts_arr:
             self.facts += fact + "\n"

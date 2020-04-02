@@ -51,6 +51,7 @@ ROBOT_1_COLOR = "white"
 ROBOT_2_COLOR = "black"
 stopGame = False
 resetGame = False
+lowerPosistions = True
 
 # FIRST_TIME = True
 
@@ -82,12 +83,18 @@ def playGame(game, robot, robot2, q):
     turn = 0
     global stopGame
     global resetGame
+    global lowerPosistions
     for rb1Move, rb2Move in zip_longest(robot1Moves, robot2Moves, fillvalue=None):
         if resetGame is True:
             print('resetting')
             break
         if stopGame is True:
             print('stopping')
+            if lowerPosistions is True:
+                # This will move the robot arms closer to the table to prepare them to crash!!!
+                print('lowering')
+                Robot.movDownQuit(robot)
+                Robot.movDownQuit(robot2)
             return
         turn += 1
         logging.debug("Turn:%d" % turn)
@@ -209,6 +216,13 @@ def reset_game():
     resetGame = True
 
 
+def lower_positions():
+    global lowerPositions
+    lowerPositions = True
+
+    
+
+
 def reset_robots():
     global robot
     global robot2
@@ -241,6 +255,7 @@ def setup_game(q):
     
     global stopGame
     global resetGame
+    global lowerPosistions
     gameFiles = [join(GameScripts, f) for f in listdir(GameScripts) if isfile(join(GameScripts, f))]
     loopForever = conf.S('game', 'loopForever')
     if loopForever == "True":
@@ -257,6 +272,7 @@ def setup_game(q):
     reset_robots()
     stopGame = False
     resetGame = False
+    lowerPositions = False
 
 
 def main():
