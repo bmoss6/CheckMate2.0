@@ -31,6 +31,7 @@ import time
 import run
 
 gameStarted = False
+adminMode = 0
 
 
 class MainWindow(Screen):
@@ -135,6 +136,12 @@ class ShutDown(Screen):
             run.stop_game()
             run.lower_positions()
         os.system("sudo shutdown -h now")
+    def activate_admin_mode(self):
+        # pressing this option 3 time will quit the Kivy application allowing a teacher to use the Pi as normal
+        global adminMode
+        adminMode = adminMode + 1
+        if adminMode >= 3:
+            App.get_running_app().stop()
     pass
 
 

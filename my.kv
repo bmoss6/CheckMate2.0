@@ -407,6 +407,7 @@ WindowManager:
 			size_hint:(.35, .20)
             pos_hint:{'x':.10, 'y':.40}
 			on_release:
+                root.activate_admin_mode()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 		Button:
