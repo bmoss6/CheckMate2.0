@@ -72,6 +72,15 @@ WindowManager:
             on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+        Label:
+            height: 24
+			size_hint: 0.8, 0.6
+            pos_hint: {"x": 0.05, 'y':0.38}
+            font_size: 40
+			text_size: self.width, None
+            color: (1, 1, 1, .8)
+            text: 'Sorry, this feature is not available at this time...'
+			
 				
 				
 <WatchChessWindow>:
@@ -103,31 +112,49 @@ WindowManager:
             pos_hint: {"x": 0.90, 'y':0.87}
             size_hint: 0.10, 0.10
             on_release:
-                root.end_game()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
         Button:
-			text:'Start Game'
+            id: startButton
+			text:'Start a Game'
 			size_hint:(.2, .20)
-            pos_hint:{'x':.05, 'y':.55}
+            pos_hint:{'x':.05, 'y':.40}
+            font_size: 30
+            halign: 'center'
+            visible: True
+            disabled: not self.visible
+            opacity: 1 if self.visible else 0
             on_release:
                 root.ids.facts_label.text = root.start_game()
+                startButton.visible = False
 		Button:
-			text:'Stop Game'
+			text:'Stop the Game'
 			size_hint:(.2, .20)
-            pos_hint:{'x':.05, 'y':.35}
+            pos_hint:{'x':.05, 'y':.50}
+            font_size: 30
+            halign: 'center'
+            visible: not startButton.visible
+            disabled: not self.visible
+            opacity: 1 if self.visible else 0
             on_release:
                 root.stop_game()
-                app.root.current = "main"
-                root.manager.transition.direction = "left"
+                # app.root.current = "main"
+                # root.manager.transition.direction = "left"
+                # startButton.visible = True
         Button:
-			text:'Reset Board'
+			text:'Reset the \nBoard Pieces'
 			size_hint:(.2, .20)
-			pos_hint:{'x':.05, 'y':.15}
+			pos_hint:{'x':.05, 'y':.25}
+            font_size: 30
+            halign: 'center'
+            visible: not startButton.visible
+            disabled: not self.visible
+            opacity: 1 if self.visible else 0
             on_release:
                 root.reset_game()
-                app.root.current = "main"
-                root.manager.transition.direction = "left"
+                # app.root.current = "main"
+                # root.manager.transition.direction = "left"
+                # startButton.visible = True
 				
 				
 <DemoWindow>:
@@ -375,26 +402,42 @@ WindowManager:
                 root.manager.transition.direction = "right"
 				
 		Button:
-			text:'Yes'
-			font_size: 48
-			size_hint:(.2, .20)
-            pos_hint:{'x':.20, 'y':.35}
-			on_release:
-                root.turn_off()
-                quit()
-		Button:
 			text:'No'
-			font_size: 48
-			size_hint:(.2, .20)
-            pos_hint:{'x':.60, 'y':.35}
+			font_size: 40
+			size_hint:(.35, .20)
+            pos_hint:{'x':.10, 'y':.40}
 			on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
+		Button:
+			text:'Yes (Safely)'
+			font_size: 36
+			size_hint:(.35, .20)
+            pos_hint:{'x':.55, 'y':.40}
+			on_release:
+                root.turn_off()
+                quit()
+        Button:
+			text:'Force Restart'
+			font_size: 36
+			size_hint:(.35, .20)
+            pos_hint:{'x':.10, 'y':.15}
+			on_release:
+                root.reset_pi()
+                quit()
+		Button:
+			text:'Force Shutdown'
+			font_size: 36
+			size_hint:(.35, .20)
+            pos_hint:{'x':.55, 'y':.15}
+			on_release:
+                root.force_off()
+                quit()
 		Label:
-            font_size: 30
+            font_size: 20
 			size_hint: 0.95, 0.30
             pos_hint: {"x": 0.025, 'y':0.55}
             text_size: self.width, None
 			halign: 'center'
             color: (1, 1, 1, .8)
-            text: 'Are you sure you would like to shutdown?'
+            text: 'Are you sure you would like to shutdown?\n"Yes (Safely)" ensures the robot stops moving and it in the proper position to reset. This may take up to a minute to turn off.\n"Force Restart" and "Force Shutdown" immediately powers off the system (which can damage the robots if they are still moving).'

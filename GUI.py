@@ -26,9 +26,11 @@ import kivy
 import os
 from threading import Thread
 import queue
+import time
 
 import run
 
+gameStarted = False
 
 
 class MainWindow(Screen):
@@ -42,13 +44,16 @@ class PlayChessWindow(Screen):
 class WatchChessWindow(Screen):
     def __init__(self, **kw):
         super().__init__(**kw)
-        self.facts = "Press Start Game to begin watching a chess game!"
+        self.facts = "Press 'Start a Game' to begin watching a chess game!\n\nPlease be patient if ChessBot was just turned on and the button doesn't appear to be working yet.\n\nWait after pressing the button while the robots are being setup and moving into their intial position."
 
     #def on_enter(self):
         #self.facts = self.start_game()
 
     def start_game(self):
         q = queue.Queue()
+        global gameStarted
+        gameStarted = True;
+        print('start game')
         print('start game')
         t = Thread(target=run.setup_game, args=[q]).start()
         facts = q.get()
@@ -112,6 +117,23 @@ class Picture(Scatter):
 
 class ShutDown(Screen):
     def turn_off(self):
+        if gameStarted is True:
+            run.stop_game()
+            run.lower_positions()
+            os.system("sudo shutdown")
+        if gameStarted is False:
+            os.system("sudo shutdown -h now")
+
+    def reset_pi(self):
+        if gameStarted is True:
+            run.stop_game()
+            run.lower_positions()
+        os.system("sudo shutdown -r now")
+
+    def force_off(self):
+        if gameStarted is True:
+            run.stop_game()
+            run.lower_positions()
         os.system("sudo shutdown -h now")
     pass
 
