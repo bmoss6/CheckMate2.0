@@ -118,10 +118,6 @@ WindowManager:
             source: 'GUIPics/StartChessGame.png'
 			size_hint:(.2, .20)
             pos_hint:{'x':.05, 'y':.40}
-            halign: 'center'
-            visible: True
-            disabled: not self.visible
-            opacity: 1 if self.visible else 0
             on_release:
                 root.ids.facts_label.text = root.start_game()
                 startButton.visible = False
@@ -129,10 +125,6 @@ WindowManager:
             source: 'GUIPics/Stopbutton.png'
 			size_hint:(.2, .20)
             pos_hint:{'x':.05, 'y':.50}
-            halign: 'center'
-            visible: not startButton.visible
-            disabled: not self.visible
-            opacity: 1 if self.visible else 0
             on_release:
                 root.stop_game()
                 # app.root.current = "main"
@@ -142,10 +134,6 @@ WindowManager:
 			source: 'GUIPics/ResetBoardPieces.png'
 			size_hint:(.2, .20)
 			pos_hint:{'x':.05, 'y':.25}
-            halign: 'center'
-            visible: not startButton.visible
-            disabled: not self.visible
-            opacity: 1 if self.visible else 0
             on_release:
                 root.reset_game()
                 # app.root.current = "main"
