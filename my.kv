@@ -114,12 +114,10 @@ WindowManager:
             on_release:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-        Button:
-            id: startButton
-			text:'Start a Game'
+        ImageButton:
+            source: 'GUIPics/StartChessGame.png'
 			size_hint:(.2, .20)
             pos_hint:{'x':.05, 'y':.40}
-            font_size: 30
             halign: 'center'
             visible: True
             disabled: not self.visible
@@ -127,11 +125,10 @@ WindowManager:
             on_release:
                 root.ids.facts_label.text = root.start_game()
                 startButton.visible = False
-		Button:
-			text:'Stop the Game'
+		ImageButton:
+            source: 'GUIPics/Stopbutton.png'
 			size_hint:(.2, .20)
             pos_hint:{'x':.05, 'y':.50}
-            font_size: 30
             halign: 'center'
             visible: not startButton.visible
             disabled: not self.visible
@@ -141,11 +138,10 @@ WindowManager:
                 # app.root.current = "main"
                 # root.manager.transition.direction = "left"
                 # startButton.visible = True
-        Button:
-			text:'Reset the \nBoard Pieces'
+        ImageButton:
+			source: 'GUIPics/ResetBoardPieces.png'
 			size_hint:(.2, .20)
 			pos_hint:{'x':.05, 'y':.25}
-            font_size: 30
             halign: 'center'
             visible: not startButton.visible
             disabled: not self.visible
