@@ -195,7 +195,8 @@ WindowManager:
 
 				ImageButton:
 					source: 'GUIPics/ChessSystemAssembly.png'
-					size_hint: (0.20, 0.20)
+					size: (900, 80)
+					size_hint: (None, None)
 					on_release:
 						root.ChangeImage('Chess System Assembly')
 						app.root.current = "photowindow"
@@ -379,34 +380,30 @@ WindowManager:
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
 				
-		Button:
-			text:'No'
-			font_size: 40
+		ImageButton:
+            source:'GUIPics/No.png'
 			size_hint:(.35, .20)
             pos_hint:{'x':.10, 'y':.40}
 			on_release:
                 root.activate_admin_mode()
                 app.root.current = "main"
                 root.manager.transition.direction = "right"
-		Button:
-			text:'Yes (Safely)'
-			font_size: 36
+		ImageButton:
+            source:'GUIPics/YesSafely.png'
 			size_hint:(.35, .20)
             pos_hint:{'x':.55, 'y':.40}
 			on_release:
                 root.turn_off()
                 quit()
-        Button:
-			text:'Force Restart'
-			font_size: 36
+        ImageButton:
+            source:'GUIPics/ForceRestart.png'
 			size_hint:(.35, .20)
             pos_hint:{'x':.10, 'y':.15}
 			on_release:
                 root.reset_pi()
                 quit()
-		Button:
-			text:'Force Shutdown'
-			font_size: 36
+		ImageButton:
+            source:'GUIPics/ForceShutdown.png'
 			size_hint:(.35, .20)
             pos_hint:{'x':.55, 'y':.15}
 			on_release:
